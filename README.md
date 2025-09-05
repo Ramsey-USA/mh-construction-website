@@ -606,7 +606,7 @@ firebase deploy
 - Services summary (6 service cards)
 - Featured projects (6 project cards)
 - Core values (6 value cards)
-- Client testimonials (3-5 testimonials)
+- Latest news and blog posts (3 recent articles)
 - Awards and certifications (3 recent awards)
 
 ### About Page Content
@@ -798,3 +798,12 @@ The website now includes proper social media integration with:
 - **Professional platforms** - Facebook, LinkedIn, Instagram, YouTube for construction industry presence
 - **Hover effects** - Smooth transitions and scaling animations
 - **Security attributes** - `target="_blank"` and `rel="noopener noreferrer"` for external links
+
+### Footer Color Scheme Enhancement
+The footer now features the updated color scheme:
+- **Headers (h3)** - Army black for strong contrast and modern appearance
+- **Company name** - Army black for brand consistency
+- **Body text** - MH tan for readability and brand connection
+- **Contact icons** - Army black to match headers
+- **Hover effects** - Text transitions from MH tan to army gold
+- **Link interactions** - Smooth color transitions with subtle movement

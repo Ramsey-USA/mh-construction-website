@@ -1,37 +1,37 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    // Public read access for website content
-    match /projects/{document} {
-      allow read: if true;
+    // Projects collection - public read access for published projects
+    match /projects/{projectId} {
+      allow read: if resource.data.status == 'published';
       allow write: if request.auth != null && request.auth.token.admin == true;
     }
     
-    match /blog_posts/{document} {
-      allow read: if true;
+    // Blog posts collection - public read access for published posts
+    match /blog/{postId} {
+      allow read: if resource.data.status == 'published';
       allow write: if request.auth != null && request.auth.token.admin == true;
     }
     
-    match /team_members/{document} {
-      allow read: if true;
+    // Testimonials collection - public read access for approved testimonials
+    match /testimonials/{testimonialId} {
+      allow read: if resource.data.approved == true;
       allow write: if request.auth != null && request.auth.token.admin == true;
     }
     
-    match /services/{document} {
-      allow read: if true;
-      allow write: if request.auth != null && request.auth.token.admin == true;
+    // Contact inquiries - allow creation, admin read/write
+    match /inquiries/{inquiryId} {
+      allow create: if true;
+      allow read, write: if request.auth != null && request.auth.token.admin == true;
     }
     
-    match /awards/{document} {
-      allow read: if true;
-      allow write: if request.auth != null && request.auth.token.admin == true;
+    // Chatbot conversations - allow creation, admin read/write
+    match /conversations/{conversationId} {
+      allow create: if true;
+      allow read, write: if request.auth != null && request.auth.token.admin == true;
     }
-    
-    match /client_logos/{document} {
-      allow read: if true;
-      allow write: if request.auth != null && request.auth.token.admin == true;
-    }
-    
+  }
+}
     match /testimonials/{document} {
       allow read: if true;
       allow write: if request.auth != null && request.auth.token.admin == true;
