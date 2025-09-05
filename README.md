@@ -1,392 +1,680 @@
-# mh-construction-website
-# MH Construction Website Development - GitHub Project
+mh-construction-website
+MH Construction Website Development - GitHub Project
+AI Development Instructions
+This repository contains instructions for developing a professional website for MH Construction using HTML, CSS, JavaScript, Firebase, and Google APIs. Follow these detailed specifications to create a modern, responsive, and user-friendly website with integrated backend services and AI-powered chatbot functionality.
 
-## AI Development Instructions
-
-This repository contains instructions for developing a professional website for MH Construction using HTML, CSS, and JavaScript. Follow these detailed specifications to create a modern, responsive, and user-friendly website.
-
-Project Overview
-This project is the official website for MH Construction, a veteran-owned company committed to building with honesty, integrity, and trust. The website is designed to be an immersive and engaging experience, showcasing our expertise and dedication to our clients.
-
-## 🎯 Project Objectives
-
+Project Overview: This project is the official website for MH Construction, a veteran-owned company committed to building with honesty, integrity, and trust. The website is designed to be an immersive and engaging experience, showcasing our expertise and dedication to our clients.
+🎯 Project Objectives
 Create a professional construction company website that:
-- Showcases MH Construction's services and expertise
-- Provides excellent user experience across all devices
-- Implements modern web development best practices
-- Maintains fast loading times and accessibility standards
-- Reflects the company's core values and professional image
 
-## 📁 Required File Structure
+Showcases MH Construction's services and expertise
+Provides excellent user experience across all devices
+Implements modern web development best practices with Firebase backend
+Features a prominent AI-powered chatbot for project consultation
+Maintains fast loading times and accessibility standards
+Reflects the company's core values and professional image
+Integrates Google APIs for enhanced functionality
+🔥 Firebase & Google API Integration Requirements
+Firebase Services to Implement
+// Required Firebase Services
 
-Create the following directory structure in your GitHub repository:
+- Firebase Authentication (for admin/client portals)
 
-```
-mh-construction-website/
-├── index.html
-├── about.html
-├── services.html
-├── projects.html
-├── contact.html
-├── css/
-│   ├── style.css
-│   ├── responsive.css
-│   └── components.css
-├── js/
-│   ├── main.js
-│   ├── navigation.js
-│   ├── contact-form.js
-│   └── gallery.js
-├── images/
-│   ├── hero/
-│   ├── projects/
-│   ├── team/
-│   └── icons/
-├── assets/
-│   ├── fonts/
-│   └── documents/
-└── README.md
-```
+- Cloud Firestore (for project data, testimonials, blog posts)
 
-## 🏢 Company Information
+- Firebase Storage (for project images, documents)
 
-### Basic Details
-- **Company Name**: MH Construction
-- **Tagline**: "Your Trusted General Contractor"
-- **Slogan**: "Built Right The First Time"
-- **Hero Message**: "Building Great Projects With Great People"
+- Firebase Hosting (for deployment)
 
-### Contact Information
-- **Phone**: (509) 308-6489
-- **Email**: office@mhc-gc.com
-- **Address**: 3111 N Capitol Ave, Pasco, WA, 99301
-- **Service Area**: Washington, Oregon, and Idaho
+- Cloud Functions (for form processing, email notifications)
 
-### Core Values
-1. **Ethics** - Small-town values, honesty, transparency, accountability
-2. **Experience** - Over 150 years of combined commercial construction experience
-3. **Honesty** - Open communication, transparent pricing, delivering on promises
-4. **Integrity** - Highest standards, accountability, fairness, respect
-5. **Professionalism** - Reliable, calm under pressure, client-focused
-6. **Trust** - Earned through clear communication and follow-through
+- Firebase Analytics (for user behavior tracking)
+Google APIs Integration
+// Required Google APIs
 
-### Services Offered
-1. **Master Planning** - Detailed project planning from concept to finish
-2. **Procurement** - Construction vendor management and material sourcing
-3. **Constructability** - Collaboration with subcontractors for feasibility
-4. **Budget Control** - Cost analysis and budget management
-5. **Modularization** - Breaking projects into manageable subprojects
-6. **Construction Services** - Full-service construction for various project types
+- Google Maps API (for service area visualization)
 
-### Target Markets
-- Commercial Businesses
-- Medical Facilities
-- Religious Facilities
-- Wineries & Vineyards
-- Industrial Buildings
-- Tenant Improvements
-- Government Construction
+- Google Places API (for location services)
 
-## 🎨 Design Specifications
+- Google reCAPTCHA v3 (for form security)
 
-### Color Palette
-```css
-:root {
-  --primary-green: #396851;
-  --secondary-tan: #BD9264;
-  --accent-red: #ff0000;
-  --white: #ffffff;
-  --light-gray: #f8f9fa;
-  --medium-gray: #6c757d;
-  --dark-gray: #343a40;
-  --success-green: #28a745;
+- Google Analytics 4 (for advanced tracking)
+
+- Google Search Console API (for SEO monitoring)
+
+- Gmail API (for contact form email processing)
+Firebase Configuration
+// firebase-config.js
+
+const firebaseConfig = {
+
+  apiKey: "your-api-key",
+
+  authDomain: "mh-construction.firebaseapp.com",
+
+  projectId: "mh-construction",
+
+  storageBucket: "mh-construction.appspot.com",
+
+  messagingSenderId: "your-sender-id",
+
+  appId: "your-app-id",
+
+  measurementId: "your-measurement-id"
+
+};
+🤖 AI Chatbot Requirements - PROMINENT FEATURE
+Chatbot Specifications
+The chatbot must be a prominent, always-visible feature that provides construction project consultation and advice.
+Visual Requirements
+Position: Fixed floating button in bottom-right corner
+Size: 60px x 60px minimum, expandable to 400px x 600px chat window
+Colors: Primary green (#396851) with secondary tan (#BD9264) accents
+Icon: Construction helmet or chat bubble with MH logo
+Animation: Subtle pulse animation to draw attention
+Z-index: 9999 to ensure always on top
+Functionality Requirements
+// Chatbot Core Features
+
+- Real-time construction project consultation
+
+- Cost estimation guidance
+
+- Service recommendations based on project type
+
+- FAQ responses about MH Construction services
+
+- Lead capture and contact information collection
+
+- Integration with Firebase for conversation logging
+
+- Handoff to human representatives during business hours
+Chatbot Knowledge Base
+The chatbot should be trained on:
+
+MH Construction services and capabilities
+Construction industry best practices
+Cost estimation guidelines
+Project timeline expectations
+Permit and regulatory information for WA, OR, ID
+Company policies and procedures
+Common construction terminology and processes
+Implementation Options
+Custom AI Integration (Recommended)
+
+OpenAI GPT API integration
+Custom training on MH Construction data
+Firebase Functions for backend processing
+
+Third-party Solutions
+
+Dialogflow integration with Google Cloud
+Microsoft Bot Framework
+Rasa Open Source
+Chatbot UI/UX Requirements
+/* Chatbot Styling Requirements */
+
+.chatbot-container {
+
+  position: fixed;
+
+  bottom: 20px;
+
+  right: 20px;
+
+  z-index: 9999;
+
+  font-family: 'Inter', sans-serif;
+
 }
-```
 
-### Typography
-- **Primary Font**: 'Roboto', sans-serif
-- **Secondary Font**: 'Open Sans', sans-serif
-- **Heading Font**: 'Montserrat', sans-serif
+.chatbot-button {
 
-### Responsive Breakpoints
-```css
+  width: 60px;
+
+  height: 60px;
+
+  background: var(--primary-green);
+
+  border-radius: 50%;
+
+  box-shadow: 0 4px 12px rgba(57, 104, 81, 0.3);
+
+  animation: pulse 2s infinite;
+
+}
+
+.chatbot-window {
+
+  width: 400px;
+
+  height: 600px;
+
+  background: white;
+
+  border-radius: 12px;
+
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+
+}
+📁 Updated File Structure
+mh-construction-website/
+
+├── index.html
+
+├── about.html
+
+├── services.html
+
+├── projects.html
+
+├── contact.html
+
+├── css/
+
+│   ├── style.css
+
+│   ├── responsive.css
+
+│   ├── components.css
+
+│   └── chatbot.css
+
+├── js/
+
+│   ├── main.js
+
+│   ├── navigation.js
+
+│   ├── contact-form.js
+
+│   ├── gallery.js
+
+│   ├── firebase-config.js
+
+│   ├── firebase-functions.js
+
+│   └── chatbot.js
+
+├── images/
+
+│   ├── hero/
+
+│   ├── projects/
+
+│   ├── team/
+
+│   ├── icons/
+
+│   └── chatbot/
+
+├── assets/
+
+│   ├── fonts/
+
+│   └── documents/
+
+├── firebase/
+
+│   ├── functions/
+
+│   ├── firestore.rules
+
+│   └── storage.rules
+
+└── README.md
+🏢 Company Information
+Basic Details
+Company Name: MH Construction
+Tagline: "Your Trusted General Contractor"
+Slogan: "Built Right The First Time"
+Hero Message: "Building Great Projects With Great People"
+Contact Information
+Phone: (509) 308-6489
+Email: office@mhc-gc.com
+Address: 3111 N Capitol Ave, Pasco, WA, 99301
+Service Area: Washington, Oregon, and Idaho
+Core Values
+Ethics - Small-town values, honesty, transparency, accountability
+Experience - Over 150 years of combined commercial construction experience
+Honesty - Open communication, transparent pricing, delivering on promises
+Integrity - Highest standards, accountability, fairness, respect
+Professionalism - Reliable, calm under pressure, client-focused
+Trust - Earned through clear communication and follow-through
+Services Offered
+Master Planning - Detailed project planning from concept to finish
+Procurement - Construction vendor management and material sourcing
+Constructability - Collaboration with subcontractors for feasibility
+Budget Control - Cost analysis and budget management
+Modularization - Breaking projects into manageable subprojects
+Construction Services - Full-service construction for various project types
+Target Markets
+Commercial Businesses
+Medical Facilities
+Religious Facilities
+Wineries & Vineyards
+Industrial Buildings
+Tenant Improvements
+Government Construction
+🎨 Design Specifications
+Color Palette
+:root {
+
+  --primary-green: #396851;
+
+  --secondary-tan: #BD9264;
+
+  --accent-red: #ff0000;
+
+  --white: #ffffff;
+
+  --light-gray: #f8f9fa;
+
+  --medium-gray: #6c757d;
+
+  --dark-gray: #343a40;
+
+  --success-green: #28a745;
+
+  --chatbot-primary: #396851;
+
+  --chatbot-secondary: #BD9264;
+
+  --chatbot-text: #333333;
+
+  --chatbot-bg: #ffffff;
+
+}
+Typography
+/* Primary Font Stack */
+
+font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+/* Font Sizes */
+
+--font-size-h1: 3.5rem;
+
+--font-size-h2: 2.5rem;
+
+--font-size-h3: 2rem;
+
+--font-size-h4: 1.5rem;
+
+--font-size-body: 1rem;
+
+--font-size-small: 0.875rem;
+
+--font-size-chatbot: 0.9rem;
+
+/* Font Weights */
+
+--font-weight-light: 300;
+
+--font-weight-regular: 400;
+
+--font-weight-medium: 500;
+
+--font-weight-semibold: 600;
+
+--font-weight-bold: 700;
+Layout Guidelines
+Container Max Width: 1200px
+Grid System: CSS Grid and Flexbox
+Spacing Scale: 8px base unit (8px, 16px, 24px, 32px, 48px, 64px)
+Border Radius: 8px for cards, 4px for buttons, 12px for chatbot
+Box Shadow: 0 4px 6px rgba(0, 0, 0, 0.1) for cards
+Chatbot Shadow: 0 8px 32px rgba(0, 0, 0, 0.15)
+🛠️ Technical Requirements
+HTML Structure
+Semantic HTML5 elements
+Proper heading hierarchy (h1-h6)
+Alt text for all images
+ARIA labels for accessibility
+Meta tags for SEO optimization
+Chatbot accessibility compliance
+CSS Requirements
+Mobile-first responsive design
+CSS Grid and Flexbox layouts
+CSS custom properties (variables)
+Smooth transitions and animations
+Print-friendly styles
+Chatbot responsive design
+JavaScript Functionality
+Smooth scrolling navigation
+Mobile menu toggle
+Form validation and submission
+Image gallery/lightbox
+Loading animations
+Contact form processing
+Firebase integration
+Google APIs integration
+AI Chatbot functionality
+Firebase Functions Required
+// Cloud Functions to implement
+
+exports.sendContactEmail = functions.https.onCall(async (data, context) => {
+
+  // Process contact form submissions
+
+});
+
+exports.processChatbotQuery = functions.https.onCall(async (data, context) => {
+
+  // Handle chatbot AI processing
+
+});
+
+exports.saveProjectInquiry = functions.https.onCall(async (data, context) => {
+
+  // Save project inquiries to Firestore
+
+});
+📱 Responsive Breakpoints
 /* Mobile First Approach */
---mobile: 320px;
---tablet: 768px;
---desktop: 1024px;
---large-desktop: 1200px;
-```
 
-## 📄 Page-by-Page Development Instructions
+/* Small devices (landscape phones, 576px and up) */
 
-### 1. Homepage (index.html)
+@media (min-width: 576px) { 
 
-#### Required Sections:
-1. **Header/Navigation**
-   - Logo 
-   - Navigation menu will always be displayed as a hamburger menu: Our Company, Experience, Services, Projects, Bid Opportunities, Blog, Contact Us, Join the Team
-   - Social Media profiles: Facebook, LinkedIn, Instagram, YouTube
-   - Mobile hamburger menus
+  .chatbot-window { width: 350px; height: 500px; }
 
-2. **Hero Section**
-   - Full-width background short, looping, video of a construction site's complete life cycle
-   - Overlay with "Building Great Projects With Great People"
+}
 
-3. **Awards Section**
-   - Showcase last three awards using simple, clean card layout
-   - Once clicked card will flip displaying description
+/* Medium devices (tablets, 768px and up) */
 
-4. **Services Overview**
-   - Brief description of our overall services
-   - Utilize a drop down menu for the different markets we serve: commercial, community, education, energy, environmental
-   - "Experience" button that leads to individual page with team information
+@media (min-width: 768px) { 
 
-5. **Featured Projects**
-   - 6 project images as cards
-   - Cards flip when clicked to display a brief description
+  .chatbot-window { width: 400px; height: 600px; }
 
-6. **Blog**
-   - Rotating blog carousel
+}
 
-7. **Footer**
-   - Company information
-   - Quick links
-   - Social media links
-   - Copyright notice
+/* Large devices (desktops, 992px and up) */
 
-8. **Chatbot**
-   - Provice helpful information on construction principles and methods
-   - Simple, non-blocking chat window
+@media (min-width: 992px) { ... }
 
-### 2. Our Company | About Page (about.html)
+/* Extra large devices (large desktops, 1200px and up) */
 
-#### Required Content:
-1. **Page Header**
-   - Hero image with "About MH Construction" overlay
-   - Breadcrumb navigation
+@media (min-width: 1200px) { ... }
+🏗️ Page Structure Requirements
+Homepage (index.html)
+Header Navigation
 
-2. **Company Story**
-   - "Building Lasting Relationships With Our Clients" headline
-   - Detailed company description
-   - Mission statement
+Logo
+"Veteran Owned" button directed to About Page (Experience Section)
+Main navigation will be a hamburger menu on all platform sizes
 
-3. **Core Values Section**
-   - Six core values with detailed explanations
-   - Visual icons or graphics for each value
+Hero Section
 
-4. **Team Section**
-   - "Meet the MH Construction Team" headline
-   - Placeholder for team member profiles
-   - Include mention of "Trigger" the office dog
+Large background video
+Company tagline and hero message
+Call-to-action button
+Contact phone number
 
-5. **Service Area**
-   - Map showing Washington, Oregon, and Idaho
-   - Description of service coverage
+Awards Section
 
-6. **Company Culture**
-   - "Life at MH Construction" section
-   - Focus on employee well-being and relationships
+Grid layout of recent awards (3)
+"Learn More" button present
 
-### 3. Services Page (services.html)
+Services Overview | About
 
-#### Required Content:
-1. **Services Overview**
-   - "What We Do" headline
-   - Introduction paragraph
+Who We Serve brief description
+Links to detailed service pages via dropdown menu - 6
+"Learn More" button that directs to About page
 
-2. **Detailed Service Sections**
-   - Six main services with detailed descriptions
-   - Process explanations for each service
-   - Benefits and outcomes
+Project Showcase
 
-3. **Target Markets**
-   - Visual grid of market sectors served
-   - Brief descriptions of each market
+Featured project images - 6
+Project categories filter - 6 total
+Link to full portfolio
 
-4. **Process Overview**
-   - Step-by-step construction process
-   - Timeline expectations
-   - Quality assurance measures
+Core Values Section
 
-### 4. Projects Page (projects.html)
+Six core values with icons
+Icons will flip with descriptions on the back
+Brief descriptions for each value
 
-#### Required Content:
-1. **Project Gallery**
-   - Filterable project grid by category
-   - High-quality project images
-   - Project details on hover/click
+Blog
 
-2. **Project Categories**
-   - Commercial Businesses
-   - Medical Facilities
-   - Religious Facilities
-   - Wineries & Vineyards
-   - Industrial Buildings
-   - Government Projects
+Carousel with clickable links to article or page
+Company logos of past clients
 
-3. **Case Studies**
-   - Detailed project showcases
-   - Before/after photos
-   - Project specifications and challenges
+Footer
 
-### 5. Contact Page (contact.html)
+Company areas of operation
+Quick links
+Social media links
+Copyright information
 
-#### Required Content:
-1. **Contact Information**
-   - Phone: (509) 308-6489
-   - Email: office@mhc-gc.com
-   - Address: 3111 N Capitol Ave, Pasco, WA, 99301
+AI Chatbot (Always Present)
 
-2. **Contact Form**
-   - Name, Company, Email, Phone fields
-   - Service interest checkboxes
-   - Message textarea
-   - Form validation
+Fixed floating position
+Prominent visual design
+Instant project consultation
+Lead capture functionality
+About Page (about.html)
+Company history and background
+Leadership team profiles
+Mission, vision, and values
+Company achievements and certifications
+Why choose MH Construction
+Chatbot integration for company questions
+Services Page (services.html)
+Detailed service descriptions
+Service process workflow
+Industry expertise
+Service area coverage
+Request quote form
+"Learn More" button directed to About Page
+Chatbot for service-specific questions
+Projects Page (projects.html)
+Project portfolio gallery (Firebase Storage integration)
+Filter by project type
+Case studies with before/after images
+Project details and specifications
+Client testimonials
+Chatbot for project consultation
+Contact Page (contact.html)
+Detailed contact form (Firebase integration)
+Office location and hours
+Service area map (Google Maps API)
+Multiple contact methods
+Request consultation form
+Enhanced chatbot for immediate assistance
+🎯 Key Features to Implement
+Navigation
+Sticky header navigation
+Smooth scrolling to sections
+Active page/section highlighting
+Mobile-responsive hamburger menu
+Breadcrumb navigation on sub-pages
+Interactive Elements
+Hover effects on buttons and cards
+Animated counters for statistics
+Image galleries with lightbox
+Accordion FAQ sections
+Tabbed content areas
+AI Chatbot interactions
+Forms (Firebase Integration)
+Contact form with validation and Firebase processing
+Quote request form with file upload to Firebase Storage
+Newsletter signup with Firestore database
+File upload for project documents
+Success/error message handling
+Chatbot lead capture forms
+Performance Optimization
+Optimized images (WebP format when possible)
+Lazy loading for images
+Minified CSS and JavaScript
+Compressed file sizes
+Fast loading times (<3 seconds)
+Firebase CDN optimization
+🤖 Chatbot Implementation Details
+Required Chatbot Features
+Always Visible: Fixed position, never hidden
+Project Consultation: AI-powered construction advice
+Cost Estimation: Preliminary project cost guidance
+Service Matching: Recommend appropriate MH services
+Lead Capture: Collect contact information seamlessly
+Business Hours Integration: Handoff to human representatives
+Conversation Logging: Save all interactions to Firebase
+Mobile Optimized: Responsive design for all devices
+Chatbot Conversation Flow
+1. Welcome Message: "Hi! I'm MH Construction's AI assistant. How can I help with your construction project?"
 
-3. **Location Map**
-   - Embedded Google Maps
-   - Office location marker
+2. Project Type Inquiry: "What type of project are you planning?"
 
-4. **Subcontractor Information**
-   - Separate section for subcontractor inquiries
-   - Link to subcontractor resources
+3. Scope Assessment: "Can you tell me more about the scope and timeline?"
 
-## 💻 Technical Implementation Requirements
+4. Preliminary Guidance: Provide relevant advice and cost estimates
 
-### HTML Requirements
-- Use semantic HTML5 elements
-- Implement proper heading hierarchy (h1, h2, h3)
-- Include meta tags for SEO
-- Add Open Graph tags for social media
-- Ensure accessibility with ARIA labels
-- Implement structured data markup
+5. Lead Capture: "Would you like to speak with our team? Let me get your contact information."
 
-### CSS Requirements
-- Mobile-first responsive design
-- CSS Grid and Flexbox layouts
-- CSS custom properties for theming
-- Smooth transitions and animations
-- Print stylesheet considerations
-- Cross-browser compatibility
+6. Handoff: "I've scheduled a consultation. Our team will contact you within 24 hours."
+Integration Code Example
+// chatbot.js
 
-### JavaScript Requirements
-- Vanilla JavaScript (no frameworks)
-- Mobile navigation toggle
-- Contact form validation
-- Image gallery/lightbox
-- Smooth scrolling
-- Loading animations
-- Performance optimization
+class MHConstructionChatbot {
 
-### Performance Requirements
-- Page load time under 3 seconds
-- Optimized images (WebP format preferred)
-- Minified CSS and JavaScript
-- Lazy loading for images
-- Efficient caching strategies
+  constructor() {
 
-### Accessibility Requirements
-- WCAG 2.1 AA compliance
-- Keyboard navigation support
-- Screen reader compatibility
-- Color contrast ratios
-- Alt text for all images
-- Focus indicators
+    this.firebase = firebase;
 
-## 🔧 Development Guidelines
+    this.isOpen = false;
 
-### Code Quality Standards
-- Use consistent indentation (2 spaces)
-- Follow semantic naming conventions
-- Comment complex code sections
-- Validate HTML and CSS
-- Test across multiple browsers
-- Optimize for search engines
+    this.conversations = [];
 
-### Git Workflow
-- Create feature branches for each page/component
-- Use descriptive commit messages
-- Include README updates with changes
-- Tag releases appropriately
+    this.init();
 
-### Testing Checklist
-- [ ] Mobile responsiveness (320px to 1920px)
-- [ ] Cross-browser compatibility (Chrome, Firefox, Safari, Edge)
-- [ ] Form functionality and validation
-- [ ] Image optimization and loading
-- [ ] Navigation functionality
-- [ ] Accessibility compliance
-- [ ] SEO optimization
-- [ ] Performance metrics
+  }
 
-## 📝 Content Guidelines
+  init() {
 
-### Writing Style
-- Professional yet approachable tone
-- Client-focused messaging
-- Clear and concise language
-- Action-oriented calls-to-action
-- Local SEO optimization
+    this.createChatbotUI();
 
-### Image Requirements
-- High-resolution construction project photos
-- Professional team headshots (when available)
-- Local Tri-Cities area imagery
-- Consistent image sizing and quality
-- Proper alt text descriptions
+    this.bindEvents();
 
-### SEO Keywords
-- General contractor Tri-Cities
-- Commercial construction Washington
-- Industrial construction Oregon Idaho
-- Construction services Pasco WA
-- Tenant improvements
-- Medical facility construction
-- Religious facility construction
+    this.loadAIModel();
 
-## 🚀 Deployment Instructions
+  }
 
-### GitHub Pages Setup
-1. Enable GitHub Pages in repository settings
-2. Set source to main branch
-3. Configure custom domain if needed
-4. Test deployment thoroughly
+  createChatbotUI() {
 
-### File Optimization
-- Compress images before upload
-- Minify CSS and JavaScript files
-- Optimize file sizes for web delivery
-- Implement proper caching headers
+    // Create prominent floating chatbot interface
 
-## 📞 Client Testimonials to Include
+  }
 
-**Shane Backlund, Superintendent - Selah School District:**
-"I have had the privilege of working with a number of general contractors in my years as a superintendent. I can say, without reservation, that MH is amongst the best. I have been impressed with their ability to maintain momentum in the face of adversity and with their company's communication throughout. I would enjoy the opportunity to work with MH again and would welcome their participation on any future projects in Selah."
+  processUserMessage(message) {
 
-**Brent Harding, Principal Architect - NAC Architecture:**
-"MH Construction's performance on the Lince Kindergarten project for Selah School District has been excellent. MH staff have been professional, and communication and timely processing of necessary construction correspondence has been consistent throughout the project. NAC Architecture would welcome MH on any of our projects."
+    // AI processing with construction-specific responses
 
-**Keith Bjella, Windermere Tri-Cities:**
-"MH did a tenant improvement for us last year and we couldn't be happier. They helped facilitate the process from initial design, permitting, and construction. Even with the large number of stakeholders at our company, MH handled everything in stride."
+  }
 
-## ✅ Final Deliverables
+  captureLeadInformation(userData) {
 
-Upon completion, the repository should contain:
-- [ ] Fully functional 5-page website
-- [ ] Responsive design across all devices
-- [ ] Optimized images and assets
-- [ ] Clean, validated code
-- [ ] Comprehensive documentation
-- [ ] Deployment-ready files
-- [ ] Performance optimization
-- [ ] Accessibility compliance
+    // Save to Firebase Firestore
 
-## 📋 Additional Notes
+  }
 
-- Maintain consistency with MH Construction's brand identity
-- Focus on user experience and conversion optimization
-- Implement analytics tracking (Google Analytics)
-- Consider future scalability and maintenance
-- Document any custom functionality for future updates
+}
+🔧 Development Guidelines
+Code Quality Standards
+Clean, readable code with comments
+Consistent naming conventions
+Proper indentation and formatting
+Cross-browser compatibility
+W3C validation compliance
+Firebase best practices
+Chatbot accessibility compliance
+SEO Requirements
+Descriptive page titles and meta descriptions
+Structured data markup (Schema.org)
+Optimized URLs and heading structure
+Image alt text and file names
+Internal linking strategy
+Firebase SEO optimization
+Accessibility Standards
+WCAG 2.1 AA compliance
+Keyboard navigation support
+Screen reader compatibility
+Color contrast requirements
+Focus indicators for interactive elements
+Chatbot accessibility features
+🚀 Deployment Instructions
+Firebase Setup
+Create Firebase project
+Enable required services (Auth, Firestore, Storage, Functions)
+Configure Google APIs
+Deploy Cloud Functions
+Set up Firebase Hosting
+Local Development
+Install Firebase CLI: npm install -g firebase-tools
+Clone the repository
+Run firebase login
+Run firebase serve for local testing
+Test chatbot functionality
+Test on multiple devices and browsers
+Production Deployment
+# Firebase deployment commands
 
-This comprehensive guide provides all necessary information to develop a professional, effective website for MH Construction that meets modern web standards and business objectives.
+firebase deploy --only hosting
+
+firebase deploy --only functions
+
+firebase deploy --only firestore:rules
+
+firebase deploy --only storage:rules
+📊 Analytics and Tracking
+Firebase Analytics Integration
+User behavior tracking
+Chatbot interaction analytics
+Conversion tracking
+Performance monitoring
+Google APIs Tracking
+Google Analytics 4 integration
+Search Console monitoring
+Maps API usage tracking
+reCAPTCHA analytics
+🔒 Security Considerations
+Firebase Security
+Firestore security rules
+Storage security rules
+Authentication requirements
+API key protection
+General Security
+Form spam protection (reCAPTCHA v3)
+Input sanitization and validation
+HTTPS implementation
+Regular security updates
+Backup procedures
+Chatbot data privacy compliance
+📞 Support and Maintenance
+Regular Updates Required
+Content updates (projects, testimonials)
+Security patches and updates
+Performance monitoring
+SEO optimization
+Mobile compatibility testing
+Chatbot AI model updates
+Firebase service monitoring
+Monitoring Requirements
+Firebase performance monitoring
+Chatbot conversation quality assessment
+Google API usage monitoring
+User experience analytics
+📄 License
+This project is licensed under the MIT License - see the LICENSE file for details.
+🙏 Acknowledgments
+Design inspiration from industry-leading construction websites
+Modern web development best practices
+Accessibility guidelines from WCAG
+Performance optimization techniques
+Firebase and Google Cloud best practices
+AI chatbot development standards
+
+
+
+Built with precision and care for MH Construction - "Building Great Projects With Great People"
+
+Key Focus: Prominent AI Chatbot + Firebase/Google API Integration
+
+For questions or support, contact MH Construction at (509) 308-6489 or office@mhc-gc.com
