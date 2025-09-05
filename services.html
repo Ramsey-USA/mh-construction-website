@@ -3,317 +3,516 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MH Construction Services - Commercial, Medical, Religious, Winery, Industrial, and Tenant Improvement construction services in WA, OR, ID.">
-    <title>Construction Services - MH Construction | Commercial & Industrial Contractors</title>
+    <title>Construction Services | MH Construction - Professional Building Solutions</title>
+    <meta name="description" content="Comprehensive construction services including commercial, medical, religious, winery, industrial buildings and tenant improvements. Licensed & insured.">
     
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <!-- Stylesheets -->
     <link href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/chatbot.css">
+    <link rel="stylesheet" href="css/services.css">
 </head>
 <body>
+    <!-- Skip to content for accessibility -->
+    <a href="#main-content" class="visually-hidden skip-link">Skip to main content</a>
+    
     <!-- Header Navigation -->
-    <header class="header" id="header">
+    <header class="header" id="header" role="banner">
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
                     <img src="images/logo.png" alt="MH Construction Logo" class="logo">
-                    <span class="company-name">MH Construction</span>
-                    <button class="veteran-owned-btn">Veteran Owned</button>
                 </div>
                 
-                <ul class="nav-menu" id="nav-menu">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="about.html" class="nav-link">About</a></li>
-                    <li><a href="services.html" class="nav-link active">Services</a></li>
-                    <li><a href="projects.html" class="nav-link">Projects</a></li>
-                    <li><a href="contact.html" class="nav-link">Contact</a></li>
-                </ul>
+                <button class="veteran-owned-btn" onclick="location.href='about.html#experience'">
+                    Veteran Owned
+                </button>
                 
-                <button class="nav-toggle" id="nav-toggle">
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Navigation">
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
                     <span class="hamburger-line"></span>
                 </button>
+                
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="services.html" class="nav-link active">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="services.html#commercial">Commercial</a></li>
+                            <li><a href="services.html#medical">Medical Facilities</a></li>
+                            <li><a href="services.html#religious">Religious Facilities</a></li>
+                            <li><a href="services.html#wineries">Wineries</a></li>
+                            <li><a href="services.html#industrial">Industrial</a></li>
+                            <li><a href="services.html#tenant">Tenant Improvements</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="projects.html" class="nav-link">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
             </div>
         </nav>
     </header>
 
-    <!-- Services Hero -->
-    <section class="page-hero" id="hero">
-        <div class="container">
-            <h1>Our Construction Services</h1>
-            <p class="lead">Comprehensive construction solutions across Washington, Oregon, and Idaho</p>
-        </div>
-    </section>
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Page Hero -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Our Construction Services</h1>
+                <p>Comprehensive building solutions backed by 150+ years of combined experience</p>
+            </div>
+        </section>
 
-    <!-- Services Overview -->
-    <section class="services-overview" id="services-overview">
-        <div class="container">
-            <h2 class="section-title">Full-Service Construction Solutions</h2>
-            <p class="section-subtitle">From planning to completion, we deliver excellence in every aspect of construction</p>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">🏢</div>
-                    <h3>Commercial Construction</h3>
-                    <p>Office buildings, retail spaces, and mixed-use developments designed for modern business needs.</p>
-                    <a href="#commercial" class="btn btn-outline">Learn More</a>
+        <!-- Services Detail -->
+        <section class="services-detail" id="services-detail">
+            <div class="container">
+                <!-- Commercial Construction -->
+                <div class="service-detail-card" id="commercial">
+                    <div class="service-card-header">
+                        <div class="service-card-icon">🏢</div>
+                        <div class="service-card-title">
+                            <h3>Commercial Construction</h3>
+                            <p class="service-card-subtitle">Professional office buildings and retail spaces</p>
+                        </div>
+                    </div>
+                    <div class="service-card-body">
+                        <p>We specialize in creating modern, efficient commercial spaces that meet the unique needs of today's businesses. From ground-up construction to major renovations, our team delivers quality results on time and within budget.</p>
+                        
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">🏗️</div>
+                                <div class="feature-content">
+                                    <h4>Ground-Up Construction</h4>
+                                    <p>Complete building construction from foundation to finish</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🔧</div>
+                                <div class="feature-content">
+                                    <h4>Renovations</h4>
+                                    <p>Modernizing existing commercial spaces</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">📋</div>
+                                <div class="feature-content">
+                                    <h4>Permit Management</h4>
+                                    <p>Complete handling of all regulatory requirements</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">⏱️</div>
+                                <div class="feature-content">
+                                    <h4>Project Management</h4>
+                                    <p>On-time delivery with clear communication</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Medical Facilities -->
+                <div class="service-detail-card" id="medical">
+                    <div class="service-card-header">
+                        <div class="service-card-icon">🏥</div>
+                        <div class="service-card-title">
+                            <h3>Medical Facilities</h3>
+                            <p class="service-card-subtitle">Healthcare construction with specialized compliance</p>
+                        </div>
+                    </div>
+                    <div class="service-card-body">
+                        <p>Medical facility construction requires specialized knowledge of healthcare regulations, infection control, and patient safety standards. We ensure your facility meets all compliance requirements while creating a healing environment.</p>
+                        
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">🛡️</div>
+                                <div class="feature-content">
+                                    <h4>Compliance Expertise</h4>
+                                    <p>HIPAA, ADA, and healthcare regulation compliance</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🔬</div>
+                                <div class="feature-content">
+                                    <h4>Specialized Systems</h4>
+                                    <p>Medical gas, specialized HVAC, and electrical systems</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🏥</div>
+                                <div class="feature-content">
+                                    <h4>Patient-Centered Design</h4>
+                                    <p>Creating comfortable, accessible healing environments</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🧼</div>
+                                <div class="feature-content">
+                                    <h4>Infection Control</h4>
+                                    <p>Proper materials and design for healthcare safety</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Religious Facilities -->
+                <div class="service-detail-card" id="religious">
+                    <div class="service-card-header">
+                        <div class="service-card-icon">⛪</div>
+                        <div class="service-card-title">
+                            <h3>Religious Facilities</h3>
+                            <p class="service-card-subtitle">Churches and worship spaces</p>
+                        </div>
+                    </div>
+                    <div class="service-card-body">
+                        <p>We build churches and religious facilities that are not only places of worship but also community landmarks. Our team understands the unique requirements of religious construction, including acoustics, aesthetics, and functionality.</p>
+                        
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">🎶</div>
+                                <div class="feature-content">
+                                    <h4>Acoustic Design</h4>
+                                    <p>Specialized design for optimal sound distribution</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🎨</div>
+                                <div class="feature-content">
+                                    <h4>Aesthetic Integration</h4>
+                                    <p>Blending functionality with spiritual and community values</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">♿</div>
+                                <div class="feature-content">
+                                    <h4>Universal Accessibility</h4>
+                                    <p>Designing spaces that are accessible to all</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🛠️</div>
+                                <div class="feature-content">
+                                    <h4>Renovation & Restoration</h4>
+                                    <p>Updating and preserving existing religious structures</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wineries & Vineyards -->
+                <div class="service-detail-card" id="wineries">
+                    <div class="service-card-header">
+                        <div class="service-card-icon">🍷</div>
+                        <div class="service-card-title">
+                            <h3>Wineries & Vineyards</h3>
+                            <p class="service-card-subtitle">Agricultural and wine production facilities</p>
+                        </div>
+                    </div>
+                    <div class="service-card-body">
+                        <p>We design and construct wineries and vineyards that are as beautiful as the wines produced within them. Our team combines agricultural expertise with construction knowledge to create facilities that enhance wine production and provide stunning tasting experiences.</p>
+                        
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">🌱</div>
+                                <div class="feature-content">
+                                    <h4>Vineyard Development</h4>
+                                    <p>Planning and planting of vineyards for optimal growth</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🏭</div>
+                                <div class="feature-content">
+                                    <h4>Winery Construction</h4>
+                                    <p>Building functional and aesthetic wine production facilities</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🍇</div>
+                                <div class="feature-content">
+                                    <h4>Grape Processing Facilities</h4>
+                                    <p>Designing efficient spaces for grape reception and processing</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🏛️</div>
+                                <div class="feature-content">
+                                    <h4>Tasting Rooms & Visitor Centers</h4>
+                                    <p>Creating inviting spaces for wine tasting and events</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Industrial Buildings -->
+                <div class="service-detail-card" id="industrial">
+                    <div class="service-card-header">
+                        <div class="service-card-icon">🏭</div>
+                        <div class="service-card-title">
+                            <h3>Industrial Buildings</h3>
+                            <p class="service-card-subtitle">Manufacturing and warehouse construction</p>
+                        </div>
+                    </div>
+                    <div class="service-card-body">
+                        <p>Our industrial construction services are geared towards creating efficient, safe, and sustainable buildings. We understand the complexities of industrial projects and deliver solutions that enhance productivity and comply with all safety regulations.</p>
+                        
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">⚙️</div>
+                                <div class="feature-content">
+                                    <h4>Manufacturing Facilities</h4>
+                                    <p>Design and construction of production and assembly plants</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🚚</div>
+                                <div class="feature-content">
+                                    <h4>Warehouse & Distribution Centers</h4>
+                                    <p>Building storage and logistics facilities for efficiency</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">♻️</div>
+                                <div class="feature-content">
+                                    <h4>Green Building Solutions</h4>
+                                    <p>Incorporating sustainable practices and materials</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🔒</div>
+                                <div class="feature-content">
+                                    <h4>Security & Compliance</h4>
+                                    <p>Ensuring all facilities meet safety and security standards</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tenant Improvements -->
+                <div class="service-detail-card" id="tenant">
+                    <div class="service-card-header">
+                        <div class="service-card-icon">🔧</div>
+                        <div class="service-card-title">
+                            <h3>Tenant Improvements</h3>
+                            <p class="service-card-subtitle">Interior renovations and space modifications</p>
+                        </div>
+                    </div>
+                    <div class="service-card-body">
+                        <p>We provide tenant improvement services that transform spaces to meet the specific needs of businesses. Whether it's a new layout, updated finishes, or enhanced systems, we deliver improvements that align with your vision and operational requirements.</p>
+                        
+                        <div class="service-features">
+                            <div class="feature-item">
+                                <div class="feature-icon">📐</div>
+                                <div class="feature-content">
+                                    <h4>Space Planning & Design</h4>
+                                    <p>Optimizing layout and flow for functionality and aesthetics</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🛠️</div>
+                                <div class="feature-content">
+                                    <h4>Construction & Renovation</h4>
+                                    <p>Expertise in commercial renovations and tenant build-outs</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">🎨</div>
+                                <div class="feature-content">
+                                    <h4>Finishes & Fixtures</h4>
+                                    <p>Selection and installation of high-quality materials</p>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon">📊</div>
+                                <div class="feature-content">
+                                    <h4>Project Management</h4>
+                                    <p>Coordinating all aspects of the tenant improvement process</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Construction Process -->
+        <section class="construction-process" id="process">
+            <div class="container">
+                <h2 class="section-title">Our Construction Process</h2>
+                <p class="section-subtitle">A proven methodology that ensures quality results and client satisfaction</p>
                 
-                <div class="service-card">
-                    <div class="service-icon">🏥</div>
-                    <h3>Medical Facilities</h3>
-                    <p>Specialized healthcare construction with compliance to medical regulations and patient care requirements.</p>
-                    <a href="#medical" class="btn btn-outline">Learn More</a>
+                <div class="process-timeline">
+                    <div class="process-step">
+                        <div class="process-number">1</div>
+                        <div class="process-content">
+                            <h3>Initial Consultation & Planning</h3>
+                            <p>We begin with a comprehensive consultation to understand your vision, requirements, and budget. Our team conducts site analysis and develops preliminary concepts.</p>
+                            <div class="process-highlights">
+                                <span class="process-highlight">Site Assessment</span>
+                                <span class="process-highlight">Budget Planning</span>
+                                <span class="process-highlight">Timeline Development</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="process-number">2</div>
+                        <div class="process-content">
+                            <h3>Design & Engineering</h3>
+                            <p>Our experienced team works with architects and engineers to create detailed plans that meet all building codes and your specific requirements.</p>
+                            <div class="process-highlights">
+                                <span class="process-highlight">Architectural Plans</span>
+                                <span class="process-highlight">Engineering Review</span>
+                                <span class="process-highlight">Code Compliance</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="process-number">3</div>
+                        <div class="process-content">
+                            <h3>Permits & Approvals</h3>
+                            <p>We handle all permitting processes, ensuring your project meets local building codes and regulations. Our team manages all regulatory requirements.</p>
+                            <div class="process-highlights">
+                                <span class="process-highlight">Building Permits</span>
+                                <span class="process-highlight">Zoning Approval</span>
+                                <span class="process-highlight">Utility Connections</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="process-number">4</div>
+                        <div class="process-content">
+                            <h3>Construction & Build</h3>
+                            <p>With plans approved and permits in hand, construction begins. We maintain strict quality control and safety standards throughout the build process.</p>
+                            <div class="process-highlights">
+                                <span class="process-highlight">Quality Control</span>
+                                <span class="process-highlight">Safety Protocols</span>
+                                <span class="process-highlight">Progress Updates</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="process-step">
+                        <div class="process-number">5</div>
+                        <div class="process-content">
+                            <h3>Final Inspection & Handover</h3>
+                            <p>We conduct thorough final inspections, address any items, and provide complete documentation. Your satisfaction is our priority.</p>
+                            <div class="process-highlights">
+                                <span class="process-highlight">Final Inspection</span>
+                                <span class="process-highlight">Documentation</span>
+                                <span class="process-highlight">Warranty Support</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- Service Categories -->
+        <section class="service-categories">
+            <div class="container">
+                <h2 class="section-title">Service Categories</h2>
                 
-                <div class="service-card">
-                    <div class="service-icon">⛪</div>
-                    <h3>Religious Facilities</h3>
-                    <p>Churches and worship spaces built with reverence and attention to acoustic requirements.</p>
-                    <a href="#religious" class="btn btn-outline">Learn More</a>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">🍷</div>
-                    <h3>Wineries & Vineyards</h3>
-                    <p>Agricultural and wine production facilities that blend functionality with aesthetic appeal.</p>
-                    <a href="#wineries" class="btn btn-outline">Learn More</a>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">🏭</div>
-                    <h3>Industrial Buildings</h3>
-                    <p>Manufacturing and warehouse construction engineered for efficiency and operational excellence.</p>
-                    <a href="#industrial" class="btn btn-outline">Learn More</a>
-                </div>
-                
-                <div class="service-card">
-                    <div class="service-icon">🔧</div>
-                    <h3>Tenant Improvements</h3>
-                    <p>Interior renovations that transform spaces to meet specific business requirements.</p>
-                    <a href="#tenant" class="btn btn-outline">Learn More</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Detailed Services Grid -->
-    <section class="services-detailed" id="services-detailed">
-        <div class="container">
-            <div class="service-detail" id="commercial">
-                <div class="service-image">
-                    <img src="images/services/commercial.jpg" alt="Commercial Construction" loading="lazy">
-                </div>
-                <div class="service-content">
-                    <h2>Commercial Construction</h2>
-                    <p class="lead">Professional office buildings, retail spaces, and mixed-use developments designed for modern business needs.</p>
-                    <ul>
-                        <li>Office Buildings</li>
-                        <li>Retail Centers</li>
-                        <li>Mixed-Use Developments</li>
-                        <li>Business Parks</li>
-                        <li>Professional Complexes</li>
-                    </ul>
-                    <a href="contact.html" class="btn btn-primary">Get Quote</a>
-                </div>
-            </div>
-
-            <div class="service-detail" id="medical">
-                <div class="service-content">
-                    <h2>Medical Facilities</h2>
-                    <p class="lead">Specialized healthcare construction with compliance to medical regulations and patient care requirements.</p>
-                    <ul>
-                        <li>Medical Offices</li>
-                        <li>Clinics</li>
-                        <li>Urgent Care Centers</li>
-                        <li>Specialized Treatment Facilities</li>
-                        <li>Diagnostic Centers</li>
-                    </ul>
-                    <a href="contact.html" class="btn btn-primary">Get Quote</a>
-                </div>
-                <div class="service-image">
-                    <img src="images/services/medical.jpg" alt="Medical Facility Construction" loading="lazy">
-                </div>
-            </div>
-
-            <div class="service-detail" id="religious">
-                <div class="service-image">
-                    <img src="images/services/religious.jpg" alt="Religious Facility Construction" loading="lazy">
-                </div>
-                <div class="service-content">
-                    <h2>Religious Facilities</h2>
-                    <p class="lead">Churches, community centers, and worship spaces built with reverence and attention to acoustic and spiritual requirements.</p>
-                    <ul>
-                        <li>Churches</li>
-                        <li>Community Centers</li>
-                        <li>Fellowship Halls</li>
-                        <li>Religious Education Buildings</li>
-                        <li>Multi-Purpose Worship Spaces</li>
-                    </ul>
-                    <a href="contact.html" class="btn btn-primary">Get Quote</a>
+                <div class="categories-grid">
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="images/services/commercial-category.jpg" alt="Commercial Construction">
+                            <div class="category-overlay">
+                                <span class="category-badge">Most Popular</span>
+                            </div>
+                        </div>
+                        <div class="category-content">
+                            <h3>Commercial Buildings</h3>
+                            <p>Office buildings, retail spaces, and mixed-use developments</p>
+                            <div class="category-stats">
+                                <div class="category-stat">
+                                    <strong>25+</strong>
+                                    <span>Projects</span>
+                                </div>
+                                <div class="category-stat">
+                                    <strong>$5M+</strong>
+                                    <span>Total Value</span>
+                                </div>
+                                <div class="category-stat">
+                                    <strong>95%</strong>
+                                    <span>On Time</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="images/services/medical-category.jpg" alt="Medical Facilities">
+                        </div>
+                        <div class="category-content">
+                            <h3>Medical Facilities</h3>
+                            <p>Healthcare construction with specialized compliance</p>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="images/services/religious-category.jpg" alt="Religious Facilities">
+                        </div>
+                        <div class="category-content">
+                            <h3>Religious Facilities</h3>
+                            <p>Churches and worship spaces</p>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="images/services/winery-category.jpg" alt="Wineries & Vineyards">
+                        </div>
+                        <div class="category-content">
+                            <h3>Wineries & Vineyards</h3>
+                            <p>Agricultural and wine production facilities</p>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="images/services/industrial-category.jpg" alt="Industrial Buildings">
+                        </div>
+                        <div class="category-content">
+                            <h3>Industrial Buildings</h3>
+                            <p>Manufacturing and warehouse construction</p>
+                        </div>
+                    </div>
+                    
+                    <div class="category-card">
+                        <div class="category-image">
+                            <img src="images/services/tenant-category.jpg" alt="Tenant Improvements">
+                        </div>
+                        <div class="category-content">
+                            <h3>Tenant Improvements</h3>
+                            <p>Interior renovations and space modifications</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <div class="service-detail" id="wineries">
-                <div class="service-content">
-                    <h2>Wineries & Vineyards</h2>
-                    <p class="lead">Specialized agricultural and wine production facilities that blend functionality with aesthetic appeal for the wine industry.</p>
-                    <ul>
-                        <li>Production Facilities</li>
-                        <li>Tasting Rooms</li>
-                        <li>Barrel Storage</li>
-                        <li>Agricultural Buildings</li>
-                        <li>Visitor Centers</li>
-                    </ul>
-                    <a href="contact.html" class="btn btn-primary">Get Quote</a>
-                </div>
-                <div class="service-image">
-                    <img src="images/services/winery.jpg" alt="Winery Construction" loading="lazy">
-                </div>
-            </div>
-
-            <div class="service-detail" id="industrial">
-                <div class="service-image">
-                    <img src="images/services/industrial.jpg" alt="Industrial Construction" loading="lazy">
-                </div>
-                <div class="service-content">
-                    <h2>Industrial Buildings</h2>
-                    <p class="lead">Manufacturing and warehouse construction engineered for efficiency, safety, and operational excellence.</p>
-                    <ul>
-                        <li>Manufacturing Facilities</li>
-                        <li>Warehouses</li>
-                        <li>Distribution Centers</li>
-                        <li>Processing Plants</li>
-                        <li>Logistics Facilities</li>
-                    </ul>
-                    <a href="contact.html" class="btn btn-primary">Get Quote</a>
-                </div>
-            </div>
-
-            <div class="service-detail" id="tenant">
-                <div class="service-content">
-                    <h2>Tenant Improvements</h2>
-                    <p class="lead">Interior renovations and space modifications that transform existing spaces to meet specific business requirements.</p>
-                    <ul>
-                        <li>Office Renovations</li>
-                        <li>Retail Buildouts</li>
-                        <li>Restaurant Improvements</li>
-                        <li>Space Reconfigurations</li>
-                        <li>Commercial Upgrades</li>
-                    </ul>
-                    <a href="contact.html" class="btn btn-primary">Get Quote</a>
-                </div>
-                <div class="service-image">
-                    <img src="images/services/tenant.jpg" alt="Tenant Improvement Construction" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Service Process -->
-    <section class="service-process" id="process">
-        <div class="container">
-            <h2 class="section-title">Our Construction Process</h2>
-            <p class="section-subtitle">Military precision applied to construction excellence</p>
-            
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3>Master Planning</h3>
-                    <p>Detailed project planning from concept to finish with military precision</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3>Procurement</h3>
-                    <p>Construction vendor management and strategic material sourcing</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3>Constructability</h3>
-                    <p>Expert collaboration with subcontractors for feasibility assessment</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3>Budget Control</h3>
-                    <p>Rigorous cost analysis and transparent budget management</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">5</div>
-                    <h3>Construction</h3>
-                    <p>Full-service construction execution with quality assurance</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Service Areas -->
-    <section class="service-areas" id="service-areas">
-        <div class="container">
-            <h2 class="section-title">Service Areas</h2>
-            <p class="section-subtitle">Proudly serving the Pacific Northwest with local expertise</p>
-            
-            <div class="areas-grid">
-                <div class="area-card">
-                    <div class="area-icon">🏔️</div>
-                    <h3>Washington</h3>
-                    <p>Comprehensive construction services throughout Washington state, from Seattle to Spokane.</p>
-                    <ul class="area-cities">
-                        <li>Seattle</li>
-                        <li>Spokane</li>
-                        <li>Tacoma</li>
-                        <li>Pasco</li>
-                    </ul>
-                </div>
-                
-                <div class="area-card">
-                    <div class="area-icon">🌲</div>
-                    <h3>Oregon</h3>
-                    <p>Quality construction solutions across Oregon, from Portland to eastern Oregon.</p>
-                    <ul class="area-cities">
-                        <li>Portland</li>
-                        <li>Eugene</li>
-                        <li>Salem</li>
-                        <li>Bend</li>
-                    </ul>
-                </div>
-                
-                <div class="area-card">
-                    <div class="area-icon">⛰️</div>
-                    <h3>Idaho</h3>
-                    <p>Trusted construction partner throughout Idaho, serving both urban and rural areas.</p>
-                    <ul class="area-cities">
-                        <li>Boise</li>
-                        <li>Coeur d'Alene</li>
-                        <li>Idaho Falls</li>
-                        <li>Pocatello</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Start Your Project?</h2>
-                <p>Contact us today for a free consultation and project estimate.</p>
-                <div class="cta-buttons">
-                    <a href="contact.html" class="btn btn-primary">Get Free Quote</a>
-                    <a href="tel:+15093086489" class="btn btn-secondary">Call (509) 308-6489</a>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="footer" id="footer">
+    <footer class="footer" id="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
@@ -392,15 +591,8 @@
         </div>
     </footer>
 
-    <!-- Chatbot Container -->
-    <div class="chatbot-container" id="chatbot-container">
-        <!-- Chatbot will be loaded here -->
-    </div>
-
     <!-- JavaScript Files -->
     <script src="js/firebase-config.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/navigation.js"></script>
-    <script src="js/chatbot.js"></script>
 </body>
 </html>

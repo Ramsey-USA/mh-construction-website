@@ -458,7 +458,7 @@ blockquote {
     #6b7a4f 75%, 
     #3d4a2b 100%
   );
-  color: var(--white);
+  color: var(--army-gold);
   padding: var(--spacing-xs) var(--spacing-sm);
   border: 2px solid #2d3a1f;
   border-radius: var(--border-radius-sm);
@@ -469,7 +469,14 @@ blockquote {
   letter-spacing: 1px;
   font-size: 0.9rem;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
+  /* Gold text with black border */
+  text-shadow: 
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000,
+    0 0 3px var(--army-gold);
   /* Ensure proper rendering across platforms */
   backface-visibility: hidden;
   perspective: 1000px;
@@ -487,17 +494,18 @@ blockquote {
     0 2px 4px rgba(61, 74, 43, 0.2);
 }
 
-.veteran-owned-btn::before {
+/* American Flag Dropdown */
+.veteran-owned-btn::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 0;
   background: linear-gradient(
-    45deg,
-    #002868 0%,
-    #002868 7.69%,
+    to bottom,
+    #bf0a30 0%,
+    #bf0a30 7.69%,
     #ffffff 7.69%,
     #ffffff 15.38%,
     #bf0a30 15.38%,
@@ -523,36 +531,72 @@ blockquote {
     #bf0a30 92.28%,
     #bf0a30 100%
   );
-  transition: all var(--transition-medium);
-  z-index: -1;
+  border-left: 2px solid #2d3a1f;
+  border-right: 2px solid #2d3a1f;
+  border-bottom: 2px solid #2d3a1f;
+  border-bottom-left-radius: var(--border-radius-sm);
+  border-bottom-right-radius: var(--border-radius-sm);
+  transition: height var(--transition-medium) ease-out;
+  z-index: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.veteran-owned-btn::after {
+/* Blue canton with stars overlay */
+.veteran-owned-btn::before {
   content: '';
   position: absolute;
-  top: 0;
+  top: 100%;
   left: 0;
-  width: 35%;
-  height: 100%;
+  width: 40%;
+  height: 0;
   background: #002868;
-  transform: translateX(-100%);
-  transition: all var(--transition-medium);
-  z-index: -1;
+  background-image: 
+    radial-gradient(circle at 10% 15%, #ffffff 1px, transparent 1px),
+    radial-gradient(circle at 30% 15%, #ffffff 1px, transparent 1px),
+    radial-gradient(circle at 50% 15%, #ffffff 1px, transparent 1px),
+    radial-gradient(circle at 70% 15%, #ffffff 1px, transparent 1px),
+    radial-gradient(circle at 90% 15%, #ffffff 1px, transparent 1px),
+    radial-gradient(circle at 20% 35%, #ffffff 1px, transparent 1px),
+    radial-gradient(circle at 40% 35%, #ffffff 1px, transparent 1px),
+    radial-gradient(circle at 60% 35%, #ffffff 1px, transparent 1px),
+    radial-gradient(circle at 80% 35%, #ffffff 1px, transparent 1px),
+    radial-gradient(circle at 10% 55%, #ffffff 1px, transparent 1px),
+    radial-gradient(circle at 30% 55%, #ffffff 1px, transparent 1px),
+    radial-gradient(circle at 50% 55%, #ffffff 1px, transparent 1px),
+    radial-gradient(circle at 70% 55%, #ffffff 1px, transparent 1px),
+    radial-gradient(circle at 90% 55%, #ffffff 1px, transparent 1px),
+    radial-gradient(circle at 20% 75%, #ffffff 1px, transparent 1px),
+    radial-gradient(circle at 40% 75%, #ffffff 1px, transparent 1px),
+    radial-gradient(circle at 60% 75%, #ffffff 1px, transparent 1px),
+    radial-gradient(circle at 80% 75%, #ffffff 1px, transparent 1px);
+  border-left: 2px solid #2d3a1f;
+  border-bottom: 2px solid #2d3a1f;
+  border-bottom-left-radius: var(--border-radius-sm);
+  transition: height var(--transition-medium) ease-out;
+  z-index: 2;
 }
 
 .veteran-owned-btn:hover {
-  color: var(--white);
+  color: var(--army-gold);
   border-color: #002868;
   transform: scale(1.05);
   box-shadow: 0 4px 8px rgba(0, 40, 104, 0.3);
-}
-
-.veteran-owned-btn:hover::before {
-  left: 0;
+  /* Enhanced gold text with stronger black border on hover */
+  text-shadow: 
+    -2px -2px 0 #000,
+    2px -2px 0 #000,
+    -2px 2px 0 #000,
+    2px 2px 0 #000,
+    0 0 5px var(--army-gold),
+    0 0 10px var(--army-gold);
 }
 
 .veteran-owned-btn:hover::after {
-  transform: translateX(0);
+  height: 60px;
+}
+
+.veteran-owned-btn:hover::before {
+  height: 25px;
 }
 
 .nav-toggle {
@@ -1640,7 +1684,7 @@ blockquote {
    FOOTER
    ======================================== */
 .footer {
-  background: linear-gradient(135deg, var(--army-black), var(--field-01));
+  background: linear-gradient(135deg, #1a1a1a, #0f0f0f);
   color: var(--secondary-tan);
   padding: var(--spacing-section) 0 var(--spacing-lg);
   border-top: 4px solid var(--army-gold);
