@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MH Construction Project Portfolio - View our completed commercial, medical, religious, winery, and industrial construction projects.">
+    <title>Project Portfolio - MH Construction | Completed Construction Projects</title>
+    
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-storage-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-functions-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-analytics-compat.js"></script>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="images/logo.png" alt="MH Construction Logo" class="logo">
+                    <span class="company-name">MH Construction</span>
+                </div>
+                
+                <button class="veteran-owned-btn" onclick="location.href='about.html#experience'">
+                    Veteran Owned
+                </button>
+                
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Navigation">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="services.html" class="nav-link">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="services.html#commercial">Commercial</a></li>
+                            <li><a href="services.html#medical">Medical Facilities</a></li>
+                            <li><a href="services.html#religious">Religious Facilities</a></li>
+                            <li><a href="services.html#wineries">Wineries</a></li>
+                            <li><a href="services.html#industrial">Industrial</a></li>
+                            <li><a href="services.html#tenant">Tenant Improvements</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="projects.html" class="nav-link active">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Projects Hero -->
+    <section class="page-hero" id="hero">
+        <div class="container">
+            <h1>Our Project Portfolio</h1>
+            <p class="lead">Showcasing our commitment to excellence across diverse construction projects</p>
+        </div>
+    </section>
+
+    <!-- Project Filters -->
+    <section class="project-showcase" id="projects">
+        <div class="container">
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="commercial">Commercial</button>
+                <button class="filter-btn" data-filter="medical">Medical</button>
+                <button class="filter-btn" data-filter="religious">Religious</button>
+                <button class="filter-btn" data-filter="winery">Wineries</button>
+                <button class="filter-btn" data-filter="industrial">Industrial</button>
+                <button class="filter-btn" data-filter="tenant">Tenant Improvements</button>
+            </div>
+            
+            <div class="projects-grid" id="projects-grid">
+                <!-- Projects will be loaded dynamically from Firebase -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Case Study -->
+    <section class="featured-case-study" id="case-study">
+        <div class="container">
+            <h2 class="section-title">Featured Case Study</h2>
+            <div class="case-study-content">
+                <div class="case-study-image">
+                    <img src="images/projects/featured-case-study.jpg" alt="Featured Project Case Study" loading="lazy">
+                </div>
+                <div class="case-study-details">
+                    <h3>Pacific Northwest Medical Center</h3>
+                    <h4>Project Overview</h4>
+                    <p>A comprehensive 45,000 sq ft medical facility featuring state-of-the-art patient care areas, administrative offices, and specialized treatment rooms.</p>
+                    
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li>HIPAA-compliant design</li>
+                        <li>Advanced HVAC systems</li>
+                        <li>Specialized medical gas systems</li>
+                        <li>Emergency backup power</li>
+                    </ul>
+                    
+                    <h4>Results</h4>
+                    <p>Completed on time and under budget, this facility now serves over 15,000 patients annually.</p>
+                    
+                    <blockquote>
+                        <p>"MH Construction delivered exceptional quality and attention to detail. Their understanding of medical facility requirements was outstanding."</p>
+                        <cite>Dr. Sarah Johnson, Facility Director</cite>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Start Your Next Project</h2>
+                <p>Join our portfolio of satisfied clients with your construction project.</p>
+                <div class="cta-actions">
+                    <a href="contact.html" class="btn btn-primary">Discuss Your Project</a>
+                    <a href="about.html" class="btn btn-secondary">Learn About Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <!-- ...existing footer code... -->
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+</html>
+                    <div class="image-gallery">
+                        <img src="images/projects/case-study-1.jpg" alt="Interior View" onerror="this.src='images/placeholder-project.jpg'">
+                        <img src="images/projects/case-study-2.jpg" alt="Exterior Detail" onerror="this.src='images/placeholder-project.jpg'">
+                        <img src="images/projects/case-study-3.jpg" alt="Construction Progress" onerror="this.src='images/placeholder-project.jpg'">
+                    </div>
+                </div>
+                
+                <div class="case-study-details">
+                    <div class="project-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Project Value</span>
+                            <span class="spec-value">$15.2 Million</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Square Footage</span>
+                            <span class="spec-value">85,000 sq ft</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Completion Time</span>
+                            <span class="spec-value">18 months</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Location</span>
+                            <span class="spec-value">Spokane, WA</span>
+                        </div>
+                    </div>
+                    
+                    <h3>Project Overview</h3>
+                    <p>The Pacific Northwest Medical Center represents our commitment to healthcare facility excellence. This state-of-the-art medical facility includes specialized surgery suites, diagnostic imaging centers, and patient care areas designed to meet the highest healthcare standards.</p>
+                    
+                    <h4>Key Challenges Overcome</h4>
+                    <ul>
+                        <li>Complex HVAC systems for surgical suites</li>
+                        <li>Specialized electrical requirements for medical equipment</li>
+                        <li>Stringent healthcare compliance standards</li>
+                        <li>Continuous operations during construction phases</li>
+                    </ul>
+                    
+                    <h4>Results Achieved</h4>
+                    <ul>
+                        <li>100% compliance with healthcare regulations</li>
+                        <li>Completed 2 weeks ahead of schedule</li>
+                        <li>Zero safety incidents during construction</li>
+                        <li>LEED Gold certification achieved</li>
+                    </ul>
+                    
+                    <blockquote>
+                        <p>"MH Construction delivered beyond our expectations. Their attention to detail and understanding of healthcare facility requirements was exceptional."</p>
+                        <cite>Dr. Sarah Johnson, Medical Center Director</cite>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonials -->
+    <section class="project-testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Client Success Stories</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"MH Construction transformed our vision into reality. Their professionalism and quality of work exceeded our expectations."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="images/testimonials/client-1.jpg" alt="Client" onerror="this.src='images/placeholder-person.jpg'">
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <span>CEO, Pacific Commercial Group</span>
+                        </div>
+                    </div>
+                    <div class="project-reference">
+                        <span>Pacific Office Complex - $8.5M</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The attention to detail and commitment to our timeline was remarkable. MH Construction is our trusted partner."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="images/testimonials/client-2.jpg" alt="Client" onerror="this.src='images/placeholder-person.jpg'">
+                        <div class="author-info">
+                            <h4>Pastor David Miller</h4>
+                            <span>Community Faith Church</span>
+                        </div>
+                    </div>
+                    <div class="project-reference">
+                        <span>Church Expansion - $3.2M</span>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Outstanding project management and quality construction. They understood our unique winery requirements perfectly."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="images/testimonials/client-3.jpg" alt="Client" onerror="this.src='images/placeholder-person.jpg'">
+                        <div class="author-info">
+                            <h4>Elena Rodriguez</h4>
+                            <span>Vineyard Valley Estates</span>
+                        </div>
+                    </div>
+                    <div class="project-reference">
+                        <span>Winery Facility - $5.8M</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Start Your Project?</h2>
+                <p>Join the hundreds of satisfied clients who have trusted MH Construction with their most important building projects.</p>
+                <div class="cta-actions">
+                    <a href="contact.html" class="btn btn-primary">Get Free Consultation</a>
+                    <a href="tel:+15093086489" class="btn btn-secondary">Call (509) 308-6489</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <!-- ...existing footer code... -->
+    </footer>
+
+    <!-- Project Modal -->
+    <div class="project-modal" id="project-modal">
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close">✕</button>
+            <div class="modal-body" id="modal-body">
+                <!-- Modal content will be loaded dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Chatbot -->
+    <div class="chatbot-container" id="chatbot-container">
+        <!-- ...existing chatbot code... -->
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/projects.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+</html>
