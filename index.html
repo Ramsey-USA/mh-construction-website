@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MH Construction - Your Trusted General Contractor. Building Great Projects With Great People. Veteran-owned construction company serving WA, OR, ID.">
+    <meta name="keywords" content="construction, general contractor, commercial construction, veteran owned, Washington, Oregon, Idaho">
+    <title>MH Construction - Your Trusted General Contractor | Built Right The First Time</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/chatbot.css">
+    
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-storage-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-functions-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-analytics-compat.js"></script>
+    
+    <!-- Google reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ConstructionCompany",
+        "name": "MH Construction",
+        "description": "Your Trusted General Contractor",
+        "url": "https://mhc-gc.com",
+        "telephone": "+1-509-308-6489",
+        "email": "office@mhc-gc.com",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "3111 N Capitol Ave",
+            "addressLocality": "Pasco",
+            "addressRegion": "WA",
+            "postalCode": "99301",
+            "addressCountry": "US"
+        },
+        "areaServed": ["Washington", "Oregon", "Idaho"],
+        "founder": {
+            "@type": "Organization",
+            "name": "Veterans"
+        }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="images/logo.png" alt="MH Construction Logo" class="logo">
+                    <span class="company-name">MH Construction</span>
+                </div>
+                
+                <button class="veteran-owned-btn" onclick="location.href='about.html#experience'">
+                    Veteran Owned
+                </button>
+                
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Navigation">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+                
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link active">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="services.html" class="nav-link">Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="services.html#commercial">Commercial</a></li>
+                            <li><a href="services.html#medical">Medical Facilities</a></li>
+                            <li><a href="services.html#religious">Religious Facilities</a></li>
+                            <li><a href="services.html#wineries">Wineries</a></li>
+                            <li><a href="services.html#industrial">Industrial</a></li>
+                            <li><a href="services.html#tenant">Tenant Improvements</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="projects.html" class="nav-link">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contact.html" class="nav-link">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-video">
+            <video autoplay muted loop>
+                <source src="images/hero/construction-hero.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Building Great Projects With Great People</h1>
+            <p class="hero-subtitle">Your Trusted General Contractor</p>
+            <p class="hero-tagline">Built Right The First Time</p>
+            <div class="hero-actions">
+                <a href="contact.html" class="btn btn-primary">Get Free Quote</a>
+                <a href="tel:+15093086489" class="btn btn-secondary">
+                    <i class="icon-phone"></i>
+                    (509) 308-6489
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Awards Section -->
+    <section class="awards" id="awards">
+        <div class="container">
+            <h2 class="section-title">Recent Awards & Recognition</h2>
+            <div class="awards-grid">
+                <div class="award-card">
+                    <img src="images/awards/award-1.jpg" alt="Construction Excellence Award 2023">
+                    <h3>Construction Excellence Award</h3>
+                    <p>2023 Commercial Project</p>
+                </div>
+                <div class="award-card">
+                    <img src="images/awards/award-2.jpg" alt="Safety Excellence Award">
+                    <h3>Safety Excellence Award</h3>
+                    <p>Zero Incidents Recognition</p>
+                </div>
+                <div class="award-card">
+                    <img src="images/awards/award-3.jpg" alt="Community Impact Award">
+                    <h3>Community Impact Award</h3>
+                    <p>Local Business Recognition</p>
+                </div>
+            </div>
+            <div class="awards-action">
+                <a href="about.html" class="btn btn-outline">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-overview" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Who We Serve</h2>
+                <p class="section-subtitle">Over 150 years of combined commercial construction experience</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="icon-building"></i>
+                    </div>
+                    <h3>Commercial Businesses</h3>
+                    <p>Professional office buildings and retail spaces</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="icon-medical"></i>
+                    </div>
+                    <h3>Medical Facilities</h3>
+                    <p>Healthcare and medical office construction</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="icon-church"></i>
+                    </div>
+                    <h3>Religious Facilities</h3>
+                    <p>Churches and community worship centers</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="icon-wine"></i>
+                    </div>
+                    <h3>Wineries & Vineyards</h3>
+                    <p>Agricultural and wine production facilities</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="icon-factory"></i>
+                    </div>
+                    <h3>Industrial Buildings</h3>
+                    <p>Manufacturing and warehouse construction</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="icon-renovation"></i>
+                    </div>
+                    <h3>Tenant Improvements</h3>
+                    <p>Interior renovations and space modifications</p>
+                </div>
+            </div>
+            
+            <div class="services-action">
+                <a href="about.html" class="btn btn-primary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Showcase -->
+    <section class="project-showcase" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="commercial">Commercial</button>
+                <button class="filter-btn" data-filter="medical">Medical</button>
+                <button class="filter-btn" data-filter="religious">Religious</button>
+                <button class="filter-btn" data-filter="winery">Wineries</button>
+                <button class="filter-btn" data-filter="industrial">Industrial</button>
+                <button class="filter-btn" data-filter="tenant">Tenant Improvements</button>
+            </div>
+            
+            <div class="projects-grid" id="projects-grid">
+                <!-- Projects will be loaded dynamically from Firebase -->
+            </div>
+            
+            <div class="projects-action">
+                <a href="projects.html" class="btn btn-outline">View All Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="core-values" id="values">
+        <div class="container">
+            <h2 class="section-title">Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-card" data-value="ethics">
+                    <div class="value-front">
+                        <div class="value-icon">
+                            <i class="icon-ethics"></i>
+                        </div>
+                        <h3>Ethics</h3>
+                    </div>
+                    <div class="value-back">
+                        <p>Small-town values, honesty, transparency, and accountability in every project</p>
+                    </div>
+                </div>
+                <div class="value-card" data-value="experience">
+                    <div class="value-front">
+                        <div class="value-icon">
+                            <i class="icon-experience"></i>
+                        </div>
+                        <h3>Experience</h3>
+                    </div>
+                    <div class="value-back">
+                        <p>Over 150 years of combined commercial construction experience</p>
+                    </div>
+                </div>
+                <div class="value-card" data-value="honesty">
+                    <div class="value-front">
+                        <div class="value-icon">
+                            <i class="icon-honesty"></i>
+                        </div>
+                        <h3>Honesty</h3>
+                    </div>
+                    <div class="value-back">
+                        <p>Open communication, transparent pricing, delivering on promises</p>
+                    </div>
+                </div>
+                <div class="value-card" data-value="integrity">
+                    <div class="value-front">
+                        <div class="value-icon">
+                            <i class="icon-integrity"></i>
+                        </div>
+                        <h3>Integrity</h3>
+                    </div>
+                    <div class="value-back">
+                        <p>Highest standards, accountability, fairness, and respect</p>
+                    </div>
+                </div>
+                <div class="value-card" data-value="professionalism">
+                    <div class="value-front">
+                        <div class="value-icon">
+                            <i class="icon-professional"></i>
+                        </div>
+                        <h3>Professionalism</h3>
+                    </div>
+                    <div class="value-back">
+                        <p>Reliable, calm under pressure, client-focused approach</p>
+                    </div>
+                </div>
+                <div class="value-card" data-value="trust">
+                    <div class="value-front">
+                        <div class="value-icon">
+                            <i class="icon-trust"></i>
+                        </div>
+                        <h3>Trust</h3>
+                    </div>
+                    <div class="value-back">
+                        <p>Earned through clear communication and follow-through</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog" id="blog">
+        <div class="container">
+            <h2 class="section-title">Latest News & Insights</h2>
+            <div class="blog-carousel" id="blog-carousel">
+                <!-- Blog posts will be loaded dynamically from Firebase -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Logos -->
+    <section class="client-logos" id="clients">
+        <div class="container">
+            <h2 class="section-title">Trusted by Leading Organizations</h2>
+            <div class="logos-grid">
+                <!-- Client logos will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="MH Construction Logo">
+                        <span>MH Construction</span>
+                    </div>
+                    <p>Building Great Projects With Great People</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="icon-facebook"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="icon-linkedin"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="icon-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Service Areas</h3>
+                    <ul>
+                        <li>Washington State</li>
+                        <li>Oregon</li>
+                        <li>Idaho</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <p><i class="icon-phone"></i> (509) 308-6489</p>
+                        <p><i class="icon-email"></i> office@mhc-gc.com</p>
+                        <p><i class="icon-location"></i> 3111 N Capitol Ave<br>Pasco, WA 99301</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 MH Construction. All rights reserved. | <a href="privacy.html">Privacy Policy</a> | <a href="terms.html">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Chatbot -->
+    <div class="chatbot-container" id="chatbot-container">
+        <button class="chatbot-button" id="chatbot-button" aria-label="Open AI Construction Assistant">
+            <i class="icon-chat"></i>
+        </button>
+        
+        <div class="chatbot-window" id="chatbot-window">
+            <div class="chatbot-header">
+                <div class="chatbot-avatar">
+                    <img src="images/chatbot/mh-avatar.png" alt="MH Assistant">
+                </div>
+                <div class="chatbot-title">
+                    <h3>MH Construction AI</h3>
+                    <span class="chatbot-status">Online</span>
+                </div>
+                <button class="chatbot-close" id="chatbot_close" aria-label="Close Chat">
+                    <i class="icon-close"></i>
+                </button>
+            </div>
+            
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="message bot-message">
+                    <div class="message-content">
+                        <p>Hi! I'm MH Construction's AI assistant. How can I help with your construction project?</p>
+                    </div>
+                    <div class="message-time">Now</div>
+                </div>
+            </div>
+            
+            <div class="chatbot-input">
+                <input type="text" id="chatbot-input" placeholder="Type your question..." autocomplete="off">
+                <button id="chatbot-send" aria-label="Send Message">
+                    <i class="icon-send"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="js/firebase-config.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/chatbot.js"></script>
+</body>
+</html>

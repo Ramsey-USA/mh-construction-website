@@ -1,0 +1,114 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Public read access for website content
+    match /projects/{document} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.token.admin == true;
+    }
+    
+    match /blog_posts/{document} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.token.admin == true;
+    }
+    
+    match /team_members/{document} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.token.admin == true;
+    }
+    
+    match /services/{document} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.token.admin == true;
+    }
+    
+    match /awards/{document} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.token.admin == true;
+    }
+    
+    match /client_logos/{document} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.token.admin == true;
+    }
+    
+    match /testimonials/{document} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.token.admin == true;
+    }
+    
+    // Contact forms - write only for public, read for admins
+    match /contact_forms/{document} {
+      allow read: if request.auth != null && request.auth.token.admin == true;
+      allow create: if isValidContactForm();
+      allow update, delete: if false;
+    }
+    
+    // Project inquiries - similar to contact forms
+    match /project_inquiries/{document} {
+      allow read: if request.auth != null && request.auth.token.admin == true;
+      allow create: if isValidProjectInquiry();
+      allow update, delete: if false;
+    }
+    
+    // Chatbot conversations - special handling
+    match /chatbot_conversations/{document} {
+      allow read: if request.auth != null && request.auth.token.admin == true;
+      allow create: if isValidChatbotConversation();
+      allow update: if isValidChatbotUpdate(resource, request.resource);
+      allow delete: if false;
+    }
+    
+    // Analytics data - write only
+    match /analytics/{document} {
+      allow read: if request.auth != null && request.auth.token.admin == true;
+      allow create: if true;
+      allow update, delete: if false;
+    }
+    
+    // Helper functions
+    function isValidContactForm() {
+      let required = ['name', 'email', 'message', 'timestamp', 'source'];
+      let data = request.resource.data;
+      
+      return data.keys().hasAll(required) &&
+             data.name is string && data.name.size() > 0 &&
+             data.email is string && data.email.matches('.*@.*\\..*') &&
+             data.message is string && data.message.size() > 0 &&
+             data.timestamp is timestamp &&
+             data.source is string;
+    }
+    
+    function isValidProjectInquiry() {
+      let required = ['name', 'email', 'projectType', 'timestamp', 'source'];
+      let data = request.resource.data;
+      
+      return data.keys().hasAll(required) &&
+             data.name is string && data.name.size() > 0 &&
+             data.email is string && data.email.matches('.*@.*\\..*') &&
+             data.projectType is string &&
+             data.timestamp is timestamp &&
+             data.source is string;
+    }
+    
+    function isValidChatbotConversation() {
+      let required = ['conversationId', 'messages', 'timestamp'];
+      let data = request.resource.data;
+      
+      return data.keys().hasAll(required) &&
+             data.conversationId is string &&
+             data.messages is list &&
+             data.timestamp is timestamp;
+    }
+    
+    function isValidChatbotUpdate(resource, newResource) {
+      // Allow appending messages and updating lead status
+      let oldData = resource.data;
+      let newData = newResource.data;
+      
+      return newData.conversationId == oldData.conversationId &&
+             newData.messages.size() >= oldData.messages.size() &&
+             newData.timestamp is timestamp;
+    }
+  }
+}

@@ -1,0 +1,528 @@
+/* MH Construction - Responsive Design Styles */
+
+/* Mobile First Approach - Base styles for mobile devices */
+
+/* Extra Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  /* Typography adjustments */
+  :root {
+    --font-size-h1: 2rem;
+    --font-size-h2: 1.75rem;
+    --font-size-h3: 1.5rem;
+    --font-size-h4: 1.25rem;
+  }
+  
+  /* Container adjustments */
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  /* Navigation */
+  .nav-container {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background-color: var(--white);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: var(--spacing-xl) 0;
+    box-shadow: var(--shadow-card);
+    transform: translateX(-100%);
+    transition: transform var(--transition-medium);
+    z-index: 999;
+  }
+  
+  .nav-menu.active {
+    transform: translateX(0);
+  }
+  
+  .nav-toggle {
+    display: flex;
+  }
+  
+  .dropdown-menu {
+    position: static;
+    background: none;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    padding-left: var(--spacing-md);
+  }
+  
+  /* Hero section */
+  .hero-content {
+    padding: 0 var(--spacing-md);
+  }
+  
+  .hero-actions {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  
+  .hero-actions .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  /* Grid layouts */
+  .services-grid,
+  .projects-grid,
+  .values-grid,
+  .awards-grid,
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  /* Project filters */
+  .project-filters {
+    gap: var(--spacing-xs);
+  }
+  
+  .filter-btn {
+    font-size: var(--font-size-small);
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+  
+  /* Footer */
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+  
+  /* Chatbot adjustments */
+  .chatbot-container {
+    bottom: 15px;
+    right: 15px;
+  }
+  
+  .chatbot-button {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+  
+  .chatbot-window {
+    width: calc(100vw - 30px);
+    height: 70vh;
+    max-height: 500px;
+    bottom: 75px;
+    right: 15px;
+    left: 15px;
+  }
+  
+  /* About page specific */
+  .overview-content,
+  .experience-content {
+    flex-direction: column;
+  }
+  
+  .company-stats {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .mission-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .choose-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+  .chatbot-window {
+    width: 350px;
+    height: 500px;
+    right: 20px;
+    left: auto;
+  }
+  
+  .services-grid,
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+  
+  .mission-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  
+  .hero-actions {
+    flex-direction: row;
+  }
+  
+  .hero-actions .btn {
+    width: auto;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  /* Navigation restored to desktop style */
+  .nav-toggle {
+    display: none;
+  }
+  
+  .nav-menu {
+    position: static;
+    flex-direction: row;
+    height: auto;
+    background: none;
+    transform: none;
+    box-shadow: none;
+    padding: 0;
+  }
+  
+  .dropdown {
+    position: relative;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--white);
+    box-shadow: var(--shadow-card);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    padding: var(--spacing-sm);
+  }
+  
+  /* Typography scale up */
+  :root {
+    --font-size-h1: 3rem;
+    --font-size-h2: 2.25rem;
+    --font-size-h3: 1.875rem;
+    --font-size-h4: 1.5rem;
+  }
+  
+  /* Grid improvements */
+  .services-grid,
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .awards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  /* Footer improvements */
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  /* Chatbot improvements */
+  .chatbot-window {
+    width: 380px;
+    height: 580px;
+  }
+  
+  /* About page improvements */
+  .overview-content,
+  .experience-content {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-xl);
+  }
+  
+  .overview-text,
+  .experience-text {
+    flex: 1;
+  }
+  
+  .overview-image,
+  .experience-image {
+    flex: 1;
+  }
+  
+  .company-stats {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .mission-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .choose-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .certifications-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  /* Full typography scale */
+  :root {
+    --font-size-h1: 3.5rem;
+    --font-size-h2: 2.5rem;
+    --font-size-h3: 2rem;
+    --font-size-h4: 1.5rem;
+  }
+  
+  /* Enhanced grid layouts */
+  .services-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .values-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .choose-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .certifications-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  /* Footer full layout */
+  .footer-content {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  /* Chatbot optimal size */
+  .chatbot-window {
+    width: 400px;
+    height: 600px;
+  }
+  
+  /* Enhanced hover effects */
+  .nav-link:hover::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-green);
+    transform: scaleX(0);
+    transition: transform var(--transition-fast);
+  }
+  
+  .nav-link:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  /* Maximum container width */
+  .container {
+    max-width: var(--container-max-width);
+  }
+  
+  /* Enhanced layouts for large screens */
+  .hero-content {
+    max-width: 900px;
+  }
+  
+  .overview-content,
+  .experience-content {
+    gap: var(--spacing-xxl);
+  }
+  
+  /* Larger chatbot for desktop */
+  .chatbot-window {
+    width: 420px;
+    height: 650px;
+  }
+  
+  /* Enhanced team grid */
+  .team-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Extra large screens (1400px and up) */
+@media (min-width: 1400px) {
+  .hero-title {
+    font-size: 4.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 2rem;
+  }
+  
+  .section-title {
+    font-size: 3rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  /* Hide non-essential elements */
+  .chatbot-container,
+  .nav-toggle,
+  .hero-actions,
+  .cta-actions {
+    display: none !important;
+  }
+  
+  /* Optimize for print */
+  body {
+    font-size: 12pt;
+    line-height: 1.4;
+    color: black;
+    background: white;
+  }
+  
+  .container {
+    max-width: none;
+    padding: 0;
+  }
+  
+  /* Ensure page breaks */
+  section {
+    page-break-inside: avoid;
+  }
+  
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+  
+  /* Simplify layouts for print */
+  .services-grid,
+  .projects-grid,
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --primary-green: #000000;
+    --secondary-tan: #333333;
+    --white: #ffffff;
+    --light-gray: #f0f0f0;
+    --dark-gray: #000000;
+  }
+  
+  .btn {
+    border: 2px solid;
+  }
+  
+  .chatbot-button,
+  .chatbot-window {
+    border: 2px solid var(--dark-gray);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .chatbot-button {
+    animation: none;
+  }
+  
+  .parallax-bg {
+    transform: none !important;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --white: #1a1a1a;
+    --light-gray: #2d2d2d;
+    --dark-gray: #ffffff;
+    --chatbot-bg: #2d2d2d;
+    --chatbot-text: #ffffff;
+  }
+  
+  body {
+    background-color: var(--white);
+    color: var(--dark-gray);
+  }
+  
+  .chatbot-window {
+    background: var(--chatbot-bg);
+    color: var(--chatbot-text);
+  }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) and (max-height: 500px) {
+  .hero {
+    height: 100vh;
+  }
+  
+  .chatbot-window {
+    height: 80vh;
+    max-height: 400px;
+  }
+}
+
+/* Ultra-wide screen optimizations */
+@media (min-width: 1920px) {
+  .container {
+    max-width: 1400px;
+  }
+  
+  .hero-content {
+    max-width: 1000px;
+  }
+}
+
+/* Accessibility enhancements */
+@media (max-width: 768px) {
+  /* Larger touch targets for mobile */
+  .btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .nav-link {
+    padding: var(--spacing-md);
+  }
+  
+  .chatbot-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+  
+  /* Better spacing for readability */
+  p {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  /* Improved form inputs */
+  input, select, textarea {
+    min-height: 44px;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}
