@@ -6,7 +6,7 @@
   bottom: 20px;
   right: 20px;
   z-index: 9999;
-  font-family: var(--font-family);
+  font-family: 'Saira', 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
 
 /* Chatbot Button */
@@ -278,7 +278,7 @@
   border: 2px solid var(--army-khaki);
   border-radius: var(--border-radius-sm);
   font-size: var(--font-size-small);
-  font-family: var(--font-family);
+  font-family: 'Saira', 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .lead-form input:focus,
@@ -360,7 +360,7 @@
   border: 2px solid var(--army-khaki);
   border-radius: var(--border-radius);
   font-size: var(--font-size-chatbot);
-  font-family: var(--font-family);
+  font-family: 'Saira', 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
   background: var(--chatbot-bg);
 }
 

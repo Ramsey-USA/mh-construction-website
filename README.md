@@ -264,40 +264,36 @@ Color Palette
   --primary-green: #396851;      /* Original MH Green - KEEP UNCHANGED */
   --secondary-tan: #BD9264;      /* Original MH Tan - KEEP UNCHANGED */
   
-  /* Army-Inspired Supporting Colors */
-  --accent-red: #B22222;         /* Army Insignia Red */
-  --army-dark: #2F3B14;         /* Dark Army Green */
-  --army-light: #6B7A3D;        /* Light Army Green */
-  --army-khaki: #C3B091;        /* Army Khaki */
-  --army-brown: #5C4A3A;        /* Army Brown */
-  --army-camo: #8FBC8F;         /* Sage Green */
-  --army-olive: #4A5D23;        /* Army Olive */
+  /* Updated Army-Inspired Supporting Colors */
+  --army-gold: #ffcc01;         /* Army Gold */
+  --army-khaki: #F1E4C7;        /* Army Khaki */
+  --field-01: #727365;          /* Field Green 01 */
+  --field-02: #BFB8A6;          /* Field Green 02 */
+  --gray-01: #565557;           /* Gray 01 */
+  --gray-02: #D5D5D7;           /* Gray 02 */
+  --army-black: #221f20;        /* Army Black */
   
-  /* Base Colors with Army Inspiration */
+  /* Base Colors */
   --white: #ffffff;
-  --light-gray: #f5f5dc;        /* Beige/Off-white */
-  --medium-gray: #696969;       /* Dim Gray */
-  --dark-gray: #2F2F2F;         /* Charcoal */
-  --success-green: #556B2F;     /* Dark Olive Green */
   
   /* Chatbot Colors */
   --chatbot-primary: #396851;   /* Original MH Green */
   --chatbot-secondary: #BD9264; /* Original MH Tan */
-  --chatbot-text: #2F2F2F;      /* Dark Charcoal */
-  --chatbot-bg: #f5f5dc;        /* Light Beige */
+  --chatbot-text: #221f20;      /* Army Black */
+  --chatbot-bg: #F1E4C7;        /* Army Khaki */
 }
 ```
 
 Design Philosophy
 - **Brand Identity Preservation**: The original MH Construction primary green (#396851) and secondary tan (#BD9264) remain unchanged to maintain brand recognition and consistency
-- **Military Heritage**: Army-inspired supporting colors honor the veteran-owned nature of the company while complementing the existing brand palette
+- **Military Heritage**: Updated Army-inspired supporting colors honor the veteran-owned nature of the company with authentic military color palette
 - **Professional Construction Aesthetic**: The color scheme maintains the professional, trustworthy appearance expected in the construction industry
-- **Enhanced Visual Hierarchy**: Army colors provide additional options for accents, borders, and gradients without competing with the primary brand colors
+- **Enhanced Visual Hierarchy**: Army colors provide cohesive visual elements that complement the primary brand colors
 
 Typography
 /* Primary Font Stack */
 
-font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+font-family: 'Saira', 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 /* Font Sizes */
 
@@ -326,6 +322,8 @@ font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 --font-weight-semibold: 600;
 
 --font-weight-bold: 700;
+
+--font-weight-extrabold: 800;
 Layout Guidelines
 Container Max Width: 1200px
 Grid System: CSS Grid and Flexbox
@@ -784,3 +782,10 @@ For questions or support, contact MH Construction at (509) 308-6489 or office@mh
 ---
 
 **End of README - Ready for Development** 🚀
+
+### Project Filter Buttons Enhancement
+The project showcase filter buttons now feature:
+- **MH Tan lettering** (`--secondary-tan`) for brand consistency
+- **Enhanced readability** with bold font weight and proper spacing
+- **Smooth hover transitions** from tan to white text
+- **Consistent styling** with other brand elements
