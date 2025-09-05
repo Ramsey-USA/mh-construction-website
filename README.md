@@ -5,6 +5,9 @@
 
 This repository contains instructions for developing a professional website for MH Construction using HTML, CSS, and JavaScript. Follow these detailed specifications to create a modern, responsive, and user-friendly website.
 
+Project Overview
+This project is the official website for MH Construction, a veteran-owned company committed to building with honesty, integrity, and trust. The website is designed to be an immersive and engaging experience, showcasing our expertise and dedication to our clients.
+
 ## 🎯 Project Objectives
 
 Create a professional construction company website that:
@@ -89,9 +92,9 @@ mh-construction-website/
 ### Color Palette
 ```css
 :root {
-  --primary-blue: #2c5aa0;
-  --secondary-blue: #1e3d6f;
-  --accent-blue: #4a90e2;
+  --primary-green: #396851;
+  --secondary-tan: #BD9264;
+  --accent-red: #ff0000;
   --white: #ffffff;
   --light-gray: #f8f9fa;
   --medium-gray: #6c757d;
@@ -120,88 +123,42 @@ mh-construction-website/
 
 #### Required Sections:
 1. **Header/Navigation**
-   - Logo (MH Construction with tagline)
-   - Navigation menu: Home, About, Services, Projects, Contact
-   - Mobile hamburger menu
-   - Phone number prominently displayed
+   - Logo 
+   - Navigation menu will always be displayed as a hamburger menu: Our Company, Experience, Services, Projects, Bid Opportunities, Blog, Contact Us, Join the Team
+   - Social Media profiles: Facebook, LinkedIn, Instagram, YouTube
+   - Mobile hamburger menus
 
 2. **Hero Section**
-   - Full-width background image of construction site
-   - Overlay with company name and "Building Great Projects With Great People"
-   - Two CTA buttons: "Learn More" and "Contact Us"
-   - Scroll indicator
+   - Full-width background short, looping, video of a construction site's complete life cycle
+   - Overlay with "Building Great Projects With Great People"
 
-3. **Company Introduction**
-   - Headline: "Welcome to MH Construction - Built Right The First Time"
-   - Brief description emphasizing client focus and quality
-   - Key differentiators in bullet points or cards
+3. **Awards Section**
+   - Showcase last three awards using simple, clean card layout
+   - Once clicked card will flip displaying description
 
 4. **Services Overview**
-   - Grid layout with 6 service cards
-   - Icons for each service
-   - Brief description and "Learn More" links
+   - Brief description of our overall services
+   - Utilize a drop down menu for the different markets we serve: commercial, community, education, energy, environmental
+   - "Experience" button that leads to individual page with team information
 
 5. **Featured Projects**
-   - 3-4 project showcases with images
-   - Project categories and brief descriptions
-   - "View All Projects" CTA
+   - 6 project images as cards
+   - Cards flip when clicked to display a brief description
 
-6. **Client Testimonials**
-   - Rotating testimonial carousel
-   - Include provided testimonials from Selah School District, NAC Architecture, Windermere
+6. **Blog**
+   - Rotating blog carousel
 
-7. **Contact Section**
-   - Contact form
-   - Contact information
-   - Service area map
-
-8. **Footer**
+7. **Footer**
    - Company information
    - Quick links
-   - Social media links (if applicable)
+   - Social media links
    - Copyright notice
 
-#### HTML Structure Example:
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MH Construction - Your Trusted General Contractor</title>
-    <meta name="description" content="MH Construction provides professional commercial and industrial construction services throughout Washington, Oregon, and Idaho. Built Right The First Time.">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-</head>
-<body>
-    <header class="header">
-        <nav class="navbar">
-            <!-- Navigation implementation -->
-        </nav>
-    </header>
-    
-    <main>
-        <section class="hero">
-            <!-- Hero section implementation -->
-        </section>
-        
-        <section class="introduction">
-            <!-- Company introduction -->
-        </section>
-        
-        <!-- Additional sections -->
-    </main>
-    
-    <footer class="footer">
-        <!-- Footer implementation -->
-    </footer>
-    
-    <script src="js/main.js"></script>
-</body>
-</html>
-```
+8. **Chatbot**
+   - Provice helpful information on construction principles and methods
+   - Simple, non-blocking chat window
 
-### 2. About Page (about.html)
+### 2. Our Company | About Page (about.html)
 
 #### Required Content:
 1. **Page Header**
