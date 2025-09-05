@@ -137,6 +137,11 @@
   .choose-grid {
     grid-template-columns: 1fr;
   }
+  
+  .veteran-owned-btn {
+    font-size: 0.8rem;
+    padding: var(--spacing-xs) var(--spacing-xs);
+  }
 }
 
 /* Small devices (landscape phones, 576px and up) */
@@ -516,6 +521,16 @@
   }
   
   /* Better spacing for readability */
+  p {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  /* Improved form inputs */
+  input, select, textarea {
+    min-height: 44px;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+}
   p {
     margin-bottom: var(--spacing-md);
   }

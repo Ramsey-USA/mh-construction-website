@@ -430,12 +430,76 @@ blockquote {
   text-transform: uppercase;
   letter-spacing: 1px;
   font-size: 0.9rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.veteran-owned-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    #002868 0%,
+    #002868 7.69%,
+    #ffffff 7.69%,
+    #ffffff 15.38%,
+    #bf0a30 15.38%,
+    #bf0a30 23.07%,
+    #ffffff 23.07%,
+    #ffffff 30.76%,
+    #bf0a30 30.76%,
+    #bf0a30 38.45%,
+    #ffffff 38.45%,
+    #ffffff 46.14%,
+    #bf0a30 46.14%,
+    #bf0a30 53.83%,
+    #ffffff 53.83%,
+    #ffffff 61.52%,
+    #bf0a30 61.52%,
+    #bf0a30 69.21%,
+    #ffffff 69.21%,
+    #ffffff 76.9%,
+    #bf0a30 76.9%,
+    #bf0a30 84.59%,
+    #ffffff 84.59%,
+    #ffffff 92.28%,
+    #bf0a30 92.28%,
+    #bf0a30 100%
+  );
+  transition: all var(--transition-medium);
+  z-index: -1;
+}
+
+.veteran-owned-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 35%;
+  height: 100%;
+  background: #002868;
+  transform: translateX(-100%);
+  transition: all var(--transition-medium);
+  z-index: -1;
 }
 
 .veteran-owned-btn:hover {
-  background: linear-gradient(135deg, #e6b800, var(--army-gold));
+  color: var(--white);
+  border-color: #002868;
   transform: scale(1.05);
-  box-shadow: 0 4px 8px rgba(255, 204, 1, 0.3);
+  box-shadow: 0 4px 8px rgba(0, 40, 104, 0.3);
+}
+
+.veteran-owned-btn:hover::before {
+  left: 0;
+}
+
+.veteran-owned-btn:hover::after {
+  transform: translateX(0);
 }
 
 .nav-toggle {
@@ -507,7 +571,7 @@ blockquote {
 .dropdown-menu a {
   display: block;
   padding: var(--spacing-md);
-  color: var(--army-black);
+  color: var(--army-gold);
 }
 
 .dropdown-menu a:hover {
@@ -1931,87 +1995,6 @@ a:focus {
     transition-duration: 0.01ms !important;
   }
 }
-.office-hours h3 {
-  color: var(--primary-green);
-  font-weight: var(--font-weight-bold);
-  margin-bottom: var(--spacing-lg);
-}
-
-.hours-grid {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-}
-
-.hours-day {
-  display: flex;
-  justify-content: space-between;
-  padding: var(--spacing-sm) 0;
-  border-bottom: 1px solid var(--gray-02);
-  color: var(--army-black);
-  font-weight: var(--font-weight-medium);
-}
-
-.hours-day:last-child {
-  border-bottom: none;
-}
-
-.hours-day span:first-child {
-  font-weight: var(--font-weight-semibold);
-}
-
-/* Responsive Contact Page */
-@media (max-width: 768px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-xl);
-  }
-  
-  .form-row {
-    grid-template-columns: 1fr;
-  }
-  
-  .checkbox-group {
-    grid-template-columns: 1fr;
-  }
-  
-  .contact-methods-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .emergency-card {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .map-stats {
-    flex-direction: column;
-    gap: var(--spacing-lg);
-  }
-}
-
-/* Reading experience improvements */
-.readable-content {
-  max-width: 65ch;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.readable-content p {
-  margin-bottom: var(--spacing-lg);
-}
-
-.readable-content h2,
-.readable-content h3,
-.readable-content h4 {
-  margin-top: var(--spacing-xl);
-  margin-bottom: var(--spacing-md);
-}
-
-/* Enhanced focus states for accessibility */
-*:focus {
-  outline: 2px solid var(--primary-green);
-  outline-offset: 2px;
 }
 
 a:focus {
@@ -2023,6 +2006,23 @@ a:focus {
 
 /* High contrast mode adjustments */
 @media (prefers-contrast: high) {
+  p, li {
+    color: var(--army-black);
+  }
+  
+  .text-muted {
+    color: var(--army-black);
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
   p, li {
     color: var(--army-black);
   }
