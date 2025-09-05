@@ -471,6 +471,203 @@ function initializeContactForms() {
     });
 }
 
+// Services Carousel
+document.addEventListener('DOMContentLoaded', function() {
+    const carouselTrack = document.getElementById('carousel-track');
+    const carouselPrev = document.getElementById('carousel-prev');
+    const carouselNext = document.getElementById('carousel-next');
+    const indicators = document.querySelectorAll('.indicator');
+    const cards = document.querySelectorAll('.service-carousel-card');
+    
+    let currentSlide = 0;
+    const totalSlides = cards.length;
+    let isTransitioning = false; // Prevent rapid clicking
+    
+    // Auto-advance carousel with consistent timing
+    let autoAdvanceInterval;
+    const autoAdvanceDelay = 6000; // 6 seconds for better user experience
+    
+    function updateCarousel(smooth = true) {
+        if (isTransitioning) return;
+        
+        isTransitioning = true;
+        
+        // Calculate the exact position
+        const translateX = -currentSlide * 100;
+        
+        // Apply the transform
+        if (carouselTrack) {
+            carouselTrack.style.transform = `translateX(${translateX}%)`;
+        }
+        
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentSlide);
+        });
+        
+        // Update card active state
+        cards.forEach((card, index) => {
+            card.classList.toggle('active', index === currentSlide);
+        });
+        
+        // Reset transition flag after animation completes
+        setTimeout(() => {
+            isTransitioning = false;
+        }, 600); // Match CSS transition duration
+    }
+    
+    function nextSlide() {
+        if (isTransitioning) return;
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateCarousel();
+    }
+    
+    function prevSlide() {
+        if (isTransitioning) return;
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+    }
+    
+    function goToSlide(slideIndex) {
+        if (isTransitioning || slideIndex === currentSlide) return;
+        currentSlide = slideIndex;
+        updateCarousel();
+    }
+    
+    // Event listeners with debouncing
+    if (carouselNext) {
+        carouselNext.addEventListener('click', (e) => {
+            e.preventDefault();
+            nextSlide();
+            resetAutoAdvance();
+        });
+    }
+    
+    if (carouselPrev) {
+        carouselPrev.addEventListener('click', (e) => {
+            e.preventDefault();
+            prevSlide();
+            resetAutoAdvance();
+        });
+    }
+    
+    // Indicator clicks
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', (e) => {
+            e.preventDefault();
+            goToSlide(index);
+            resetAutoAdvance();
+        });
+    });
+    
+    // Auto-advance functionality
+    function startAutoAdvance() {
+        autoAdvanceInterval = setInterval(() => {
+            if (!isTransitioning) {
+                nextSlide();
+            }
+        }, autoAdvanceDelay);
+    }
+    
+    function stopAutoAdvance() {
+        if (autoAdvanceInterval) {
+            clearInterval(autoAdvanceInterval);
+            autoAdvanceInterval = null;
+        }
+    }
+    
+    function resetAutoAdvance() {
+        stopAutoAdvance();
+        setTimeout(startAutoAdvance, 1500); // Longer delay for user interaction
+    }
+    
+    // Pause auto-advance on hover
+    const carouselContainer = document.querySelector('.carousel-container');
+    if (carouselContainer) {
+        carouselContainer.addEventListener('mouseenter', stopAutoAdvance);
+        carouselContainer.addEventListener('mouseleave', () => {
+            setTimeout(startAutoAdvance, 1000);
+        });
+    }
+    
+    // Enhanced touch/swipe support with better handling
+    let startX = 0;
+    let currentX = 0;
+    let isDragging = false;
+    let touchStartTime = 0;
+    
+    if (carouselContainer) {
+        carouselContainer.addEventListener('touchstart', (e) => {
+            if (isTransitioning) return;
+            
+            startX = e.touches[0].clientX;
+            touchStartTime = Date.now();
+            isDragging = true;
+            stopAutoAdvance();
+        }, { passive: true });
+        
+        carouselContainer.addEventListener('touchmove', (e) => {
+            if (!isDragging || isTransitioning) return;
+            currentX = e.touches[0].clientX;
+        }, { passive: true });
+        
+        carouselContainer.addEventListener('touchend', () => {
+            if (!isDragging || isTransitioning) return;
+            
+            const diffX = startX - currentX;
+            const diffTime = Date.now() - touchStartTime;
+            const threshold = 60;
+            const speedThreshold = 400;
+            
+            if (Math.abs(diffX) > threshold && diffTime < speedThreshold) {
+                if (diffX > 0) {
+                    nextSlide();
+                } else {
+                    prevSlide();
+                }
+            }
+            
+            isDragging = false;
+            setTimeout(startAutoAdvance, 2000);
+        }, { passive: true });
+    }
+    
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+        if (isTransitioning) return;
+        
+        if (document.activeElement.closest('.carousel-container')) {
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+                resetAutoAdvance();
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                nextSlide();
+                resetAutoAdvance();
+            }
+        }
+    });
+    
+    // Initialize carousel
+    if (carouselTrack && cards.length > 0) {
+        // Ensure proper initial state
+        updateCarousel(false);
+        
+        // Start auto-advance after page loads
+        setTimeout(startAutoAdvance, 2000);
+    }
+    
+    // Handle visibility changes to pause/resume auto-advance
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'hidden') {
+            stopAutoAdvance();
+        } else if (document.visibilityState === 'visible') {
+            setTimeout(startAutoAdvance, 1000);
+        }
+    });
+});
+
 // Utility functions
 function showSuccessMessage(form, message) {
     const messageEl = document.createElement('div');

@@ -71,7 +71,7 @@
 
 .stat-label {
   font-size: var(--font-size-small);
-  color: var(--medium-gray);
+  color: var(--gray-01);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -351,7 +351,7 @@
 
 .certification-card p {
   font-size: var(--font-size-small);
-  color: var(--medium-gray);
+  color: var(--gray-01);
 }
 
 /* Why Choose */
@@ -466,7 +466,7 @@
 .no-posts,
 .team-placeholder {
   text-align: center;
-  color: var(--medium-gray);
+  color: var(--gray-01);
   font-style: italic;
   padding: var(--spacing-xl);
   background: var(--light-gray);

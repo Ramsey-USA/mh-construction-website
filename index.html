@@ -224,14 +224,81 @@
             <h2 class="section-title">Featured Projects</h2>
             <p class="section-subtitle">Showcasing our commitment to excellence and quality craftsmanship</p>
             
-            <div class="project-filters">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="commercial">Commercial</button>
-                <button class="filter-btn" data-filter="medical">Medical</button>
-                <button class="filter-btn" data-filter="religious">Religious</button>
-                <button class="filter-btn" data-filter="winery">Wineries</button>
-                <button class="filter-btn" data-filter="industrial">Industrial</button>
-                <button class="filter-btn" data-filter="tenant">Tenant Improvements</button>
+            <div class="services-carousel">
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carousel-track">
+                        <div class="service-carousel-card active" data-service="commercial">
+                            <div class="service-icon">
+                                <i class="icon-building">🏢</i>
+                            </div>
+                            <h3>Commercial Businesses</h3>
+                            <p>Professional office buildings and retail spaces designed for modern business needs</p>
+                            <a href="services.html#commercial" class="btn btn-outline">View Commercial Projects</a>
+                        </div>
+                        
+                        <div class="service-carousel-card" data-service="medical">
+                            <div class="service-icon">
+                                <i class="icon-medical">🏥</i>
+                            </div>
+                            <h3>Medical Facilities</h3>
+                            <p>Healthcare and medical office construction with specialized compliance requirements</p>
+                            <a href="services.html#medical" class="btn btn-outline">View Medical Projects</a>
+                        </div>
+                        
+                        <div class="service-carousel-card" data-service="religious">
+                            <div class="service-icon">
+                                <i class="icon-church">⛪</i>
+                            </div>
+                            <h3>Religious Facilities</h3>
+                            <p>Churches and community worship centers built with reverence and attention to detail</p>
+                            <a href="services.html#religious" class="btn btn-outline">View Religious Projects</a>
+                        </div>
+                        
+                        <div class="service-carousel-card" data-service="winery">
+                            <div class="service-icon">
+                                <i class="icon-wine">🍷</i>
+                            </div>
+                            <h3>Wineries & Vineyards</h3>
+                            <p>Agricultural and wine production facilities that blend functionality with aesthetic appeal</p>
+                            <a href="services.html#wineries" class="btn btn-outline">View Winery Projects</a>
+                        </div>
+                        
+                        <div class="service-carousel-card" data-service="industrial">
+                            <div class="service-icon">
+                                <i class="icon-factory">🏭</i>
+                            </div>
+                            <h3>Industrial Buildings</h3>
+                            <p>Manufacturing and warehouse construction engineered for efficiency and safety</p>
+                            <a href="services.html#industrial" class="btn btn-outline">View Industrial Projects</a>
+                        </div>
+                        
+                        <div class="service-carousel-card" data-service="tenant">
+                            <div class="service-icon">
+                                <i class="icon-renovation">🔧</i>
+                            </div>
+                            <h3>Tenant Improvements</h3>
+                            <p>Interior renovations and space modifications that transform existing spaces</p>
+                            <a href="services.html#tenant" class="btn btn-outline">View Improvement Projects</a>
+                        </div>
+                    </div>
+                    
+                    <button class="carousel-btn carousel-prev" id="carousel-prev" aria-label="Previous service">
+                        <i class="icon-chevron-left">❮</i>
+                    </button>
+                    
+                    <button class="carousel-btn carousel-next" id="carousel-next" aria-label="Next service">
+                        <i class="icon-chevron-right">❯</i>
+                    </button>
+                </div>
+                
+                <div class="carousel-indicators" id="carousel-indicators">
+                    <button class="indicator active" data-slide="0" aria-label="Go to slide 1"></button>
+                    <button class="indicator" data-slide="1" aria-label="Go to slide 2"></button>
+                    <button class="indicator" data-slide="2" aria-label="Go to slide 3"></button>
+                    <button class="indicator" data-slide="3" aria-label="Go to slide 4"></button>
+                    <button class="indicator" data-slide="4" aria-label="Go to slide 5"></button>
+                    <button class="indicator" data-slide="5" aria-label="Go to slide 6"></button>
+                </div>
             </div>
             
             <div class="projects-grid" id="projects-grid">
@@ -484,5 +551,4 @@
     <script src="js/gallery.js"></script>
     <script src="js/chatbot.js"></script>
 </body>
-</html>
 </html>
