@@ -1,106 +1,106 @@
-// About Page Functionality
+// MH Construction - About Page Functionality
 
-document.addEventListener('DOMContentLoaded', function() {
-    initializeAboutPage();
-});
-
-async function initializeAboutPage() {
-    try {
-        await Promise.all([
-            loadTeamMembers(),
-            initializeCounterAnimations(),
-            initializeValuesAccordion(),
-            initializeCertifications()
-        ]);
-    } catch (error) {
-        console.error('Error initializing about page:', error);
+class AboutPage {
+    constructor() {
+        this.init();
     }
-}
 
-// Load team members from Firebase
-async function loadTeamMembers() {
-    try {
-        const teamGrid = document.getElementById('team-grid');
-        if (!teamGrid) return;
-        
-        const teamMembers = await FirebaseUtils.getCollection(collections.teamMembers);
-        
-        if (teamMembers.length === 0) {
-            teamGrid.innerHTML = `
-                <div class="team-placeholder">
-                    <p>Team member profiles coming soon...</p>
-                </div>
-            `;
-            return;
-        }
-        
-        teamGrid.innerHTML = teamMembers.map(member => `
-            <div class="team-card">
-                <div class="team-image">
-                    <img src="${member.imageUrl || 'images/team/placeholder-person.jpg'}" 
-                         alt="${member.name}" 
-                         loading="lazy"
-                         onerror="this.src='images/team/placeholder-person.jpg'">
-                </div>
-                <div class="team-info">
-                    <h3 class="team-name">${member.name}</h3>
-                    <span class="team-title">${member.title}</span>
-                    <p class="team-bio">${member.bio || ''}</p>
-                    <div class="team-credentials">
-                        ${member.credentials ? member.credentials.map(cred => 
-                            `<span class="credential">${cred}</span>`
-                        ).join('') : ''}
-                    </div>
-                    ${member.email ? `
-                        <div class="team-contact">
-                            <a href="mailto:${member.email}" class="team-email">
-                                <i class="icon-email">📧</i> Contact
-                            </a>
-                        </div>
-                    ` : ''}
-                </div>
-            </div>
-        `).join('');
-        
-        // Add animation to team cards
-        const teamCards = document.querySelectorAll('.team-card');
-        teamCards.forEach((card, index) => {
-            card.style.animationDelay = `${index * 0.1}s`;
-            card.classList.add('animate-fade-in');
+    init() {
+        this.setupScrollAnimations();
+        this.setupValueCards();
+        this.setupStatsCounter();
+    }
+
+    setupScrollAnimations() {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe sections for animation
+        const sections = document.querySelectorAll('.company-overview, .veteran-story, .leadership-team, .certifications, .why-choose-us');
+        sections.forEach(section => {
+            observer.observe(section);
         });
-        
-    } catch (error) {
-        console.error('Error loading team members:', error);
-        const teamGrid = document.getElementById('team-grid');
-        if (teamGrid) {
-            teamGrid.innerHTML = '<p class="error-message">Unable to load team information.</p>';
-        }
     }
-}
 
-// Initialize counter animations for statistics
-function initializeCounterAnimations() {
-    const counters = document.querySelectorAll('.stat-number[data-count]');
-    
-    const observerOptions = {
-        threshold: 0.5,
-        rootMargin: '0px'
-    };
-    
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                animateCounter(entry.target);
-                observer.unobserve(entry.target);
+    setupValueCards() {
+        const valueCards = document.querySelectorAll('.value-card');
+        
+        valueCards.forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('flipped');
+            });
+
+            // Add keyboard support
+            card.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    card.classList.toggle('flipped');
+                }
+            });
+
+            // Make cards focusable
+            card.setAttribute('tabindex', '0');
+            card.setAttribute('role', 'button');
+            card.setAttribute('aria-label', 'Click to learn more about this value');
+        });
+    }
+
+    setupStatsCounter() {
+        const stats = document.querySelectorAll('.stat h3');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    this.animateCounter(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        stats.forEach(stat => {
+            observer.observe(stat);
+        });
+    }
+
+    animateCounter(element) {
+        const text = element.textContent;
+        const hasPlus = text.includes('+');
+        const hasPercent = text.includes('%');
+        const number = parseInt(text.replace(/[+%]/g, ''));
+        
+        let current = 0;
+        const increment = number / 60; // Animate over ~1 second at 60fps
+        
+        const timer = setInterval(() => {
+            current += increment;
+            
+            if (current >= number) {
+                current = number;
+                clearInterval(timer);
             }
-        });
-    }, observerOptions);
-    
-    counters.forEach(counter => {
-        observer.observe(counter);
-    });
+            
+            let displayText = Math.floor(current).toString();
+            if (hasPlus) displayText += '+';
+            if (hasPercent) displayText += '%';
+            
+            element.textContent = displayText;
+        }, 16);
+    }
 }
 
+// Initialize About page functionality
+document.addEventListener('DOMContentLoaded', () => {
+    new AboutPage();
+});
 function animateCounter(element) {
     const target = parseInt(element.dataset.count);
     const duration = 2000; // 2 seconds

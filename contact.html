@@ -3,84 +3,126 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Contact MH Construction for your construction project. Call (509) 308-6489 or visit our Pasco, WA office. Serving WA, OR, ID.">
-    <title>Contact MH Construction - Get Your Free Quote | (509) 308-6489</title>
+    <meta name="description" content="Contact MH Construction - Get your free quote for commercial, medical, religious, winery, industrial construction services in WA, OR, ID.">
+    <title>Contact MH Construction | Free Quote & Consultation</title>
     
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/chatbot.css">
-    
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-storage-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-functions-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-analytics-compat.js"></script>
-    
-    <!-- Google reCAPTCHA -->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Header Navigation -->
     <header class="header" id="header">
-        <!-- ...existing navigation code... -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <img src="images/logo.png" alt="MH Construction Logo" class="logo">
+                    <span class="company-name">MH Construction</span>
+                    <button class="veteran-owned-btn">Veteran Owned</button>
+                </div>
+                
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="contact.html" class="nav-link active">Contact</a></li>
+                </ul>
+                
+                <button class="nav-toggle" id="nav-toggle">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+        </nav>
     </header>
 
     <!-- Contact Hero -->
     <section class="page-hero" id="hero">
         <div class="container">
             <h1>Contact MH Construction</h1>
-            <p class="lead">Ready to start your construction project? Get in touch with our team today.</p>
+            <p class="lead">Ready to start your construction project? Get in touch for a free consultation.</p>
         </div>
     </section>
 
-    <!-- Contact Main -->
-    <section class="contact-main" id="contact-main">
+    <!-- Contact Information Overview -->
+    <section class="contact-overview" id="contact-overview">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-subtitle">Multiple ways to connect with our construction experts</p>
+            
+            <div class="contact-methods-grid">
+                <div class="contact-method-card">
+                    <div class="method-icon">📞</div>
+                    <h3>Call Us</h3>
+                    <p>Speak directly with our team</p>
+                    <a href="tel:+15093086489" class="contact-link">(509) 308-6489</a>
+                    <p class="method-note">Mon-Fri: 8:00 AM - 5:00 PM</p>
+                </div>
+                
+                <div class="contact-method-card">
+                    <div class="method-icon">✉️</div>
+                    <h3>Email Us</h3>
+                    <p>Send us your project details</p>
+                    <a href="mailto:office@mhc-gc.com" class="contact-link">office@mhc-gc.com</a>
+                    <p class="method-note">Response within 24 hours</p>
+                </div>
+                
+                <div class="contact-method-card">
+                    <div class="method-icon">📍</div>
+                    <h3>Visit Us</h3>
+                    <p>Stop by our office</p>
+                    <address class="contact-link">
+                        3111 N Capitol Ave<br>
+                        Pasco, WA 99301
+                    </address>
+                    <p class="method-note">By appointment preferred</p>
+                </div>
+                
+                <div class="contact-method-card">
+                    <div class="method-icon">💬</div>
+                    <h3>Live Chat</h3>
+                    <p>Instant consultation available</p>
+                    <button class="contact-link chat-trigger">Start Chat</button>
+                    <p class="method-note">AI-powered assistance 24/7</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Contact Form -->
+    <section class="contact-main" id="contact-form">
         <div class="container">
             <div class="contact-grid">
-                <div class="contact-info">
-                    <h2>Get In Touch</h2>
-                    <p class="lead">We're here to help bring your construction vision to life.</p>
+                <div class="contact-info-section">
+                    <h2>Project Consultation</h2>
+                    <p class="lead">Let's discuss your construction project and provide you with a detailed estimate.</p>
                     
-                    <div class="contact-methods">
-                        <div class="contact-method">
-                            <div class="method-icon">📞</div>
-                            <div class="method-details">
-                                <h3>Phone</h3>
-                                <a href="tel:+15093086489">(509) 308-6489</a>
-                                <p>Monday - Friday, 8:00 AM - 5:00 PM</p>
-                            </div>
+                    <div class="consultation-benefits">
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Free initial consultation</span>
                         </div>
-                        
-                        <div class="contact-method">
-                            <div class="method-icon">✉️</div>
-                            <div class="method-details">
-                                <h3>Email</h3>
-                                <a href="mailto:office@mhc-gc.com">office@mhc-gc.com</a>
-                                <p>We respond within 24 hours</p>
-                            </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Detailed project estimate</span>
                         </div>
-                        
-                        <div class="contact-method">
-                            <div class="method-icon">📍</div>
-                            <div class="method-details">
-                                <h3>Office</h3>
-                                <address>
-                                    3111 N Capitol Ave<br>
-                                    Pasco, WA 99301
-                                </address>
-                                <p>By appointment</p>
-                            </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Timeline and budget planning</span>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Expert recommendations</span>
                         </div>
                     </div>
-                    
+
                     <div class="office-hours">
                         <h3>Business Hours</h3>
                         <div class="hours-grid">
@@ -90,31 +132,35 @@
                             </div>
                             <div class="hours-day">
                                 <span>Saturday</span>
-                                <span>By Appointment</span>
+                                <span>9:00 AM - 2:00 PM</span>
                             </div>
                             <div class="hours-day">
                                 <span>Sunday</span>
                                 <span>Closed</span>
                             </div>
+                            <div class="hours-day">
+                                <span>Emergency</span>
+                                <span>24/7 Available</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="enhanced-contact-form">
-                    <form id="contact-form" data-contact-form>
+                    <h3>Request Your Free Quote</h3>
+                    <form id="contact-form" class="contact-form">
                         <div class="form-section">
-                            <h3>Project Information</h3>
+                            <h4>Contact Information</h4>
                             <div class="form-row">
                                 <div class="form-group">
-                                    <label for="name">Full Name *</label>
-                                    <input type="text" id="name" name="name" required>
+                                    <label for="firstName">First Name *</label>
+                                    <input type="text" id="firstName" name="firstName" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="company">Company</label>
-                                    <input type="text" id="company" name="company">
+                                    <label for="lastName">Last Name *</label>
+                                    <input type="text" id="lastName" name="lastName" required>
                                 </div>
                             </div>
-                            
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="email">Email Address *</label>
@@ -125,88 +171,151 @@
                                     <input type="tel" id="phone" name="phone" required>
                                 </div>
                             </div>
-                            
+                        </div>
+
+                        <div class="form-section">
+                            <h4>Project Details</h4>
                             <div class="form-group">
-                                <label for="project-type">Project Type</label>
-                                <select id="project-type" name="projectType">
+                                <label for="projectType">Project Type *</label>
+                                <select id="projectType" name="projectType" required>
                                     <option value="">Select Project Type</option>
-                                    <option value="commercial">Commercial</option>
-                                    <option value="medical">Medical Facility</option>
-                                    <option value="religious">Religious Facility</option>
-                                    <option value="winery">Winery</option>
-                                    <option value="industrial">Industrial</option>
-                                    <option value="tenant">Tenant Improvement</option>
+                                    <option value="commercial">Commercial Construction</option>
+                                    <option value="medical">Medical Facilities</option>
+                                    <option value="religious">Religious Facilities</option>
+                                    <option value="winery">Wineries & Vineyards</option>
+                                    <option value="industrial">Industrial Buildings</option>
+                                    <option value="tenant">Tenant Improvements</option>
                                     <option value="other">Other</option>
                                 </select>
                             </div>
-                            
-                            <div class="form-group">
-                                <label for="budget">Estimated Budget</label>
-                                <select id="budget" name="budget">
-                                    <option value="">Select Budget Range</option>
-                                    <option value="under-100k">Under $100,000</option>
-                                    <option value="100k-500k">$100,000 - $500,000</option>
-                                    <option value="500k-1m">$500,000 - $1,000,000</option>
-                                    <option value="1m-5m">$1,000,000 - $5,000,000</option>
-                                    <option value="over-5m">Over $5,000,000</option>
-                                </select>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="projectSize">Estimated Project Size</label>
+                                    <select id="projectSize" name="projectSize">
+                                        <option value="">Select Size Range</option>
+                                        <option value="small">Under 5,000 sq ft</option>
+                                        <option value="medium">5,000 - 25,000 sq ft</option>
+                                        <option value="large">25,000 - 100,000 sq ft</option>
+                                        <option value="xlarge">Over 100,000 sq ft</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="budget">Estimated Budget</label>
+                                    <select id="budget" name="budget">
+                                        <option value="">Select Budget Range</option>
+                                        <option value="100k">Under $100,000</option>
+                                        <option value="500k">$100,000 - $500,000</option>
+                                        <option value="1m">$500,000 - $1,000,000</option>
+                                        <option value="5m">$1,000,000 - $5,000,000</option>
+                                        <option value="5m+">Over $5,000,000</option>
+                                    </select>
+                                </div>
                             </div>
-                            
                             <div class="form-group">
                                 <label for="timeline">Desired Timeline</label>
                                 <select id="timeline" name="timeline">
                                     <option value="">Select Timeline</option>
-                                    <option value="asap">ASAP</option>
-                                    <option value="1-3months">1-3 months</option>
-                                    <option value="3-6months">3-6 months</option>
-                                    <option value="6-12months">6-12 months</option>
-                                    <option value="over-1year">Over 1 year</option>
+                                    <option value="immediate">Immediate (Within 1 month)</option>
+                                    <option value="short">1-3 months</option>
+                                    <option value="medium">3-6 months</option>
+                                    <option value="long">6+ months</option>
+                                    <option value="planning">Still in planning phase</option>
                                 </select>
                             </div>
-                        </div>
-                        
-                        <div class="form-section">
-                            <h3>Project Details</h3>
                             <div class="form-group">
-                                <label for="message">Project Description *</label>
-                                <textarea id="message" name="message" rows="6" required placeholder="Please describe your construction project, including size, scope, and any specific requirements..."></textarea>
-                                <div class="character-counter">
-                                    <span id="char-count">0</span>/1000 characters
-                                </div>
+                                <label for="projectDescription">Project Description *</label>
+                                <textarea id="projectDescription" name="projectDescription" rows="4" 
+                                         placeholder="Please describe your project, including any specific requirements or goals..." required></textarea>
                             </div>
                         </div>
-                        
+
                         <div class="form-section">
-                            <div class="checkbox-item consent">
-                                <input type="checkbox" id="consent" name="consent" required>
-                                <label for="consent">I agree to be contacted by MH Construction regarding my project inquiry. *</label>
+                            <h4>Additional Information</h4>
+                            <div class="form-group">
+                                <label for="projectLocation">Project Location</label>
+                                <input type="text" id="projectLocation" name="projectLocation" 
+                                       placeholder="City, State">
+                            </div>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="services[]" value="design">
+                                    <span class="checkmark"></span>
+                                    Design/Build Services
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="services[]" value="permitting">
+                                    <span class="checkmark"></span>
+                                    Permitting Assistance
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="services[]" value="financing">
+                                    <span class="checkmark"></span>
+                                    Financing Options
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="newsletter" value="yes">
+                                    <span class="checkmark"></span>
+                                    Subscribe to project updates
+                                </label>
                             </div>
                         </div>
-                        
-                        <button type="submit" class="btn btn-primary btn-large">Send Project Inquiry</button>
+
+                        <button type="submit" class="btn btn-primary btn-large">
+                            <i class="fas fa-paper-plane"></i>
+                            Send My Request
+                        </button>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Service Area Map -->
-    <section class="location-map" id="map">
+    <!-- Service Areas Map -->
+    <section class="location-map" id="location">
         <div class="container">
             <h2 class="section-title">Our Service Area</h2>
             <p class="section-subtitle">Proudly serving Washington, Oregon, and Idaho</p>
+            
             <div class="map-container">
                 <div class="map-placeholder">
                     <div class="map-content">
-                        <h3>Service Area Coverage</h3>
-                        <p>Washington • Oregon • Idaho</p>
+                        <h3>Pacific Northwest Coverage</h3>
+                        <p>Professional construction services across three states</p>
+                        <div class="map-stats">
+                            <div class="map-stat">
+                                <strong>200+</strong>
+                                <span>Miles Radius</span>
+                            </div>
+                            <div class="map-stat">
+                                <strong>50+</strong>
+                                <span>Cities Served</span>
+                            </div>
+                            <div class="map-stat">
+                                <strong>3</strong>
+                                <span>States</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer with Social Media Icons -->
+    <!-- Emergency Contact -->
+    <section class="emergency-contact" id="emergency">
+        <div class="container">
+            <div class="emergency-card">
+                <div class="emergency-icon">🚨</div>
+                <div class="emergency-content">
+                    <h3>Emergency Construction Services</h3>
+                    <p>24/7 emergency response for urgent construction needs, structural issues, or weather-related damage.</p>
+                    <a href="tel:+15093086489" class="btn btn-secondary">Emergency Hotline: (509) 308-6489</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer class="footer" id="footer">
         <div class="container">
             <div class="footer-content">
@@ -215,7 +324,7 @@
                         <img src="images/logo.png" alt="MH Construction Logo">
                         <span>MH Construction</span>
                     </div>
-                    <p>Your trusted general contractor serving Washington, Oregon, and Idaho.</p>
+                    <p>Your trusted general contractor serving Washington, Oregon, and Idaho with over 150 years of combined experience.</p>
                     <div class="social-links">
                         <a href="https://www.facebook.com/mhconstruction" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook">
                             <i class="fab fa-facebook-f"></i>
@@ -231,108 +340,69 @@
                         </a>
                     </div>
                 </div>
-                <!-- ...existing footer sections... -->
-            </div>
-            <!-- ...existing footer bottom... -->
-        </div>
-    </footer>
-
-    <!-- JavaScript Files -->
-    <script src="js/firebase-config.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/navigation.js"></script>
-    <script src="js/contact-form.js"></script>
-    <script src="js/chatbot.js"></script>
-</body>
-</html>
-                                    <label for="project-files" class="file-upload-label">
-                                        <span>📎 Upload plans, drawings, or reference images</span>
-                                        <small>Accepted formats: PDF, DOC, JPG, PNG, DWG (Max 10MB each)</small>
-                                    </label>
-                                </div>
-                            </div>
-                            
-                            <!-- reCAPTCHA -->
-                            <div class="form-section">
-                                <div class="g-recaptcha" data-sitekey="your-recaptcha-site-key"></div>
-                            </div>
-                            
-                            <!-- Consent -->
-                            <div class="form-section">
-                                <div class="checkbox-item consent">
-                                    <input type="checkbox" id="consent" name="consent" required>
-                                    <label for="consent">
-                                        I agree to be contacted by MH Construction regarding my project inquiry. I understand that my information will be kept confidential and used only for this purpose. *
-                                    </label>
-                                </div>
-                            </div>
-                            
-                            <button type="submit" class="btn btn-primary btn-large">
-                                Send Project Inquiry
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Location Map -->
-    <section class="location-map" id="location-map">
-        <div class="container">
-            <h2 class="section-title">Our Location</h2>
-            <div class="map-container">
-                <div class="map-placeholder" id="google-map">
-                    <div class="map-content">
-                        <h3>📍 MH Construction Office</h3>
-                        <p>3111 N Capitol Ave, Pasco, WA 99301</p>
-                        <p>Interactive map will load here</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Subcontractor Information -->
-    <section class="subcontractor-info" id="subcontractor">
-        <div class="container">
-            <div class="subcontractor-content">
-                <h2>Subcontractor Opportunities</h2>
-                <p class="lead">We're always looking for qualified subcontractors to join our network of trusted partners.</p>
                 
-                <div class="subcontractor-requirements">
-                    <h3>Requirements for Subcontractors:</h3>
+                <div class="footer-section">
+                    <h3>Services</h3>
                     <ul>
-                        <li>Valid contractor's license in WA, OR, or ID</li>
-                        <li>Current general liability insurance ($1M minimum)</li>
-                        <li>Workers' compensation coverage</li>
-                        <li>Proven track record of quality work</li>
-                        <li>Commitment to safety standards</li>
-                        <li>Professional references available</li>
+                        <li><a href="services.html#commercial">Commercial Construction</a></li>
+                        <li><a href="services.html#medical">Medical Facilities</a></li>
+                        <li><a href="services.html#religious">Religious Facilities</a></li>
+                        <li><a href="services.html#wineries">Wineries & Vineyards</a></li>
+                        <li><a href="services.html#industrial">Industrial Buildings</a></li>
+                        <li><a href="services.html#tenant">Tenant Improvements</a></li>
                     </ul>
                 </div>
                 
-                <div class="subcontractor-cta">
-                    <a href="mailto:office@mhc-gc.com?subject=Subcontractor Inquiry" class="btn btn-outline">
-                        Apply as Subcontractor
-                    </a>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="projects.html">Our Projects</a></li>
+                        <li><a href="about.html#team">Our Team</a></li>
+                        <li><a href="about.html#values">Core Values</a></li>
+                        <li><a href="about.html#certifications">Certifications</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <p>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+15093086489">(509) 308-6489</a>
+                        </p>
+                        <p>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:office@mhc-gc.com">office@mhc-gc.com</a>
+                        </p>
+                        <p>
+                            <i class="fas fa-map-marker-alt"></i>
+                            3111 N Capitol Ave<br>
+                            Pasco, WA 99301
+                        </p>
+                        <p>
+                            <i class="fas fa-clock"></i>
+                            Mon-Fri: 8:00 AM - 5:00 PM
+                        </p>
+                    </div>
                 </div>
             </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 MH Construction. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
+                <p>Veteran-Owned Business | Licensed & Insured | Serving WA, OR & ID</p>
+            </div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer" id="footer">
-        <!-- ...existing footer code... -->
     </footer>
 
-    <!-- AI Chatbot -->
+    <!-- Chatbot Container -->
     <div class="chatbot-container" id="chatbot-container">
-        <!-- ...existing chatbot code... -->
+        <!-- Chatbot will be loaded here -->
     </div>
 
     <!-- JavaScript Files -->
     <script src="js/firebase-config.js"></script>
+    <script src="js/firebase-functions.js"></script>
     <script src="js/main.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/contact-form.js"></script>

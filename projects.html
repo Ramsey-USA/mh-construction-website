@@ -3,26 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="MH Construction Project Portfolio - View our completed commercial, medical, religious, winery, and industrial construction projects.">
-    <title>Project Portfolio - MH Construction | Completed Construction Projects</title>
+    <meta name="description" content="MH Construction Projects - View our portfolio of commercial, medical, religious, winery, industrial, and tenant improvement projects in WA, OR, ID.">
+    <title>Our Projects - MH Construction | Construction Portfolio</title>
     
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/chatbot.css">
-    
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-storage-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-functions-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-analytics-compat.js"></script>
-    
-    <!-- Font Awesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Header Navigation -->
@@ -32,43 +23,22 @@
                 <div class="nav-logo">
                     <img src="images/logo.png" alt="MH Construction Logo" class="logo">
                     <span class="company-name">MH Construction</span>
+                    <button class="veteran-owned-btn">Veteran Owned</button>
                 </div>
                 
-                <button class="veteran-owned-btn" onclick="location.href='about.html#experience'">
-                    Veteran Owned
-                </button>
-                
-                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Navigation">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                </button>
-                
                 <ul class="nav-menu" id="nav-menu">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="services.html" class="nav-link">Services</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="services.html#commercial">Commercial</a></li>
-                            <li><a href="services.html#medical">Medical Facilities</a></li>
-                            <li><a href="services.html#religious">Religious Facilities</a></li>
-                            <li><a href="services.html#wineries">Wineries</a></li>
-                            <li><a href="services.html#industrial">Industrial</a></li>
-                            <li><a href="services.html#tenant">Tenant Improvements</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a href="projects.html" class="nav-link active">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="about.html" class="nav-link">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="contact.html" class="nav-link">Contact</a>
-                    </li>
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="projects.html" class="nav-link active">Projects</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
+                
+                <button class="nav-toggle" id="nav-toggle">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
             </div>
         </nav>
     </header>
@@ -76,26 +46,71 @@
     <!-- Projects Hero -->
     <section class="page-hero" id="hero">
         <div class="container">
-            <h1>Our Project Portfolio</h1>
-            <p class="lead">Showcasing our commitment to excellence across diverse construction projects</p>
+            <h1>Our Construction Projects</h1>
+            <p class="lead">Showcasing our commitment to excellence and quality craftsmanship</p>
         </div>
     </section>
 
-    <!-- Project Filters -->
+    <!-- Project Stats -->
+    <section class="project-stats" id="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">150+</div>
+                    <h3>Projects Completed</h3>
+                    <p>Successfully delivered across the Pacific Northwest</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$50M+</div>
+                    <h3>Total Value</h3>
+                    <p>In construction projects completed to date</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100%</div>
+                    <h3>Client Satisfaction</h3>
+                    <p>Commitment to exceeding expectations</p>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <h3>States Served</h3>
+                    <p>Washington, Oregon, and Idaho coverage</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Showcase -->
     <section class="project-showcase" id="projects">
         <div class="container">
+            <h2 class="section-title">Project Portfolio</h2>
+            <p class="section-subtitle">Browse our diverse range of construction projects across multiple industries</p>
+            
             <div class="project-filters">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="commercial">Commercial</button>
-                <button class="filter-btn" data-filter="medical">Medical</button>
-                <button class="filter-btn" data-filter="religious">Religious</button>
-                <button class="filter-btn" data-filter="winery">Wineries</button>
-                <button class="filter-btn" data-filter="industrial">Industrial</button>
-                <button class="filter-btn" data-filter="tenant">Tenant Improvements</button>
+                <button class="filter-btn active" data-filter="all">
+                    <span>All Projects</span>
+                </button>
+                <button class="filter-btn" data-filter="commercial">
+                    <span>Commercial</span>
+                </button>
+                <button class="filter-btn" data-filter="medical">
+                    <span>Medical</span>
+                </button>
+                <button class="filter-btn" data-filter="religious">
+                    <span>Religious</span>
+                </button>
+                <button class="filter-btn" data-filter="winery">
+                    <span>Winery</span>
+                </button>
+                <button class="filter-btn" data-filter="industrial">
+                    <span>Industrial</span>
+                </button>
+                <button class="filter-btn" data-filter="tenant">
+                    <span>Tenant Improvement</span>
+                </button>
             </div>
             
             <div class="projects-grid" id="projects-grid">
-                <!-- Projects will be loaded dynamically from Firebase -->
+                <!-- Projects will be loaded dynamically -->
             </div>
         </div>
     </section>
@@ -104,85 +119,121 @@
     <section class="featured-case-study" id="case-study">
         <div class="container">
             <h2 class="section-title">Featured Case Study</h2>
+            <p class="section-subtitle">In-depth look at one of our signature projects</p>
+            
             <div class="case-study-content">
                 <div class="case-study-image">
-                    <img src="images/projects/featured-case-study.jpg" alt="Featured Project Case Study" loading="lazy">
+                    <img src="images/case-studies/featured-project.jpg" alt="Featured Project Case Study" loading="lazy">
                 </div>
                 <div class="case-study-details">
-                    <h3>Pacific Northwest Medical Center</h3>
+                    <h3>Regional Medical Center Expansion</h3>
                     <h4>Project Overview</h4>
-                    <p>A comprehensive 45,000 sq ft medical facility featuring state-of-the-art patient care areas, administrative offices, and specialized treatment rooms.</p>
+                    <p>A comprehensive 25,000 sq ft medical facility expansion featuring specialized treatment rooms, diagnostic centers, and patient care areas. This project showcased our expertise in healthcare construction while maintaining operational facility requirements.</p>
                     
                     <h4>Key Features</h4>
                     <ul>
-                        <li>HIPAA-compliant design</li>
-                        <li>Advanced HVAC systems</li>
-                        <li>Specialized medical gas systems</li>
-                        <li>Emergency backup power</li>
+                        <li>Specialized medical equipment installation</li>
+                        <li>HVAC systems for medical-grade air quality</li>
+                        <li>Infection control protocols during construction</li>
+                        <li>Accessibility compliance throughout</li>
+                        <li>Phased construction to maintain operations</li>
                     </ul>
                     
-                    <h4>Results</h4>
-                    <p>Completed on time and under budget, this facility now serves over 15,000 patients annually.</p>
+                    <h4>Project Details</h4>
+                    <ul>
+                        <li><strong>Location:</strong> Portland, Oregon</li>
+                        <li><strong>Size:</strong> 25,000 sq ft</li>
+                        <li><strong>Duration:</strong> 14 months</li>
+                        <li><strong>Value:</strong> $8.5 million</li>
+                    </ul>
                     
                     <blockquote>
-                        <p>"MH Construction delivered exceptional quality and attention to detail. Their understanding of medical facility requirements was outstanding."</p>
-                        <cite>Dr. Sarah Johnson, Facility Director</cite>
+                        <p>"MH Construction exceeded our expectations in every aspect. Their attention to detail and understanding of medical facility requirements was exceptional."</p>
+                        <cite>— Dr. Sarah Johnson, Chief Medical Officer</cite>
                     </blockquote>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Client Testimonials -->
-    <section class="project-testimonials" id="testimonials">
+    <!-- Project Process -->
+    <section class="project-process" id="process">
         <div class="container">
-            <h2 class="section-title">Client Success Stories</h2>
+            <h2 class="section-title">Our Project Process</h2>
+            <p class="section-subtitle">Military precision applied to every phase of construction</p>
+            
+            <div class="process-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">1</div>
+                    <div class="timeline-content">
+                        <h3>Discovery & Planning</h3>
+                        <p>Initial consultation, site analysis, and comprehensive project planning with detailed specifications.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">2</div>
+                    <div class="timeline-content">
+                        <h3>Design Development</h3>
+                        <p>Collaborative design process with architects and engineers to optimize functionality and cost-effectiveness.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">3</div>
+                    <div class="timeline-content">
+                        <h3>Permitting & Approvals</h3>
+                        <p>Navigation of regulatory requirements and securing all necessary permits and approvals.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">4</div>
+                    <div class="timeline-content">
+                        <h3>Construction Execution</h3>
+                        <p>Skilled construction with rigorous quality control, safety protocols, and timeline management.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker">5</div>
+                    <div class="timeline-content">
+                        <h3>Project Completion</h3>
+                        <p>Final inspections, client walkthrough, and comprehensive warranty support.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Testimonials -->
+    <section class="client-testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <p class="section-subtitle">Feedback from satisfied clients across our project portfolio</p>
+            
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <p>"MH Construction transformed our vision into reality. Their professionalism and quality of work exceeded our expectations."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="images/testimonials/client-1.jpg" alt="Client" onerror="this.src='images/placeholder-person.jpg'">
-                        <div class="author-info">
-                            <h4>Michael Chen</h4>
-                            <span>CEO, Pacific Commercial Group</span>
+                        <p>"The professionalism and attention to detail that MH Construction brought to our office building project was outstanding. They delivered on time and within budget."</p>
+                        <div class="testimonial-author">
+                            <h4>Mark Stevens</h4>
+                            <p>CEO, Stevens & Associates</p>
                         </div>
-                    </div>
-                    <div class="project-reference">
-                        <span>Pacific Office Complex - $8.5M</span>
                     </div>
                 </div>
-                
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <p>"The attention to detail and commitment to our timeline was remarkable. MH Construction is our trusted partner."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="images/testimonials/client-2.jpg" alt="Client" onerror="this.src='images/placeholder-person.jpg'">
-                        <div class="author-info">
-                            <h4>Pastor David Miller</h4>
-                            <span>Community Faith Church</span>
+                        <p>"Our winery facility required specialized knowledge of both construction and wine production. MH Construction understood our unique needs perfectly."</p>
+                        <div class="testimonial-author">
+                            <h4>Maria Rodriguez</h4>
+                            <p>Owner, Rodriguez Family Vineyard</p>
                         </div>
-                    </div>
-                    <div class="project-reference">
-                        <span>Church Expansion - $3.2M</span>
                     </div>
                 </div>
-                
                 <div class="testimonial-card">
                     <div class="testimonial-content">
-                        <p>"Outstanding project management and quality construction. They understood our unique winery requirements perfectly."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="images/testimonials/client-3.jpg" alt="Client" onerror="this.src='images/placeholder-person.jpg'">
-                        <div class="author-info">
-                            <h4>Elena Rodriguez</h4>
-                            <span>Vineyard Valley Estates</span>
+                        <p>"The team's military background really showed in their organization and execution. Every phase was completed with precision and excellence."</p>
+                        <div class="testimonial-author">
+                            <h4>Rev. James Mitchell</h4>
+                            <p>Pastor, Community Faith Center</p>
                         </div>
-                    </div>
-                    <div class="project-reference">
-                        <span>Winery Facility - $5.8M</span>
                     </div>
                 </div>
             </div>
@@ -190,20 +241,20 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta-section" id="cta">
+    <section class="cta-section">
         <div class="container">
             <div class="cta-content">
                 <h2>Ready to Start Your Project?</h2>
-                <p>Join the hundreds of satisfied clients who have trusted MH Construction with their most important building projects.</p>
-                <div class="cta-actions">
-                    <a href="contact.html" class="btn btn-primary">Get Free Consultation</a>
-                    <a href="tel:+15093086489" class="btn btn-secondary">Call (509) 308-6489</a>
+                <p>Join our growing list of satisfied clients with your next construction project.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Get Your Free Quote</a>
+                    <a href="services.html" class="btn btn-secondary">View Our Services</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer with Social Media Icons -->
+    <!-- Footer -->
     <footer class="footer" id="footer">
         <div class="container">
             <div class="footer-content">
@@ -212,7 +263,7 @@
                         <img src="images/logo.png" alt="MH Construction Logo">
                         <span>MH Construction</span>
                     </div>
-                    <p>Your trusted general contractor serving Washington, Oregon, and Idaho.</p>
+                    <p>Your trusted general contractor serving Washington, Oregon, and Idaho with over 150 years of combined experience.</p>
                     <div class="social-links">
                         <a href="https://www.facebook.com/mhconstruction" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook">
                             <i class="fab fa-facebook-f"></i>
@@ -228,86 +279,72 @@
                         </a>
                     </div>
                 </div>
+                
                 <div class="footer-section">
-                    <h4>Quick Links</h4>
+                    <h3>Services</h3>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="services.html">Our Services</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="services.html#commercial">Commercial Construction</a></li>
+                        <li><a href="services.html#medical">Medical Facilities</a></li>
+                        <li><a href="services.html#religious">Religious Facilities</a></li>
+                        <li><a href="services.html#wineries">Wineries & Vineyards</a></li>
+                        <li><a href="services.html#industrial">Industrial Buildings</a></li>
+                        <li><a href="services.html#tenant">Tenant Improvements</a></li>
                     </ul>
                 </div>
+                
                 <div class="footer-section">
-                    <h4>Contact Us</h4>
-                    <p><i class="fas fa-map-marker-alt"></i> 1234 Construction Rd, Building 2, Suite 100, Spokane, WA 99201</p>
-                    <p><i class="fas fa-phone"></i> <a href="tel:+15093086489">(509) 308-6489</a></p>
-                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@mhconstruction.com">info@mhconstruction.com</a></p>
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="projects.html">Our Projects</a></li>
+                        <li><a href="about.html#team">Our Team</a></li>
+                        <li><a href="about.html#values">Core Values</a></li>
+                        <li><a href="about.html#certifications">Certifications</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <p>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+15093086489">(509) 308-6489</a>
+                        </p>
+                        <p>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:office@mhc-gc.com">office@mhc-gc.com</a>
+                        </p>
+                        <p>
+                            <i class="fas fa-map-marker-alt"></i>
+                            3111 N Capitol Ave<br>
+                            Pasco, WA 99301
+                        </p>
+                        <p>
+                            <i class="fas fa-clock"></i>
+                            Mon-Fri: 8:00 AM - 5:00 PM
+                        </p>
+                    </div>
                 </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>&copy; 2023 MH Construction. All rights reserved.</p>
+                <p>&copy; 2024 MH Construction. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
+                <p>Veteran-Owned Business | Licensed & Insured | Serving WA, OR & ID</p>
             </div>
         </div>
     </footer>
 
-    <!-- Project Modal -->
-    <div class="project-modal" id="project-modal">
-        <div class="modal-overlay" id="modal-overlay"></div>
-        <div class="modal-content">
-            <button class="modal-close" id="modal-close">✕</button>
-            <div class="modal-body" id="modal-body">
-                <!-- Modal content will be loaded dynamically -->
-            </div>
-        </div>
-    </div>
-
-    <!-- AI Chatbot -->
+    <!-- Chatbot Container -->
     <div class="chatbot-container" id="chatbot-container">
-        <!-- ...existing chatbot code... -->
+        <!-- Chatbot will be loaded here -->
     </div>
 
     <!-- JavaScript Files -->
     <script src="js/firebase-config.js"></script>
+    <script src="js/firebase-functions.js"></script>
     <script src="js/main.js"></script>
     <script src="js/navigation.js"></script>
-    <script src="js/projects.js"></script>
-    <script src="js/chatbot.js"></script>
-</body>
-</html>
-                    <a href="contact.html" class="btn btn-primary">Get Free Consultation</a>
-                    <a href="tel:+15093086489" class="btn btn-secondary">Call (509) 308-6489</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer" id="footer">
-        <!-- ...existing footer code... -->
-    </footer>
-
-    <!-- Project Modal -->
-    <div class="project-modal" id="project-modal">
-        <div class="modal-overlay" id="modal-overlay"></div>
-        <div class="modal-content">
-            <button class="modal-close" id="modal-close">✕</button>
-            <div class="modal-body" id="modal-body">
-                <!-- Modal content will be loaded dynamically -->
-            </div>
-        </div>
-    </div>
-
-    <!-- AI Chatbot -->
-    <div class="chatbot-container" id="chatbot-container">
-        <!-- ...existing chatbot code... -->
-    </div>
-
-    <!-- JavaScript Files -->
-    <script src="js/firebase-config.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/navigation.js"></script>
-    <script src="js/projects.js"></script>
+    <script src="js/gallery.js"></script>
     <script src="js/chatbot.js"></script>
 </body>
 </html>

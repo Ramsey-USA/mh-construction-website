@@ -3,22 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn about MH Construction - Veteran-owned construction company with over 150 years of combined experience. Meet our team and discover our core values.">
-    <title>About MH Construction - Veteran-Owned General Contractor | Our Story</title>
+    <meta name="description" content="About MH Construction - Veteran-owned construction company with over 150 years of combined experience serving WA, OR, and ID.">
+    <title>About MH Construction | Veteran-Owned General Contractor</title>
     
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/chatbot.css">
-    
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-storage-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-functions-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-analytics-compat.js"></script>
 </head>
 <body>
     <!-- Header Navigation -->
@@ -28,142 +23,147 @@
                 <div class="nav-logo">
                     <img src="images/logo.png" alt="MH Construction Logo" class="logo">
                     <span class="company-name">MH Construction</span>
+                    <button class="veteran-owned-btn">Veteran Owned</button>
                 </div>
                 
-                <button class="veteran-owned-btn" onclick="location.href='#experience'">
-                    Veteran Owned
-                </button>
-                
-                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle Navigation">
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                    <span class="hamburger-line"></span>
-                </button>
-                
                 <ul class="nav-menu" id="nav-menu">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="services.html" class="nav-link">Services</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="services.html#commercial">Commercial</a></li>
-                            <li><a href="services.html#medical">Medical Facilities</a></li>
-                            <li><a href="services.html#religious">Religious Facilities</a></li>
-                            <li><a href="services.html#wineries">Wineries</a></li>
-                            <li><a href="services.html#industrial">Industrial</a></li>
-                            <li><a href="services.html#tenant">Tenant Improvements</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a href="projects.html" class="nav-link">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="about.html" class="nav-link active">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="contact.html" class="nav-link">Contact</a>
-                    </li>
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link active">About</a></li>
+                    <li><a href="services.html" class="nav-link">Services</a></li>
+                    <li><a href="projects.html" class="nav-link">Projects</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
                 </ul>
+                
+                <button class="nav-toggle" id="nav-toggle">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
             </div>
         </nav>
     </header>
 
-    <!-- Hero Section -->
+    <!-- About Hero -->
     <section class="page-hero" id="hero">
         <div class="container">
             <h1>About MH Construction</h1>
-            <p>Building Great Projects With Great People Since Our Founding</p>
+            <p class="lead">Building with honesty, integrity, and trust for over a decade</p>
         </div>
     </section>
 
     <!-- Company Overview -->
     <section class="company-overview" id="overview">
         <div class="container">
-            <div class="overview-content">
-                <div class="overview-text">
-                    <h2>Your Trusted General Contractor</h2>
-                    <p class="lead">MH Construction is a veteran-owned company committed to building with honesty, integrity, and trust. We bring over 150 years of combined commercial construction experience to every project.</p>
-                    <p>Founded on small-town values and military precision, we've grown to become one of the Pacific Northwest's most trusted construction partners. Our commitment to excellence is evident in every project we complete, from commercial buildings to specialized facilities.</p>
-                    <div class="company-stats">
-                        <div class="stat">
-                            <span class="stat-number" data-count="150">0</span>
-                            <span class="stat-label">Years Combined Experience</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number" data-count="500">0</span>
-                            <span class="stat-label">Projects Completed</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-number" data-count="3">0</span>
-                            <span class="stat-label">States Served</span>
-                        </div>
-                    </div>
+            <div class="overview-grid">
+                <div class="overview-content">
+                    <h2 class="section-title">Your Trusted General Contractor</h2>
+                    <p class="lead">MH Construction is a veteran-owned general contracting company committed to delivering exceptional construction services across Washington, Oregon, and Idaho.</p>
+                    <p>With over 150 years of combined commercial construction experience, our team brings unparalleled expertise to every project. We specialize in commercial, medical, religious, winery, industrial, and tenant improvement construction.</p>
+                    <p>Our approach is built on small-town values of honesty, transparency, and accountability. We believe in clear communication, transparent pricing, and delivering on our promises every time.</p>
                 </div>
                 <div class="overview-image">
-                    <img src="images/about/company-building.jpg" alt="MH Construction Office" onerror="this.src='images/placeholder-building.jpg'">
+                    <img src="images/about/company-overview.jpg" alt="MH Construction Team" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Mission, Vision, Values -->
-    <section class="mission-vision" id="mission">
+    <!-- Company Values -->
+    <section class="core-values" id="values">
         <div class="container">
-            <div class="mission-grid">
-                <div class="mission-card">
-                    <div class="mission-icon">
-                        <i class="icon-target">🎯</i>
+            <h2 class="section-title">Our Core Values</h2>
+            <p class="section-subtitle">The principles that guide everything we do</p>
+            
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-front">
+                        <div class="value-icon">⚖️</div>
+                        <h3>Ethics</h3>
                     </div>
-                    <h3>Our Mission</h3>
-                    <p>To deliver exceptional construction services that exceed our clients' expectations while maintaining the highest standards of safety, quality, and integrity.</p>
+                    <div class="value-back">
+                        <p>Small-town values, honesty, transparency, and accountability guide every decision we make.</p>
+                    </div>
                 </div>
-                <div class="mission-card">
-                    <div class="mission-icon">
-                        <i class="icon-vision">👁️</i>
+                
+                <div class="value-card">
+                    <div class="value-front">
+                        <div class="value-icon">🏗️</div>
+                        <h3>Experience</h3>
                     </div>
-                    <h3>Our Vision</h3>
-                    <p>To be the Pacific Northwest's premier general contractor, known for our unwavering commitment to excellence and our ability to bring our clients' visions to life.</p>
+                    <div class="value-back">
+                        <p>Over 150 years of combined commercial construction experience ensures quality results.</p>
+                    </div>
                 </div>
-                <div class="mission-card">
-                    <div class="mission-icon">
-                        <i class="icon-values">⭐</i>
+                
+                <div class="value-card">
+                    <div class="value-front">
+                        <div class="value-icon">💬</div>
+                        <h3>Honesty</h3>
                     </div>
-                    <h3>Our Values</h3>
-                    <p>Ethics, Experience, Honesty, Integrity, Professionalism, and Trust form the foundation of everything we do at MH Construction.</p>
+                    <div class="value-back">
+                        <p>Open communication, transparent pricing, and delivering on promises builds lasting relationships.</p>
+                    </div>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-front">
+                        <div class="value-icon">🎯</div>
+                        <h3>Integrity</h3>
+                    </div>
+                    <div class="value-back">
+                        <p>Highest standards, accountability, fairness, and respect in all our business practices.</p>
+                    </div>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-front">
+                        <div class="value-icon">🏆</div>
+                        <h3>Professionalism</h3>
+                    </div>
+                    <div class="value-back">
+                        <p>Reliable, calm under pressure, and client-focused approach to every project.</p>
+                    </div>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-front">
+                        <div class="value-icon">🤝</div>
+                        <h3>Trust</h3>
+                    </div>
+                    <div class="value-back">
+                        <p>Earned through clear communication and follow-through on every commitment.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Veteran Experience Section -->
-    <section class="veteran-experience" id="experience">
+    <!-- Veteran-Owned Story -->
+    <section class="veteran-story" id="veteran-story">
         <div class="container">
-            <div class="experience-content">
-                <div class="experience-text">
-                    <h2>Veteran-Owned Excellence</h2>
-                    <p class="lead">Our military background brings discipline, attention to detail, and unwavering commitment to every construction project.</p>
-                    <div class="veteran-values">
-                        <div class="veteran-value">
-                            <h4>🎖️ Military Precision</h4>
-                            <p>We apply military standards of excellence to construction management and execution.</p>
+            <div class="story-grid">
+                <div class="story-image">
+                    <img src="images/about/veteran-owned.jpg" alt="Veteran-Owned Business" loading="lazy">
+                </div>
+                <div class="story-content">
+                    <h2>Veteran-Owned & Operated</h2>
+                    <p class="lead">Our military background brings discipline, precision, and unwavering commitment to every project.</p>
+                    <p>As a veteran-owned business, we understand the importance of mission completion, attention to detail, and working as a cohesive team. These military values translate directly into our construction practices.</p>
+                    <p>We bring the same level of dedication and excellence that served our country to serve our clients. Every project is approached with military precision and a commitment to getting the job done right.</p>
+                    <div class="story-stats">
+                        <div class="stat">
+                            <h3>10+</h3>
+                            <p>Years in Business</p>
                         </div>
-                        <div class="veteran-value">
-                            <h4>🤝 Service Commitment</h4>
-                            <p>Our dedication to service extends from our military careers to serving our construction clients.</p>
+                        <div class="stat">
+                            <h3>150+</h3>
+                            <p>Years Combined Experience</p>
                         </div>
-                        <div class="veteran-value">
-                            <h4>⚡ Mission Focus</h4>
-                            <p>Every project is a mission we're committed to completing successfully and on time.</p>
-                        </div>
-                        <div class="veteran-value">
-                            <h4>👥 Team Leadership</h4>
-                            <p>Military leadership experience ensures effective project coordination and team management.</p>
+                        <div class="stat">
+                            <h3>100%</h3>
+                            <p>Client Satisfaction</p>
                         </div>
                     </div>
-                </div>
-                <div class="experience-image">
-                    <img src="images/about/veteran-team.jpg" alt="Veteran Construction Team" onerror="this.src='images/placeholder-team.jpg'">
                 </div>
             </div>
         </div>
@@ -172,158 +172,129 @@
     <!-- Leadership Team -->
     <section class="leadership-team" id="team">
         <div class="container">
-            <h2 class="section-title">Leadership Team</h2>
-            <div class="team-grid" id="team-grid">
-                <!-- Team members will be loaded from Firebase -->
-            </div>
-        </div>
-    </section>
-
-    <!-- Core Values Detailed -->
-    <section class="core-values-detailed" id="values-detailed">
-        <div class="container">
-            <h2 class="section-title">Our Core Values</h2>
-            <div class="values-accordion">
-                <div class="value-item">
-                    <div class="value-header" data-value="ethics">
-                        <h3>Ethics</h3>
-                        <span class="toggle-icon">+</span>
-                    </div>
-                    <div class="value-content">
-                        <p>Small-town values guide every decision we make. We believe in honesty, transparency, and accountability in all our business dealings. Our ethical approach builds lasting relationships with clients, subcontractors, and communities.</p>
+            <h2 class="section-title">Our Leadership Team</h2>
+            <p class="section-subtitle">Meet the experienced professionals leading MH Construction</p>
+            
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="images/team/team-member-1.jpg" alt="Project Manager" class="team-image" loading="lazy">
+                    <div class="team-content">
+                        <h3>Michael Henderson</h3>
+                        <p class="team-role">Founder & President</p>
+                        <p>With over 30 years in construction and military leadership experience, Michael brings strategic vision and operational excellence to every project.</p>
                     </div>
                 </div>
                 
-                <div class="value-item">
-                    <div class="value-header" data-value="experience">
-                        <h3>Experience</h3>
-                        <span class="toggle-icon">+</span>
-                    </div>
-                    <div class="value-content">
-                        <p>Over 150 years of combined commercial construction experience flows through our team. This wealth of knowledge enables us to anticipate challenges, provide innovative solutions, and deliver projects that stand the test of time.</p>
-                    </div>
-                </div>
-                
-                <div class="value-item">
-                    <div class="value-header" data-value="honesty">
-                        <h3>Honesty</h3>
-                        <span class="toggle-icon">+</span>
-                    </div>
-                    <div class="value-content">
-                        <p>Open communication is the cornerstone of successful construction projects. We provide transparent pricing, realistic timelines, and honest assessments. We deliver on our promises and communicate clearly when challenges arise.</p>
+                <div class="team-card">
+                    <img src="images/team/team-member-2.jpg" alt="Construction Manager" class="team-image" loading="lazy">
+                    <div class="team-content">
+                        <h3>Sarah Martinez</h3>
+                        <p class="team-role">Vice President of Operations</p>
+                        <p>Sarah oversees all construction operations with 25 years of experience in commercial construction and project management.</p>
                     </div>
                 </div>
                 
-                <div class="value-item">
-                    <div class="value-header" data-value="integrity">
-                        <h3>Integrity</h3>
-                        <span class="toggle-icon">+</span>
-                    </div>
-                    <div class="value-content">
-                        <p>We maintain the highest standards in everything we do. Our commitment to integrity means we're accountable for our work, fair in our dealings, and respectful to everyone involved in our projects.</p>
-                    </div>
-                </div>
-                
-                <div class="value-item">
-                    <div class="value-header" data-value="professionalism">
-                        <h3>Professionalism</h3>
-                        <span class="toggle-icon">+</span>
-                    </div>
-                    <div class="value-content">
-                        <p>Reliability and professionalism define our approach. We remain calm under pressure, maintain a client-focused perspective, and conduct ourselves with the highest professional standards on every job site.</p>
-                    </div>
-                </div>
-                
-                <div class="value-item">
-                    <div class="value-header" data-value="trust">
-                        <h3>Trust</h3>
-                        <span class="toggle-icon">+</span>
-                    </div>
-                    <div class="value-content">
-                        <p>Trust is earned through consistent actions and clear communication. We follow through on commitments, maintain open dialogue throughout projects, and build relationships that last long after construction is complete.</p>
+                <div class="team-card">
+                    <img src="images/team/team-member-3.jpg" alt="Project Director" class="team-image" loading="lazy">
+                    <div class="team-content">
+                        <h3>David Chen</h3>
+                        <p class="team-role">Senior Project Manager</p>
+                        <p>David leads our project teams with expertise in medical and commercial construction, ensuring quality and timeline adherence.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Certifications and Awards -->
+    <!-- Certifications & Awards -->
     <section class="certifications" id="certifications">
         <div class="container">
             <h2 class="section-title">Certifications & Awards</h2>
+            <p class="section-subtitle">Recognition for our commitment to excellence and quality</p>
+            
             <div class="certifications-grid">
-                <div class="certification-card">
-                    <img src="images/certifications/licensed-contractor.jpg" alt="Licensed General Contractor" onerror="this.src='images/placeholder-cert.jpg'">
-                    <h3>Licensed General Contractor</h3>
-                    <p>Fully licensed in Washington, Oregon, and Idaho</p>
+                <div class="cert-card">
+                    <img src="images/certifications/license-cert.jpg" alt="General Contractor License" class="cert-image" loading="lazy">
+                    <div class="cert-content">
+                        <h3>Licensed General Contractor</h3>
+                        <p>Fully licensed and insured in Washington, Oregon, and Idaho</p>
+                    </div>
                 </div>
-                <div class="certification-card">
-                    <img src="images/certifications/bonded-insured.jpg" alt="Bonded and Insured" onerror="this.src='images/placeholder-cert.jpg'">
-                    <h3>Bonded & Insured</h3>
-                    <p>Comprehensive bonding and insurance coverage</p>
+                
+                <div class="cert-card">
+                    <img src="images/certifications/safety-award.jpg" alt="Safety Excellence Award" class="cert-image" loading="lazy">
+                    <div class="cert-content">
+                        <h3>Safety Excellence Award</h3>
+                        <p>Recognized for outstanding safety record and zero-incident commitment</p>
+                    </div>
                 </div>
-                <div class="certification-card">
-                    <img src="images/certifications/safety-certified.jpg" alt="Safety Certified" onerror="this.src='images/placeholder-cert.jpg'">
-                    <h3>Safety Certified</h3>
-                    <p>OSHA compliance and safety training certified</p>
-                </div>
-                <div class="certification-card">
-                    <img src="images/certifications/veteran-owned.jpg" alt="Veteran Owned Business" onerror="this.src='images/placeholder-cert.jpg'">
-                    <h3>Veteran-Owned Business</h3>
-                    <p>Certified veteran-owned small business</p>
+                
+                <div class="cert-card">
+                    <img src="images/certifications/quality-award.jpg" alt="Quality Construction Award" class="cert-image" loading="lazy">
+                    <div class="cert-content">
+                        <h3>Quality Construction Award</h3>
+                        <p>Honored for exceptional craftsmanship and client satisfaction</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Why Choose MH Construction -->
-    <section class="why-choose" id="why-choose">
+    <section class="why-choose-us" id="why-choose">
         <div class="container">
-            <h2 class="section-title">Why Choose MH Construction?</h2>
-            <div class="choose-grid">
-                <div class="choose-item">
-                    <div class="choose-icon">🏆</div>
-                    <h3>Proven Track Record</h3>
-                    <p>Hundreds of successful projects across the Pacific Northwest demonstrate our commitment to excellence.</p>
+            <h2 class="section-title">Why Choose MH Construction</h2>
+            <p class="section-subtitle">Six compelling reasons to trust us with your next project</p>
+            
+            <div class="reasons-grid">
+                <div class="reason-card">
+                    <div class="reason-icon">🎖️</div>
+                    <h3>Veteran-Owned</h3>
+                    <p>Military precision and discipline applied to construction excellence</p>
                 </div>
-                <div class="choose-item">
-                    <div class="choose-icon">⏰</div>
+                
+                <div class="reason-card">
+                    <div class="reason-icon">🏗️</div>
+                    <h3>150+ Years Experience</h3>
+                    <p>Combined team experience ensures proven expertise on every project</p>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-icon">💰</div>
+                    <h3>Transparent Pricing</h3>
+                    <p>No hidden costs or surprises - clear, upfront project pricing</p>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-icon">⏰</div>
                     <h3>On-Time Delivery</h3>
-                    <p>Military precision and detailed planning ensure projects are completed on schedule and within budget.</p>
+                    <p>Project completion on schedule with rigorous timeline management</p>
                 </div>
-                <div class="choose-item">
-                    <div class="choose-icon">🔧</div>
-                    <h3>Quality Craftsmanship</h3>
-                    <p>We take pride in our work and stand behind every project with comprehensive warranties.</p>
-                </div>
-                <div class="choose-item">
-                    <div class="choose-icon">📞</div>
-                    <h3>Clear Communication</h3>
-                    <p>Regular updates, transparent processes, and open communication keep you informed throughout your project.</p>
-                </div>
-                <div class="choose-item">
-                    <div class="choose-icon">💰</div>
-                    <h3>Competitive Pricing</h3>
-                    <p>Fair, transparent pricing with detailed estimates and no hidden costs or surprise charges.</p>
-                </div>
-                <div class="choose-item">
-                    <div class="choose-icon">🛡️</div>
+                
+                <div class="reason-card">
+                    <div class="reason-icon">🛡️</div>
                     <h3>Safety First</h3>
-                    <p>Comprehensive safety protocols protect workers, clients, and the public on every job site.</p>
+                    <p>Zero-incident track record with comprehensive safety protocols</p>
+                </div>
+                
+                <div class="reason-card">
+                    <div class="reason-icon">📞</div>
+                    <h3>Local Service</h3>
+                    <p>Serving Washington, Oregon, and Idaho with local expertise</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Call to Action -->
-    <section class="cta-section" id="cta">
+    <!-- CTA Section -->
+    <section class="cta-section">
         <div class="container">
             <div class="cta-content">
                 <h2>Ready to Start Your Project?</h2>
-                <p>Let's discuss how MH Construction can bring your vision to life with our proven expertise and commitment to excellence.</p>
-                <div class="cta-actions">
-                    <a href="contact.html" class="btn btn-primary">Get Free Consultation</a>
-                    <a href="tel:+15093086489" class="btn btn-secondary">Call (509) 308-6489</a>
+                <p>Experience the MH Construction difference on your next construction project.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">Get Your Free Quote</a>
+                    <a href="projects.html" class="btn btn-secondary">View Our Work</a>
                 </div>
             </div>
         </div>
@@ -331,8 +302,88 @@
 
     <!-- Footer -->
     <footer class="footer" id="footer">
-        <!-- ...existing footer code... -->
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="MH Construction Logo">
+                        <span>MH Construction</span>
+                    </div>
+                    <p>Your trusted general contractor serving Washington, Oregon, and Idaho with over 150 years of combined experience.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/mhconstruction" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/mh-construction" target="_blank" rel="noopener noreferrer" aria-label="Connect with us on LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.instagram.com/mhconstruction" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/mhconstruction" target="_blank" rel="noopener noreferrer" aria-label="Subscribe to our YouTube channel">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html#commercial">Commercial Construction</a></li>
+                        <li><a href="services.html#medical">Medical Facilities</a></li>
+                        <li><a href="services.html#religious">Religious Facilities</a></li>
+                        <li><a href="services.html#wineries">Wineries & Vineyards</a></li>
+                        <li><a href="services.html#industrial">Industrial Buildings</a></li>
+                        <li><a href="services.html#tenant">Tenant Improvements</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="projects.html">Our Projects</a></li>
+                        <li><a href="about.html#team">Our Team</a></li>
+                        <li><a href="about.html#values">Core Values</a></li>
+                        <li><a href="about.html#certifications">Certifications</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <p>
+                            <i class="fas fa-phone"></i>
+                            <a href="tel:+15093086489">(509) 308-6489</a>
+                        </p>
+                        <p>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:office@mhc-gc.com">office@mhc-gc.com</a>
+                        </p>
+                        <p>
+                            <i class="fas fa-map-marker-alt"></i>
+                            3111 N Capitol Ave<br>
+                            Pasco, WA 99301
+                        </p>
+                        <p>
+                            <i class="fas fa-clock"></i>
+                            Mon-Fri: 8:00 AM - 5:00 PM
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 MH Construction. All rights reserved. | <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-service.html">Terms of Service</a></p>
+                <p>Veteran-Owned Business | Licensed & Insured | Serving WA, OR & ID</p>
+            </div>
+        </div>
     </footer>
+
+    <!-- Chatbot Container -->
+    <div class="chatbot-container" id="chatbot-container">
+        <!-- Chatbot will be loaded here -->
+    </div>
 
     <!-- JavaScript Files -->
     <script src="js/firebase-config.js"></script>
