@@ -258,33 +258,42 @@ Tenant Improvements
 Government Construction
 🎨 Design Specifications
 Color Palette
+```css
 :root {
-
-  --primary-green: #396851;
-
-  --secondary-tan: #BD9264;
-
-  --accent-red: #ff0000;
-
+  /* Core Brand Colors (MAINTAINED) */
+  --primary-green: #396851;      /* Original MH Green - KEEP UNCHANGED */
+  --secondary-tan: #BD9264;      /* Original MH Tan - KEEP UNCHANGED */
+  
+  /* Army-Inspired Supporting Colors */
+  --accent-red: #B22222;         /* Army Insignia Red */
+  --army-dark: #2F3B14;         /* Dark Army Green */
+  --army-light: #6B7A3D;        /* Light Army Green */
+  --army-khaki: #C3B091;        /* Army Khaki */
+  --army-brown: #5C4A3A;        /* Army Brown */
+  --army-camo: #8FBC8F;         /* Sage Green */
+  --army-olive: #4A5D23;        /* Army Olive */
+  
+  /* Base Colors with Army Inspiration */
   --white: #ffffff;
-
-  --light-gray: #f8f9fa;
-
-  --medium-gray: #6c757d;
-
-  --dark-gray: #343a40;
-
-  --success-green: #28a745;
-
-  --chatbot-primary: #396851;
-
-  --chatbot-secondary: #BD9264;
-
-  --chatbot-text: #333333;
-
-  --chatbot-bg: #ffffff;
-
+  --light-gray: #f5f5dc;        /* Beige/Off-white */
+  --medium-gray: #696969;       /* Dim Gray */
+  --dark-gray: #2F2F2F;         /* Charcoal */
+  --success-green: #556B2F;     /* Dark Olive Green */
+  
+  /* Chatbot Colors */
+  --chatbot-primary: #396851;   /* Original MH Green */
+  --chatbot-secondary: #BD9264; /* Original MH Tan */
+  --chatbot-text: #2F2F2F;      /* Dark Charcoal */
+  --chatbot-bg: #f5f5dc;        /* Light Beige */
 }
+```
+
+Design Philosophy
+- **Brand Identity Preservation**: The original MH Construction primary green (#396851) and secondary tan (#BD9264) remain unchanged to maintain brand recognition and consistency
+- **Military Heritage**: Army-inspired supporting colors honor the veteran-owned nature of the company while complementing the existing brand palette
+- **Professional Construction Aesthetic**: The color scheme maintains the professional, trustworthy appearance expected in the construction industry
+- **Enhanced Visual Hierarchy**: Army colors provide additional options for accents, borders, and gradients without competing with the primary brand colors
+
 Typography
 /* Primary Font Stack */
 
@@ -370,311 +379,408 @@ exports.saveProjectInquiry = functions.https.onCall(async (data, context) => {
 
 });
 📱 Responsive Breakpoints
-/* Mobile First Approach */
-
+```css
+/* Mobile First Approach with Army-Inspired Enhancements */
 /* Small devices (landscape phones, 576px and up) */
-
 @media (min-width: 576px) { 
-
-  .chatbot-window { width: 350px; height: 500px; }
-
+  .chatbot-window { 
+    width: 350px; 
+    height: 500px; 
+    border: 2px solid var(--army-khaki);
+  }
 }
 
 /* Medium devices (tablets, 768px and up) */
-
 @media (min-width: 768px) { 
-
-  .chatbot-window { width: 400px; height: 600px; }
-
+  .chatbot-window { 
+    width: 400px; 
+    height: 600px; 
+  }
+  
+  .header.scrolled {
+    background-color: rgba(57, 104, 81, 0.95);
+    border-bottom: 2px solid var(--army-khaki);
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
-
-@media (min-width: 992px) { ... }
+@media (min-width: 992px) { 
+  /* Enhanced hover effects with army accents */
+  .service-card:hover {
+    border-color: var(--primary-green);
+    box-shadow: 0 8px 16px rgba(57, 104, 81, 0.2);
+  }
+}
 
 /* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+  .chatbot-window { 
+    width: 420px; 
+    height: 650px; 
+  }
+}
+```
 
-@media (min-width: 1200px) { ... }
-🏗️ Page Structure Requirements
-Homepage (index.html)
-Header Navigation
+## Required Chatbot Features
 
-Logo
-"Veteran Owned" button directed to About Page (Experience Section)
-Main navigation will be a hamburger menu on all platform sizes
+### Conversation Flow
+1. **Welcome Message**: "Hi! I'm MH Construction's AI assistant. How can I help with your construction project?"
+2. **Project Type Inquiry**: "What type of project are you planning?"
+3. **Scope Assessment**: "Can you tell me more about the scope and timeline?"
+4. **Preliminary Guidance**: Provide relevant advice and cost estimates
+5. **Lead Capture**: "Would you like to speak with our team? Let me get your contact information."
+6. **Handoff**: "I've scheduled a consultation. Our team will contact you within 24 hours."
 
-Hero Section
-
-Large background video
-Company tagline and hero message
-Call-to-action button
-Contact phone number
-
-Awards Section
-
-Grid layout of recent awards (3)
-"Learn More" button present
-
-Services Overview | About
-
-Who We Serve brief description
-Links to detailed service pages via dropdown menu - 6
-"Learn More" button that directs to About page
-
-Project Showcase
-
-Featured project images - 6
-Project categories filter - 6 total
-Link to full portfolio
-
-Core Values Section
-
-Six core values with icons
-Icons will flip with descriptions on the back
-Brief descriptions for each value
-
-Blog
-
-Carousel with clickable links to article or page
-Company logos of past clients
-
-Footer
-
-Company areas of operation
-Quick links
-Social media links
-Copyright information
-
-AI Chatbot (Always Present)
-
-Fixed floating position
-Prominent visual design
-Instant project consultation
-Lead capture functionality
-About Page (about.html)
-Company history and background
-Leadership team profiles
-Mission, vision, and values
-Company achievements and certifications
-Why choose MH Construction
-Chatbot integration for company questions
-Services Page (services.html)
-Detailed service descriptions
-Service process workflow
-Industry expertise
-Service area coverage
-Request quote form
-"Learn More" button directed to About Page
-Chatbot for service-specific questions
-Projects Page (projects.html)
-Project portfolio gallery (Firebase Storage integration)
-Filter by project type
-Case studies with before/after images
-Project details and specifications
-Client testimonials
-Chatbot for project consultation
-Contact Page (contact.html)
-Detailed contact form (Firebase integration)
-Office location and hours
-Service area map (Google Maps API)
-Multiple contact methods
-Request consultation form
-Enhanced chatbot for immediate assistance
-🎯 Key Features to Implement
-Navigation
-Sticky header navigation
-Smooth scrolling to sections
-Active page/section highlighting
-Mobile-responsive hamburger menu
-Breadcrumb navigation on sub-pages
-Interactive Elements
-Hover effects on buttons and cards
-Animated counters for statistics
-Image galleries with lightbox
-Accordion FAQ sections
-Tabbed content areas
-AI Chatbot interactions
-Forms (Firebase Integration)
-Contact form with validation and Firebase processing
-Quote request form with file upload to Firebase Storage
-Newsletter signup with Firestore database
-File upload for project documents
-Success/error message handling
-Chatbot lead capture forms
-Performance Optimization
-Optimized images (WebP format when possible)
-Lazy loading for images
-Minified CSS and JavaScript
-Compressed file sizes
-Fast loading times (<3 seconds)
-Firebase CDN optimization
-🤖 Chatbot Implementation Details
-Required Chatbot Features
-Always Visible: Fixed position, never hidden
-Project Consultation: AI-powered construction advice
-Cost Estimation: Preliminary project cost guidance
-Service Matching: Recommend appropriate MH services
-Lead Capture: Collect contact information seamlessly
-Business Hours Integration: Handoff to human representatives
-Conversation Logging: Save all interactions to Firebase
-Mobile Optimized: Responsive design for all devices
-Chatbot Conversation Flow
-1. Welcome Message: "Hi! I'm MH Construction's AI assistant. How can I help with your construction project?"
-
-2. Project Type Inquiry: "What type of project are you planning?"
-
-3. Scope Assessment: "Can you tell me more about the scope and timeline?"
-
-4. Preliminary Guidance: Provide relevant advice and cost estimates
-
-5. Lead Capture: "Would you like to speak with our team? Let me get your contact information."
-
-6. Handoff: "I've scheduled a consultation. Our team will contact you within 24 hours."
-Integration Code Example
-// chatbot.js
-
+### Integration Code Example
+```javascript
 class MHConstructionChatbot {
-
   constructor() {
-
     this.firebase = firebase;
-
     this.isOpen = false;
-
     this.conversations = [];
-
     this.init();
-
   }
 
   init() {
-
     this.createChatbotUI();
-
     this.bindEvents();
-
     this.loadAIModel();
-
-  }
-
-  createChatbotUI() {
-
-    // Create prominent floating chatbot interface
-
   }
 
   processUserMessage(message) {
-
     // AI processing with construction-specific responses
-
   }
 
   captureLeadInformation(userData) {
-
     // Save to Firebase Firestore
-
   }
-
 }
-🔧 Development Guidelines
-Code Quality Standards
-Clean, readable code with comments
-Consistent naming conventions
-Proper indentation and formatting
-Cross-browser compatibility
-W3C validation compliance
-Firebase best practices
-Chatbot accessibility compliance
-SEO Requirements
-Descriptive page titles and meta descriptions
-Structured data markup (Schema.org)
-Optimized URLs and heading structure
-Image alt text and file names
-Internal linking strategy
-Firebase SEO optimization
-Accessibility Standards
-WCAG 2.1 AA compliance
-Keyboard navigation support
-Screen reader compatibility
-Color contrast requirements
-Focus indicators for interactive elements
-Chatbot accessibility features
-🚀 Deployment Instructions
-Firebase Setup
-Create Firebase project
-Enable required services (Auth, Firestore, Storage, Functions)
-Configure Google APIs
-Deploy Cloud Functions
-Set up Firebase Hosting
-Local Development
-Install Firebase CLI: npm install -g firebase-tools
-Clone the repository
-Run firebase login
-Run firebase serve for local testing
-Test chatbot functionality
-Test on multiple devices and browsers
-Production Deployment
+```
+
+## 🔧 Development Guidelines
+
+### Code Quality Standards
+- Clean, readable code with comments
+- Consistent naming conventions
+- Proper indentation and formatting
+- Cross-browser compatibility
+- W3C validation compliance
+- Firebase best practices
+- Chatbot accessibility compliance
+
+### SEO Requirements
+- Descriptive page titles and meta descriptions
+- Structured data markup (Schema.org)
+- Optimized URLs and heading structure
+- Image alt text and file names
+- Internal linking strategy
+- Firebase SEO optimization
+
+### Accessibility Standards
+- WCAG 2.1 AA compliance
+- Keyboard navigation support
+- Screen reader compatibility
+- Color contrast requirements
+- Focus indicators for interactive elements
+- Chatbot accessibility features
+
+## 🚀 Deployment Instructions
+
+### Firebase Setup
+1. Create Firebase project
+2. Enable required services (Auth, Firestore, Storage, Functions)
+3. Configure Google APIs
+4. Deploy Cloud Functions
+5. Set up Firebase Hosting
+
+### Local Development
+```bash
+# Install Firebase CLI
+npm install -g firebase-tools
+
+# Clone the repository
+git clone [repository-url]
+cd mh-construction-website
+
+# Login to Firebase
+firebase login
+
+# Start local development server
+firebase serve
+
+# Test chatbot functionality
+# Test on multiple devices and browsers
+```
+
+### Production Deployment
+```bash
 # Firebase deployment commands
-
 firebase deploy --only hosting
-
 firebase deploy --only functions
-
 firebase deploy --only firestore:rules
-
 firebase deploy --only storage:rules
-📊 Analytics and Tracking
-Firebase Analytics Integration
-User behavior tracking
-Chatbot interaction analytics
-Conversion tracking
-Performance monitoring
-Google APIs Tracking
-Google Analytics 4 integration
-Search Console monitoring
-Maps API usage tracking
-reCAPTCHA analytics
-🔒 Security Considerations
-Firebase Security
-Firestore security rules
-Storage security rules
-Authentication requirements
-API key protection
-General Security
-Form spam protection (reCAPTCHA v3)
-Input sanitization and validation
-HTTPS implementation
-Regular security updates
-Backup procedures
-Chatbot data privacy compliance
-📞 Support and Maintenance
-Regular Updates Required
-Content updates (projects, testimonials)
-Security patches and updates
-Performance monitoring
-SEO optimization
-Mobile compatibility testing
-Chatbot AI model updates
-Firebase service monitoring
-Monitoring Requirements
-Firebase performance monitoring
-Chatbot conversation quality assessment
-Google API usage monitoring
-User experience analytics
-📄 License
+
+# Full deployment
+firebase deploy
+```
+
+## 📊 Analytics and Tracking
+
+### Firebase Analytics Integration
+- User behavior tracking
+- Chatbot interaction analytics
+- Conversion tracking
+- Performance monitoring
+
+### Google APIs Tracking
+- Google Analytics 4 integration
+- Search Console monitoring
+- Maps API usage tracking
+- reCAPTCHA analytics
+
+## 🔒 Security Considerations
+
+### Firebase Security
+- Firestore security rules
+- Storage security rules
+- Authentication requirements
+- API key protection
+
+### General Security
+- Form spam protection (reCAPTCHA v3)
+- Input sanitization and validation
+- HTTPS implementation
+- Regular security updates
+- Backup procedures
+- Chatbot data privacy compliance
+
+## 📞 Support and Maintenance
+
+### Regular Updates Required
+- Content updates (projects, testimonials)
+- Security patches and updates
+- Performance monitoring
+- SEO optimization
+- Mobile compatibility testing
+- Chatbot AI model updates
+- Firebase service monitoring
+
+### Monitoring Requirements
+- Firebase performance monitoring
+- Chatbot conversation quality assessment
+- Google API usage monitoring
+- User experience analytics
+
+## 🧪 Testing Requirements
+
+### Browser Compatibility
+- Chrome (latest 2 versions)
+- Firefox (latest 2 versions)
+- Safari (latest 2 versions)
+- Edge (latest 2 versions)
+- Mobile browsers (iOS Safari, Chrome Mobile)
+
+### Device Testing
+- Desktop (1920x1080, 1366x768)
+- Tablet (iPad, Android tablets)
+- Mobile (iPhone, Android phones)
+- Large screens (4K displays)
+
+### Performance Testing
+- Page load speed (<3 seconds)
+- Lighthouse score (90+)
+- Core Web Vitals compliance
+- Firebase function response times
+- Chatbot response speed
+
+### Accessibility Testing
+- Screen reader compatibility
+- Keyboard navigation
+- Color contrast validation
+- ARIA labels verification
+- Focus management
+
+## 📄 Content Requirements
+
+### Homepage Content
+- Hero video (construction footage)
+- Company overview (150-200 words)
+- Services summary (6 service cards)
+- Featured projects (6 project cards)
+- Core values (6 value cards)
+- Client testimonials (3-5 testimonials)
+- Awards and certifications (3 recent awards)
+
+### About Page Content
+- Company history and founding story
+- Leadership team profiles (with photos)
+- Mission and vision statements
+- Veteran-owned business story
+- Certifications and licenses
+- Why choose MH Construction (6 reasons)
+
+### Services Content
+- Detailed service descriptions
+- Process workflows
+- Industry expertise examples
+- Service area coverage
+- Pricing guidelines
+- FAQ sections
+
+### Projects Content
+- Project portfolio (minimum 12 projects)
+- Before/after images
+- Project specifications
+- Client testimonials
+- Case studies (3-5 detailed studies)
+
+## 🎨 Brand Assets Required
+
+### Logo Files
+- Primary logo (SVG, PNG, JPG)
+- Logo variations (horizontal, stacked, icon)
+- High-resolution versions
+- Favicon (multiple sizes)
+
+### Photography
+- Hero video/images
+- Team headshots
+- Project photography
+- Office/facility photos
+- Equipment and machinery
+- Before/after project images
+
+### Icons and Graphics
+- Service icons (construction-themed)
+- Social media icons
+- Navigation icons
+- Chatbot avatar/icon
+- Award badges
+- Certification logos
+
+## 🔗 External Integrations
+
+### Required API Keys
+- Firebase configuration
+- Google Maps API key
+- Google Places API key
+- Google Analytics tracking ID
+- reCAPTCHA site key
+- OpenAI API key (for chatbot)
+
+### Third-Party Services
+- Email service (for contact forms)
+- CDN for assets
+- Backup services
+- Monitoring tools
+- SEO tracking tools
+
+## 📈 Success Metrics
+
+### Business Goals
+- Increase lead generation by 50%
+- Improve user engagement time
+- Enhance mobile user experience
+- Reduce bounce rate below 40%
+- Achieve top 3 search rankings
+
+### Technical Goals
+- Page load speed under 3 seconds
+- 99.9% uptime
+- Mobile-first responsive design
+- WCAG 2.1 AA compliance
+- Lighthouse score above 90
+
+### Chatbot Goals
+- 70% user engagement rate
+- Average conversation length 3+ messages
+- 30% lead capture rate
+- 24/7 availability
+- Multi-language support (future)
+
+## 📄 License
+
 This project is licensed under the MIT License - see the LICENSE file for details.
-🙏 Acknowledgments
-Design inspiration from industry-leading construction websites
-Modern web development best practices
-Accessibility guidelines from WCAG
-Performance optimization techniques
-Firebase and Google Cloud best practices
-AI chatbot development standards
 
+## 🙏 Acknowledgments
 
+- Design inspiration from industry-leading construction websites
+- Modern web development best practices
+- Accessibility guidelines from WCAG
+- Performance optimization techniques
+- Firebase and Google Cloud best practices
+- AI chatbot development standards
+- Military-inspired design elements honoring veteran ownership
 
-Built with precision and care for MH Construction - "Building Great Projects With Great People"
+---
 
-Key Focus: Prominent AI Chatbot + Firebase/Google API Integration
+**Built with precision and care for MH Construction - "Building Great Projects With Great People"**
+
+**Key Focus**: Prominent AI Chatbot + Firebase/Google API Integration + Veteran-Owned Brand Identity
 
 For questions or support, contact MH Construction at (509) 308-6489 or office@mhc-gc.com
+
+---
+
+## 🔄 Version History
+
+- **v1.0.0** - Initial website development
+- **v1.1.0** - AI chatbot integration
+- **v1.2.0** - Army-inspired color scheme update
+- **v1.3.0** - Enhanced Firebase integration
+- **v2.0.0** - Full responsive redesign with military precision
+
+## 📋 Development Checklist
+
+### Phase 1: Foundation
+- [ ] Set up Firebase project
+- [ ] Configure Google APIs
+- [ ] Create basic HTML structure
+- [ ] Implement CSS framework
+- [ ] Set up development environment
+
+### Phase 2: Core Features
+- [ ] Build responsive navigation
+- [ ] Implement hero section
+- [ ] Create service cards
+- [ ] Build project gallery
+- [ ] Add core values section
+
+### Phase 3: Interactive Elements
+- [ ] Integrate Firebase functions
+- [ ] Build contact forms
+- [ ] Implement image galleries
+- [ ] Add smooth scrolling
+- [ ] Create loading animations
+
+### Phase 4: AI Chatbot
+- [ ] Design chatbot UI
+- [ ] Implement chat functionality
+- [ ] Integrate AI processing
+- [ ] Add lead capture forms
+- [ ] Test conversation flows
+
+### Phase 5: Testing & Optimization
+- [ ] Cross-browser testing
+- [ ] Mobile responsiveness
+- [ ] Performance optimization
+- [ ] Accessibility compliance
+- [ ] SEO optimization
+
+### Phase 6: Deployment
+- [ ] Firebase hosting setup
+- [ ] Domain configuration
+- [ ] SSL certificate
+- [ ] Analytics integration
+- [ ] Monitoring setup
+
+### Phase 7: Launch & Maintenance
+- [ ] Content population
+- [ ] User acceptance testing
+- [ ] Go-live checklist
+- [ ] Backup procedures
+- [ ] Monitoring dashboard
+
+---
+
+**End of README - Ready for Development** 🚀

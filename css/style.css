@@ -2,19 +2,31 @@
 
 /* CSS Custom Properties */
 :root {
-  /* Colors */
-  --primary-green: #396851;
-  --secondary-tan: #BD9264;
-  --accent-red: #ff0000;
+  /* Keep Original Brand Colors */
+  --primary-green: #396851;          /* Original MH Green */
+  --secondary-tan: #BD9264;          /* Original MH Tan */
+  
+  /* Army-Inspired Supporting Colors */
+  --accent-red: #B22222;             /* Army Insignia Red */
+  --army-dark: #2F3B14;             /* Dark Army Green */
+  --army-light: #6B7A3D;            /* Light Army Green */
+  --army-khaki: #C3B091;            /* Army Khaki */
+  --army-brown: #5C4A3A;            /* Army Brown */
+  --army-camo: #8FBC8F;             /* Sage Green */
+  --army-olive: #4A5D23;            /* Army Olive */
+  
+  /* Base Colors with Army Inspiration */
   --white: #ffffff;
-  --light-gray: #f8f9fa;
-  --medium-gray: #6c757d;
-  --dark-gray: #343a40;
-  --success-green: #28a745;
-  --chatbot-primary: #396851;
-  --chatbot-secondary: #BD9264;
-  --chatbot-text: #333333;
-  --chatbot-bg: #ffffff;
+  --light-gray: #f5f5dc;            /* Beige/Off-white */
+  --medium-gray: #696969;           /* Dim Gray */
+  --dark-gray: #2F2F2F;             /* Charcoal */
+  --success-green: #556B2F;         /* Dark Olive Green */
+  
+  /* Chatbot Colors */
+  --chatbot-primary: #396851;       /* Original MH Green */
+  --chatbot-secondary: #BD9264;     /* Original MH Tan */
+  --chatbot-text: #2F2F2F;          /* Dark Charcoal */
+  --chatbot-bg: #f5f5dc;            /* Light Beige */
 
   /* Typography */
   --font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -46,9 +58,9 @@
   --border-radius-sm: 4px;
   --border-radius-lg: 12px;
   
-  /* Shadows */
-  --shadow-card: 0 4px 6px rgba(0, 0, 0, 0.1);
-  --shadow-chatbot: 0 8px 32px rgba(0, 0, 0, 0.15);
+  /* Shadows with Army Green Tint */
+  --shadow-card: 0 4px 6px rgba(57, 104, 81, 0.15);
+  --shadow-chatbot: 0 8px 32px rgba(47, 59, 20, 0.2);
   
   /* Transitions */
   --transition-fast: 0.2s ease;
@@ -128,21 +140,25 @@ a:hover {
 .btn-primary {
   background-color: var(--primary-green);
   color: var(--white);
+  border: 2px solid var(--primary-green);
 }
 
 .btn-primary:hover {
-  background-color: #2d5240;
+  background-color: var(--army-dark);
+  border-color: var(--army-dark);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-card);
+  box-shadow: 0 6px 12px rgba(57, 104, 81, 0.3);
 }
 
 .btn-secondary {
   background-color: var(--secondary-tan);
   color: var(--white);
+  border: 2px solid var(--secondary-tan);
 }
 
 .btn-secondary:hover {
-  background-color: #a67d4f;
+  background-color: var(--army-brown);
+  border-color: var(--army-brown);
   transform: translateY(-2px);
 }
 
@@ -155,6 +171,7 @@ a:hover {
 .btn-outline:hover {
   background-color: var(--primary-green);
   color: var(--white);
+  border-color: var(--primary-green);
 }
 
 /* Header Navigation */
@@ -163,10 +180,24 @@ a:hover {
   top: 0;
   left: 0;
   right: 0;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(245, 245, 220, 0.95);
   backdrop-filter: blur(10px);
   z-index: 1000;
   transition: all var(--transition-medium);
+  border-bottom: 2px solid var(--army-khaki);
+}
+
+.header.scrolled {
+  background-color: rgba(57, 104, 81, 0.95);
+  color: var(--white);
+}
+
+.header.scrolled .nav-link {
+  color: var(--white);
+}
+
+.header.scrolled .company-name {
+  color: var(--army-khaki);
 }
 
 .navbar {
@@ -200,19 +231,23 @@ a:hover {
 }
 
 .veteran-owned-btn {
-  background-color: var(--accent-red);
+  background: linear-gradient(135deg, var(--accent-red), #8B0000);
   color: var(--white);
   padding: var(--spacing-xs) var(--spacing-sm);
-  border: none;
+  border: 2px solid var(--accent-red);
   border-radius: var(--border-radius-sm);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-bold);
   cursor: pointer;
   transition: all var(--transition-fast);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
 }
 
 .veteran-owned-btn:hover {
-  background-color: #cc0000;
+  background: linear-gradient(135deg, #8B0000, var(--accent-red));
   transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(178, 34, 34, 0.3);
 }
 
 .nav-toggle {
@@ -322,7 +357,12 @@ a:hover {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(57, 104, 81, 0.7), rgba(57, 104, 81, 0.5));
+  background: linear-gradient(
+    135deg, 
+    rgba(57, 104, 81, 0.8), 
+    rgba(47, 59, 20, 0.6),
+    rgba(189, 146, 100, 0.4)
+  );
   z-index: -1;
 }
 
@@ -368,6 +408,7 @@ a:hover {
   text-align: center;
   margin-bottom: var(--spacing-xl);
   color: var(--primary-green);
+  text-shadow: 1px 1px 2px rgba(57, 104, 81, 0.1);
 }
 
 .section-subtitle {
@@ -384,7 +425,7 @@ a:hover {
 /* Awards Section */
 .awards {
   padding: var(--spacing-xxl) 0;
-  background-color: var(--light-gray);
+  background: linear-gradient(45deg, var(--light-gray), rgba(195, 176, 145, 0.3));
 }
 
 .awards-grid {
@@ -401,10 +442,13 @@ a:hover {
   box-shadow: var(--shadow-card);
   text-align: center;
   transition: transform var(--transition-fast);
+  border: 2px solid var(--army-khaki);
 }
 
 .award-card:hover {
   transform: translateY(-5px);
+  border-color: var(--primary-green);
+  box-shadow: 0 8px 16px rgba(57, 104, 81, 0.2);
 }
 
 .award-card img {
@@ -418,10 +462,6 @@ a:hover {
 .award-card h3 {
   color: var(--primary-green);
   margin-bottom: var(--spacing-xs);
-}
-
-.awards-action {
-  text-align: center;
 }
 
 /* Services Overview */
@@ -449,12 +489,13 @@ a:hover {
 .service-card:hover {
   transform: translateY(-5px);
   border-color: var(--primary-green);
+  box-shadow: 0 8px 16px rgba(57, 104, 81, 0.2);
 }
 
 .service-icon {
   width: 60px;
   height: 60px;
-  background-color: var(--primary-green);
+  background: linear-gradient(135deg, var(--primary-green), var(--army-light));
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -462,6 +503,7 @@ a:hover {
   margin: 0 auto var(--spacing-sm);
   color: var(--white);
   font-size: 1.5rem;
+  border: 3px solid var(--army-khaki);
 }
 
 .service-card h3 {
@@ -488,20 +530,25 @@ a:hover {
 }
 
 .filter-btn {
-  background-color: var(--white);
-  color: var(--medium-gray);
-  border: 2px solid var(--medium-gray);
+  background-color: var(--light-gray);
+  color: var(--army-dark);
+  border: 2px solid var(--army-khaki);
   padding: var(--spacing-sm) var(--spacing-md);
   border-radius: var(--border-radius-sm);
   cursor: pointer;
   transition: all var(--transition-fast);
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .filter-btn.active,
 .filter-btn:hover {
-  background-color: var(--primary-green);
+  background: linear-gradient(135deg, var(--primary-green), var(--army-light));
   color: var(--white);
-  border-color: var(--primary-green);
+  border-color: var(--army-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(57, 104, 81, 0.3);
 }
 
 .projects-grid {
@@ -517,10 +564,13 @@ a:hover {
   overflow: hidden;
   box-shadow: var(--shadow-card);
   transition: transform var(--transition-fast);
+  border: 2px solid var(--army-khaki);
 }
 
 .project-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(57, 104, 81, 0.25);
+  border-color: var(--primary-green);
 }
 
 .project-image {
@@ -536,9 +586,13 @@ a:hover {
 .project-category {
   color: var(--secondary-tan);
   font-size: var(--font-size-small);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-bold);
   text-transform: uppercase;
   letter-spacing: 1px;
+  background: var(--light-gray);
+  padding: 2px 8px;
+  border-radius: var(--border-radius-sm);
+  display: inline-block;
 }
 
 .project-title {
@@ -584,14 +638,16 @@ a:hover {
 }
 
 .value-front {
-  background-color: var(--primary-green);
+  background: linear-gradient(135deg, var(--primary-green), var(--army-dark));
   color: var(--white);
+  border: 3px solid var(--army-khaki);
 }
 
 .value-back {
-  background-color: var(--secondary-tan);
+  background: linear-gradient(135deg, var(--secondary-tan), var(--army-brown));
   color: var(--white);
   transform: rotateY(180deg);
+  border: 3px solid var(--army-light);
 }
 
 .value-card:hover .value-front {
@@ -697,9 +753,10 @@ a:hover {
 
 /* Footer */
 .footer {
-  background-color: var(--dark-gray);
+  background: linear-gradient(135deg, var(--army-dark), var(--primary-green));
   color: var(--white);
   padding: var(--spacing-xxl) 0 var(--spacing-md);
+  border-top: 4px solid var(--army-khaki);
 }
 
 .footer-content {
@@ -727,8 +784,10 @@ a:hover {
 }
 
 .footer-section h3 {
-  color: var(--secondary-tan);
+  color: var(--army-khaki);
   margin-bottom: var(--spacing-sm);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .footer-section ul {
@@ -759,16 +818,18 @@ a:hover {
 .social-links a {
   width: 40px;
   height: 40px;
-  background-color: var(--primary-green);
+  background: linear-gradient(135deg, var(--primary-green), var(--army-light));
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color var(--transition-fast);
+  transition: all var(--transition-fast);
+  border: 2px solid var(--army-khaki);
 }
 
 .social-links a:hover {
-  background-color: var(--secondary-tan);
+  background: linear-gradient(135deg, var(--secondary-tan), var(--army-brown));
+  transform: scale(1.1);
 }
 
 .contact-info {
@@ -921,7 +982,7 @@ a:hover {
 }
 
 .method-details h3 {
-  color: var(--army-green);
+  color: var(--primary-green);
   margin-bottom: 0.5rem;
 }
 
@@ -1134,7 +1195,7 @@ a:hover {
 }
 
 .project-testimonial cite {
-  color: var(--army-accent);
+  color: var(--accent-red);
   font-weight: 600;
 }
 
@@ -1154,7 +1215,7 @@ a:hover {
 
 .case-study-details h3,
 .case-study-details h4 {
-  color: var(--army-green);
+  color: var(--primary-green);
 }
 
 .case-study-details ul {
@@ -1164,21 +1225,21 @@ a:hover {
 .case-study-details blockquote {
   background: var(--white);
   padding: 1.5rem;
-  border-left: 4px solid var(--army-accent);
+  border-left: 4px solid var(--accent-red);
   margin: 1.5rem 0;
   font-style: italic;
   border: 1px solid var(--army-light);
 }
 
 .case-study-details cite {
-  color: var(--army-accent);
+  color: var(--accent-red);
   font-weight: 600;
 }
 
 /* CTA Section */
 .cta-section {
   padding: 4rem 0;
-  background: linear-gradient(135deg, var(--army-green), var(--army-dark));
+  background: linear-gradient(135deg, var(--primary-green), var(--army-dark));
   color: var(--white);
   text-align: center;
 }
