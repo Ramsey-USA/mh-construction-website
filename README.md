@@ -789,3 +789,12 @@ The project showcase filter buttons now feature:
 - **Enhanced readability** with bold font weight and proper spacing
 - **Smooth hover transitions** from tan to white text
 - **Consistent styling** with other brand elements
+
+### Social Media Integration
+The website now includes proper social media integration with:
+- **Font Awesome Icons** - Industry-standard icons for all social platforms
+- **Platform-specific colors** - Each social link uses brand-appropriate colors
+- **Accessibility features** - ARIA labels and proper link attributes
+- **Professional platforms** - Facebook, LinkedIn, Instagram, YouTube for construction industry presence
+- **Hover effects** - Smooth transitions and scaling animations
+- **Security attributes** - `target="_blank"` and `rel="noopener noreferrer"` for external links

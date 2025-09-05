@@ -698,11 +698,12 @@ blockquote {
 .award-card h3 {
   color: var(--primary-green);
   margin-bottom: var(--spacing-md);
+  font-weight: var(--font-weight-bold);
 }
 
-.awards-action {
-  text-align: center;
-  margin-top: var(--spacing-xl);
+.award-card p {
+  color: var(--secondary-tan);
+  font-weight: var(--font-weight-medium);
 }
 
 /* Services Overview */
@@ -750,11 +751,13 @@ blockquote {
 .service-card h3 {
   color: var(--primary-green);
   margin-bottom: var(--spacing-lg);
+  font-weight: var(--font-weight-bold);
 }
 
-.services-action {
-  text-align: center;
-  margin-top: var(--spacing-xl);
+.service-card p {
+  color: var(--secondary-tan);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-relaxed);
 }
 
 /* Project Showcase */
@@ -886,9 +889,9 @@ blockquote {
   margin: var(--spacing-lg) 0 var(--spacing-md);
 }
 
-.projects-action {
-  text-align: center;
-  margin-top: var(--spacing-xl);
+.project-card p {
+  color: var(--secondary-tan);
+  font-weight: var(--font-weight-medium);
 }
 
 /* Core Values */
@@ -1001,8 +1004,10 @@ blockquote {
 }
 
 .blog-excerpt {
-  color: var(--gray-01);
+  color: var(--secondary-tan);
   margin-bottom: var(--spacing-lg);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-relaxed);
 }
 
 /* Client Logos */
@@ -1115,24 +1120,39 @@ blockquote {
   justify-content: center;
   transition: all var(--transition-fast);
   border: 2px solid var(--army-gold);
+  text-decoration: none;
+  color: var(--white);
+  font-size: 1.2rem;
 }
 
 .social-links a:hover {
   background: linear-gradient(135deg, var(--secondary-tan), var(--field-01));
   transform: scale(1.1);
+  color: var(--white);
 }
 
-.contact-info {
-  font-size: var(--font-size-small);
+/* Specific social media icon styling */
+.social-links a[href*="facebook"] {
+  background: linear-gradient(135deg, #1877F2, #166FE5);
 }
 
-.contact-info p {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-xs);
-  margin-bottom: var(--spacing-md);
+.social-links a[href*="linkedin"] {
+  background: linear-gradient(135deg, #0A66C2, #004182);
 }
 
+.social-links a[href*="instagram"] {
+  background: linear-gradient(135deg, #E4405F, #C13584);
+}
+
+.social-links a[href*="youtube"] {
+  background: linear-gradient(135deg, #FF0000, #CC0000);
+}
+
+.social-links a[href*="twitter"] {
+  background: linear-gradient(135deg, #1DA1F2, #0D8BD9);
+}
+
+/* Footer Bottom */
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: var(--spacing-xl);
@@ -1432,6 +1452,11 @@ blockquote {
   margin-left: 2rem;
 }
 
+.subcontractor-requirements ul li {
+  color: var(--secondary-tan);
+  font-weight: var(--font-weight-medium);
+}
+
 .subcontractor-cta {
   margin-top: var(--spacing-xl);
 }
@@ -1481,13 +1506,10 @@ blockquote {
 }
 
 .project-testimonial blockquote {
+  color: var(--secondary-tan);
+  font-weight: var(--font-weight-medium);
   font-style: italic;
   margin-bottom: 1rem;
-}
-
-.project-testimonial cite {
-  color: var(--army-gold);
-  font-weight: 600;
 }
 
 /* Case Study Styles */
@@ -1522,9 +1544,15 @@ blockquote {
   border: 1px solid var(--field-02);
 }
 
-.case-study-details cite {
-  color: var(--army-gold);
-  font-weight: 600;
+.case-study-details p,
+.case-study-details li {
+  color: var(--secondary-tan);
+  font-weight: var(--font-weight-medium);
+}
+
+.case-study-details blockquote p {
+  color: var(--secondary-tan);
+  font-weight: var(--font-weight-medium);
 }
 
 /* CTA Section */

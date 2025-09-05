@@ -23,6 +23,9 @@
     
     <!-- Google reCAPTCHA -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <!-- Header Navigation -->
@@ -203,9 +206,35 @@
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- Footer with Social Media Icons -->
     <footer class="footer" id="footer">
-        <!-- ...existing footer code... -->
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="images/logo.png" alt="MH Construction Logo">
+                        <span>MH Construction</span>
+                    </div>
+                    <p>Your trusted general contractor serving Washington, Oregon, and Idaho.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/mhconstruction" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/mh-construction" target="_blank" rel="noopener noreferrer" aria-label="Connect with us on LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.instagram.com/mhconstruction" target="_blank" rel="noopener noreferrer" aria-label="Follow us on Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/mhconstruction" target="_blank" rel="noopener noreferrer" aria-label="Subscribe to our YouTube channel">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- ...existing footer sections... -->
+            </div>
+            <!-- ...existing footer bottom... -->
+        </div>
     </footer>
 
     <!-- JavaScript Files -->
@@ -216,35 +245,6 @@
     <script src="js/chatbot.js"></script>
 </body>
 </html>
-                                    </div>
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="permits" name="services" value="permits">
-                                        <label for="permits">Permits & Approvals</label>
-                                    </div>
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="construction" name="services" value="construction">
-                                        <label for="construction">General Construction</label>
-                                    </div>
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="project-management" name="services" value="project-management">
-                                        <label for="project-management">Project Management</label>
-                                    </div>
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="consultation" name="services" value="consultation">
-                                        <label for="consultation">Consultation Only</label>
-                                    </div>
-                                    <div class="checkbox-item">
-                                        <input type="checkbox" id="estimate" name="services" value="estimate">
-                                        <label for="estimate">Cost Estimate</label>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- File Upload -->
-                            <div class="form-section">
-                                <h3>Project Documents (Optional)</h3>
-                                <div class="file-upload">
-                                    <input type="file" id="project-files" name="files" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.dwg">
                                     <label for="project-files" class="file-upload-label">
                                         <span>📎 Upload plans, drawings, or reference images</span>
                                         <small>Accepted formats: PDF, DOC, JPG, PNG, DWG (Max 10MB each)</small>
