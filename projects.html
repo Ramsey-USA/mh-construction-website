@@ -81,22 +81,22 @@
             <div class="container">
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <div class="stat-number">150+</div>
+                        <div class="stat-number" data-count="150">0</div>
                         <h3>Projects Completed</h3>
                         <p>Successfully delivered across the Pacific Northwest</p>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">$50M+</div>
-                        <h3>Total Value</h3>
+                        <div class="stat-number" data-count="50">0</div>
+                        <h3>Million+ Total Value</h3>
                         <p>In construction projects completed to date</p>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">100%</div>
-                        <h3>Client Satisfaction</h3>
+                        <div class="stat-number" data-count="100">0</div>
+                        <h3>% Client Satisfaction</h3>
                         <p>Commitment to exceeding expectations</p>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">3</div>
+                        <div class="stat-number" data-count="3">0</div>
                         <h3>States Served</h3>
                         <p>Washington, Oregon, and Idaho coverage</p>
                     </div>
@@ -109,6 +109,13 @@
             <div class="container">
                 <h2 class="section-title">Project Portfolio</h2>
                 <p class="section-subtitle">Browse our diverse range of construction projects across multiple industries</p>
+                
+                <div class="project-search">
+                    <input type="text" id="project-search" placeholder="Search projects by name, location, or type...">
+                    <button id="search-btn" aria-label="Search Projects">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
                 
                 <div class="project-filters">
                     <button class="filter-btn active" data-filter="all">
@@ -134,8 +141,83 @@
                     </button>
                 </div>
                 
-                <div class="projects-grid" id="projects-grid">
-                    <!-- Projects will be loaded dynamically -->
+                <div class="projects-grid" id="projects-grid-full">
+                    <!-- Sample projects for fallback if Firebase doesn't load -->
+                    <div class="project-card-full" data-category="commercial" data-project-id="sample-1">
+                        <div class="project-image-container">
+                            <img src="images/projects/commercial-office-1.jpg" alt="Downtown Office Complex" class="project-image" loading="lazy" onerror="this.src='images/placeholder-project.jpg'">
+                            <div class="project-overlay">
+                                <button class="view-project-btn" onclick="openProjectModal('sample-1')">View Details</button>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">Commercial</span>
+                            <h3 class="project-title">Downtown Office Complex</h3>
+                            <p class="project-description">Modern 4-story office building with retail space and underground parking.</p>
+                            <div class="project-meta">
+                                <span class="project-location">📍 Seattle, WA</span>
+                                <span class="project-value">💰 $3.2M</span>
+                                <span class="project-year">📅 2023</span>
+                            </div>
+                            <div class="project-specs">
+                                <span class="spec">45,000 sq ft</span>
+                                <span class="spec">LEED Certified</span>
+                                <span class="spec">Underground Parking</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card-full" data-category="medical" data-project-id="sample-2">
+                        <div class="project-image-container">
+                            <img src="images/projects/medical-clinic-1.jpg" alt="Regional Medical Center" class="project-image" loading="lazy" onerror="this.src='images/placeholder-project.jpg'">
+                            <div class="project-overlay">
+                                <button class="view-project-btn" onclick="openProjectModal('sample-2')">View Details</button>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">Medical</span>
+                            <h3 class="project-title">Regional Medical Center</h3>
+                            <p class="project-description">State-of-the-art medical facility with specialized treatment rooms and diagnostic equipment.</p>
+                            <div class="project-meta">
+                                <span class="project-location">📍 Portland, OR</span>
+                                <span class="project-value">💰 $8.5M</span>
+                                <span class="project-year">📅 2023</span>
+                            </div>
+                            <div class="project-specs">
+                                <span class="spec">25,000 sq ft</span>
+                                <span class="spec">Medical Grade HVAC</span>
+                                <span class="spec">Infection Control</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card-full" data-category="religious" data-project-id="sample-3">
+                        <div class="project-image-container">
+                            <img src="images/projects/church-1.jpg" alt="Community Faith Center" class="project-image" loading="lazy" onerror="this.src='images/placeholder-project.jpg'">
+                            <div class="project-overlay">
+                                <button class="view-project-btn" onclick="openProjectModal('sample-3')">View Details</button>
+                            </div>
+                        </div>
+                        <div class="project-info">
+                            <span class="project-category">Religious</span>
+                            <h3 class="project-title">Community Faith Center</h3>
+                            <p class="project-description">Beautiful worship center with sanctuary, fellowship hall, and educational wings.</p>
+                            <div class="project-meta">
+                                <span class="project-location">📍 Boise, ID</span>
+                                <span class="project-value">💰 $2.8M</span>
+                                <span class="project-year">📅 2022</span>
+                            </div>
+                            <div class="project-specs">
+                                <span class="spec">18,000 sq ft</span>
+                                <span class="spec">Acoustic Design</span>
+                                <span class="spec">Seating for 400</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="load-more-container">
+                    <button id="load-more-btn" class="btn btn-outline">Load More Projects</button>
                 </div>
             </div>
         </section>
@@ -148,10 +230,17 @@
                 
                 <div class="case-study-content">
                     <div class="case-study-image">
-                        <img src="images/case-studies/featured-project.jpg" alt="Featured Project Case Study" loading="lazy">
+                        <img src="images/case-studies/featured-project.jpg" alt="Featured Project Case Study" loading="lazy" onerror="this.src='images/placeholder-project.jpg'">
                     </div>
                     <div class="case-study-details">
                         <h3>Regional Medical Center Expansion</h3>
+                        <div class="case-study-meta">
+                            <span class="case-study-location">📍 Portland, Oregon</span>
+                            <span class="case-study-value">💰 $8.5 Million</span>
+                            <span class="case-study-timeline">⏱️ 14 Months</span>
+                            <span class="case-study-size">📐 25,000 sq ft</span>
+                        </div>
+                        
                         <h4>Project Overview</h4>
                         <p>A comprehensive 25,000 sq ft medical facility expansion featuring specialized treatment rooms, diagnostic centers, and patient care areas. This project showcased our expertise in healthcare construction while maintaining operational facility requirements.</p>
                         
@@ -164,18 +253,23 @@
                             <li>Phased construction to maintain operations</li>
                         </ul>
                         
-                        <h4>Project Details</h4>
+                        <h4>Challenges Overcome</h4>
                         <ul>
-                            <li><strong>Location:</strong> Portland, Oregon</li>
-                            <li><strong>Size:</strong> 25,000 sq ft</li>
-                            <li><strong>Duration:</strong> 14 months</li>
-                            <li><strong>Value:</strong> $8.5 million</li>
+                            <li>Working around 24/7 hospital operations</li>
+                            <li>Coordinating with multiple medical equipment vendors</li>
+                            <li>Meeting strict healthcare building codes</li>
+                            <li>Maintaining sterile work environments</li>
                         </ul>
                         
                         <blockquote>
                             <p>"MH Construction exceeded our expectations in every aspect. Their attention to detail and understanding of medical facility requirements was exceptional."</p>
                             <cite>— Dr. Sarah Johnson, Chief Medical Officer</cite>
                         </blockquote>
+
+                        <div class="case-study-actions">
+                            <a href="contact.html" class="btn btn-primary">Start Similar Project</a>
+                            <a href="services.html#medical" class="btn btn-outline">Medical Services</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -193,6 +287,11 @@
                         <div class="timeline-content">
                             <h3>Discovery & Planning</h3>
                             <p>Initial consultation, site analysis, and comprehensive project planning with detailed specifications.</p>
+                            <ul class="process-highlights">
+                                <li>Site evaluation and feasibility study</li>
+                                <li>Budget development and timeline planning</li>
+                                <li>Permit and regulatory review</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -200,6 +299,11 @@
                         <div class="timeline-content">
                             <h3>Design Development</h3>
                             <p>Collaborative design process with architects and engineers to optimize functionality and cost-effectiveness.</p>
+                            <ul class="process-highlights">
+                                <li>Architectural and engineering coordination</li>
+                                <li>3D modeling and visualization</li>
+                                <li>Value engineering recommendations</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -207,6 +311,11 @@
                         <div class="timeline-content">
                             <h3>Permitting & Approvals</h3>
                             <p>Navigation of regulatory requirements and securing all necessary permits and approvals.</p>
+                            <ul class="process-highlights">
+                                <li>Building permit applications</li>
+                                <li>Code compliance verification</li>
+                                <li>Utility coordination and approvals</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -214,6 +323,11 @@
                         <div class="timeline-content">
                             <h3>Construction Execution</h3>
                             <p>Skilled construction with rigorous quality control, safety protocols, and timeline management.</p>
+                            <ul class="process-highlights">
+                                <li>Daily quality inspections</li>
+                                <li>Safety protocol enforcement</li>
+                                <li>Regular progress reporting</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -221,6 +335,11 @@
                         <div class="timeline-content">
                             <h3>Project Completion</h3>
                             <p>Final inspections, client walkthrough, and comprehensive warranty support.</p>
+                            <ul class="process-highlights">
+                                <li>Final inspections and certifications</li>
+                                <li>Client training and handover</li>
+                                <li>Warranty and maintenance support</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -235,29 +354,41 @@
                 
                 <div class="testimonials-grid">
                     <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span>⭐⭐⭐⭐⭐</span>
+                        </div>
                         <div class="testimonial-content">
                             <p>"The professionalism and attention to detail that MH Construction brought to our office building project was outstanding. They delivered on time and within budget."</p>
                             <div class="testimonial-author">
                                 <h4>Mark Stevens</h4>
                                 <p>CEO, Stevens & Associates</p>
+                                <span class="testimonial-project">Downtown Office Complex</span>
                             </div>
                         </div>
                     </div>
                     <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span>⭐⭐⭐⭐⭐</span>
+                        </div>
                         <div class="testimonial-content">
                             <p>"Our winery facility required specialized knowledge of both construction and wine production. MH Construction understood our unique needs perfectly."</p>
                             <div class="testimonial-author">
                                 <h4>Maria Rodriguez</h4>
                                 <p>Owner, Rodriguez Family Vineyard</p>
+                                <span class="testimonial-project">Vineyard Production Facility</span>
                             </div>
                         </div>
                     </div>
                     <div class="testimonial-card">
+                        <div class="testimonial-rating">
+                            <span>⭐⭐⭐⭐⭐</span>
+                        </div>
                         <div class="testimonial-content">
                             <p>"The team's military background really showed in their organization and execution. Every phase was completed with precision and excellence."</p>
                             <div class="testimonial-author">
                                 <h4>Rev. James Mitchell</h4>
                                 <p>Pastor, Community Faith Center</p>
+                                <span class="testimonial-project">Church Expansion Project</span>
                             </div>
                         </div>
                     </div>
@@ -279,6 +410,19 @@
             </div>
         </section>
     </main>
+
+    <!-- Project Modal -->
+    <div id="modal-overlay" class="modal-overlay">
+        <div id="project-modal" class="project-modal">
+            <div class="modal-header">
+                <h2>Project Details</h2>
+                <button id="modal-close" class="modal-close" aria-label="Close Modal">✕</button>
+            </div>
+            <div id="modal-body" class="modal-body">
+                <!-- Project details will be loaded here -->
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="footer" id="footer" role="contentinfo">
@@ -370,7 +514,7 @@
     <script src="js/firebase-functions.js"></script>
     <script src="js/main.js"></script>
     <script src="js/navigation.js"></script>
-    <script src="js/gallery.js"></script>
+    <script src="js/projects.js"></script>
     <script src="js/chatbot.js"></script>
 </body>
 </html>

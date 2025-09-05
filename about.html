@@ -85,9 +85,24 @@
                         <p class="lead">MH Construction is a veteran-owned general contracting company committed to delivering exceptional construction services across Washington, Oregon, and Idaho.</p>
                         <p>With over 150 years of combined commercial construction experience, our team brings unparalleled expertise to every project. We specialize in commercial, medical, religious, winery, industrial, and tenant improvement construction.</p>
                         <p>Our approach is built on small-town values of honesty, transparency, and accountability. We believe in clear communication, transparent pricing, and delivering on our promises every time.</p>
+                        
+                        <div class="company-stats">
+                            <div class="stat">
+                                <span class="stat-number" data-count="150">0</span>
+                                <span class="stat-label">Years Combined Experience</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number" data-count="50">0</span>
+                                <span class="stat-label">Million+ Projects Value</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number" data-count="100">0</span>
+                                <span class="stat-label">% Client Satisfaction</span>
+                            </div>
+                        </div>
                     </div>
                     <div class="overview-image">
-                        <img src="images/about/company-overview.jpg" alt="MH Construction Team" loading="lazy">
+                        <img src="images/about/company-overview.jpg" alt="MH Construction Team" loading="lazy" onerror="this.src='images/placeholder-team.jpg'">
                     </div>
                 </div>
             </div>
@@ -168,24 +183,25 @@
             <div class="container">
                 <div class="story-grid">
                     <div class="story-image">
-                        <img src="images/about/veteran-owned.jpg" alt="Veteran-Owned Business" loading="lazy">
+                        <img src="images/about/veteran-owned.jpg" alt="Veteran-Owned Business" loading="lazy" onerror="this.src='images/placeholder-veteran.jpg'">
                     </div>
                     <div class="story-content">
                         <h2>Veteran-Owned & Operated</h2>
                         <p class="lead">Our military background brings discipline, precision, and unwavering commitment to every project.</p>
                         <p>As a veteran-owned business, we understand the importance of mission completion, attention to detail, and working as a cohesive team. These military values translate directly into our construction practices.</p>
                         <p>We bring the same level of dedication and excellence that served our country to serve our clients. Every project is approached with military precision and a commitment to getting the job done right.</p>
+                        
                         <div class="story-stats">
                             <div class="stat">
-                                <h3>10+</h3>
+                                <h3 data-count="10">0</h3>
                                 <p>Years in Business</p>
                             </div>
                             <div class="stat">
-                                <h3>150+</h3>
+                                <h3 data-count="150">0</h3>
                                 <p>Years Combined Experience</p>
                             </div>
                             <div class="stat">
-                                <h3>100%</h3>
+                                <h3 data-count="100">0</h3>
                                 <p>Client Satisfaction</p>
                             </div>
                         </div>
@@ -202,29 +218,68 @@
                 
                 <div class="team-grid">
                     <div class="team-card">
-                        <img src="images/team/team-member-1.jpg" alt="Project Manager" class="team-image" loading="lazy">
-                        <div class="team-content">
-                            <h3>Michael Henderson</h3>
-                            <p class="team-role">Founder & President</p>
-                            <p>With over 30 years in construction and military leadership experience, Michael brings strategic vision and operational excellence to every project.</p>
+                        <div class="team-image">
+                            <img src="images/team/team-member-1.jpg" alt="Michael Henderson" loading="lazy" onerror="this.src='images/placeholder-person.jpg'">
+                        </div>
+                        <div class="team-info">
+                            <h3 class="team-name">Michael Henderson</h3>
+                            <p class="team-title">Founder & President</p>
+                            <p class="team-bio">With over 30 years in construction and military leadership experience, Michael brings strategic vision and operational excellence to every project.</p>
+                            <div class="team-credentials">
+                                <span class="credential">Licensed GC</span>
+                                <span class="credential">Military Veteran</span>
+                                <span class="credential">30+ Years</span>
+                            </div>
+                            <div class="team-contact">
+                                <a href="mailto:mhenderson@mhc-gc.com" class="team-email">
+                                    <i class="fas fa-envelope"></i>
+                                    Contact Michael
+                                </a>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="team-card">
-                        <img src="images/team/team-member-2.jpg" alt="Construction Manager" class="team-image" loading="lazy">
-                        <div class="team-content">
-                            <h3>Sarah Martinez</h3>
-                            <p class="team-role">Vice President of Operations</p>
-                            <p>Sarah oversees all construction operations with 25 years of experience in commercial construction and project management.</p>
+                        <div class="team-image">
+                            <img src="images/team/team-member-2.jpg" alt="Sarah Martinez" loading="lazy" onerror="this.src='images/placeholder-person.jpg'">
+                        </div>
+                        <div class="team-info">
+                            <h3 class="team-name">Sarah Martinez</h3>
+                            <p class="team-title">Vice President of Operations</p>
+                            <p class="team-bio">Sarah oversees all construction operations with 25 years of experience in commercial construction and project management.</p>
+                            <div class="team-credentials">
+                                <span class="credential">Operations Lead</span>
+                                <span class="credential">Project Management</span>
+                                <span class="credential">25+ Years</span>
+                            </div>
+                            <div class="team-contact">
+                                <a href="mailto:smartinez@mhc-gc.com" class="team-email">
+                                    <i class="fas fa-envelope"></i>
+                                    Contact Sarah
+                                </a>
+                            </div>
                         </div>
                     </div>
                     
                     <div class="team-card">
-                        <img src="images/team/team-member-3.jpg" alt="Project Director" class="team-image" loading="lazy">
-                        <div class="team-content">
-                            <h3>David Chen</h3>
-                            <p class="team-role">Senior Project Manager</p>
-                            <p>David leads our project teams with expertise in medical and commercial construction, ensuring quality and timeline adherence.</p>
+                        <div class="team-image">
+                            <img src="images/team/team-member-3.jpg" alt="David Chen" loading="lazy" onerror="this.src='images/placeholder-person.jpg'">
+                        </div>
+                        <div class="team-info">
+                            <h3 class="team-name">David Chen</h3>
+                            <p class="team-title">Senior Project Manager</p>
+                            <p class="team-bio">David leads our project teams with expertise in medical and commercial construction, ensuring quality and timeline adherence.</p>
+                            <div class="team-credentials">
+                                <span class="credential">Project Manager</span>
+                                <span class="credential">Medical Expert</span>
+                                <span class="credential">15+ Years</span>
+                            </div>
+                            <div class="team-contact">
+                                <a href="mailto:dchen@mhc-gc.com" class="team-email">
+                                    <i class="fas fa-envelope"></i>
+                                    Contact David
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -238,28 +293,22 @@
                 <p class="section-subtitle">Recognition for our commitment to excellence and quality</p>
                 
                 <div class="certifications-grid">
-                    <div class="cert-card">
-                        <img src="images/certifications/license-cert.jpg" alt="General Contractor License" class="cert-image" loading="lazy">
-                        <div class="cert-content">
-                            <h3>Licensed General Contractor</h3>
-                            <p>Fully licensed and insured in Washington, Oregon, and Idaho</p>
-                        </div>
+                    <div class="certification-card">
+                        <img src="images/certifications/license-cert.jpg" alt="General Contractor License" loading="lazy" onerror="this.src='images/placeholder-cert.jpg'">
+                        <h3>Licensed General Contractor</h3>
+                        <p>Fully licensed and insured in Washington, Oregon, and Idaho</p>
                     </div>
                     
-                    <div class="cert-card">
-                        <img src="images/certifications/safety-award.jpg" alt="Safety Excellence Award" class="cert-image" loading="lazy">
-                        <div class="cert-content">
-                            <h3>Safety Excellence Award</h3>
-                            <p>Recognized for outstanding safety record and zero-incident commitment</p>
-                        </div>
+                    <div class="certification-card">
+                        <img src="images/certifications/safety-award.jpg" alt="Safety Excellence Award" loading="lazy" onerror="this.src='images/placeholder-cert.jpg'">
+                        <h3>Safety Excellence Award</h3>
+                        <p>Recognized for outstanding safety record and zero-incident commitment</p>
                     </div>
                     
-                    <div class="cert-card">
-                        <img src="images/certifications/quality-award.jpg" alt="Quality Construction Award" class="cert-image" loading="lazy">
-                        <div class="cert-content">
-                            <h3>Quality Construction Award</h3>
-                            <p>Honored for exceptional craftsmanship and client satisfaction</p>
-                        </div>
+                    <div class="certification-card">
+                        <img src="images/certifications/quality-award.jpg" alt="Quality Construction Award" loading="lazy" onerror="this.src='images/placeholder-cert.jpg'">
+                        <h3>Quality Construction Award</h3>
+                        <p>Honored for exceptional craftsmanship and client satisfaction</p>
                     </div>
                 </div>
             </div>
@@ -271,39 +320,39 @@
                 <h2 class="section-title">Why Choose MH Construction</h2>
                 <p class="section-subtitle">Six compelling reasons to trust us with your next project</p>
                 
-                <div class="reasons-grid">
-                    <div class="reason-card">
-                        <div class="reason-icon">🎖️</div>
+                <div class="choose-grid">
+                    <div class="choose-item">
+                        <div class="choose-icon">🎖️</div>
                         <h3>Veteran-Owned</h3>
                         <p>Military precision and discipline applied to construction excellence</p>
                     </div>
                     
-                    <div class="reason-card">
-                        <div class="reason-icon">🏗️</div>
+                    <div class="choose-item">
+                        <div class="choose-icon">🏗️</div>
                         <h3>150+ Years Experience</h3>
                         <p>Combined team experience ensures proven expertise on every project</p>
                     </div>
                     
-                    <div class="reason-card">
-                        <div class="reason-icon">💰</div>
+                    <div class="choose-item">
+                        <div class="choose-icon">💰</div>
                         <h3>Transparent Pricing</h3>
                         <p>No hidden costs or surprises - clear, upfront project pricing</p>
                     </div>
                     
-                    <div class="reason-card">
-                        <div class="reason-icon">⏰</div>
+                    <div class="choose-item">
+                        <div class="choose-icon">⏰</div>
                         <h3>On-Time Delivery</h3>
                         <p>Project completion on schedule with rigorous timeline management</p>
                     </div>
                     
-                    <div class="reason-card">
-                        <div class="reason-icon">🛡️</div>
+                    <div class="choose-item">
+                        <div class="choose-icon">🛡️</div>
                         <h3>Safety First</h3>
                         <p>Zero-incident track record with comprehensive safety protocols</p>
                     </div>
                     
-                    <div class="reason-card">
-                        <div class="reason-icon">📞</div>
+                    <div class="choose-item">
+                        <div class="choose-icon">📞</div>
                         <h3>Local Service</h3>
                         <p>Serving Washington, Oregon, and Idaho with local expertise</p>
                     </div>

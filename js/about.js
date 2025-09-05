@@ -1,106 +1,105 @@
 // MH Construction - About Page Functionality
 
-class AboutPage {
-    constructor() {
-        this.init();
-    }
+document.addEventListener('DOMContentLoaded', function() {
+    initializeAboutPage();
+});
 
-    init() {
-        this.setupScrollAnimations();
-        this.setupValueCards();
-        this.setupStatsCounter();
-    }
-
-    setupScrollAnimations() {
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fade-in');
-                }
-            });
-        }, observerOptions);
-
-        // Observe sections for animation
-        const sections = document.querySelectorAll('.company-overview, .veteran-story, .leadership-team, .certifications, .why-choose-us');
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-    }
-
-    setupValueCards() {
-        const valueCards = document.querySelectorAll('.value-card');
+function initializeAboutPage() {
+    try {
+        // Initialize all about page functionality
+        initializeScrollAnimations();
+        initializeValueCards();
+        initializeCounterAnimations();
+        initializeCertifications();
+        initializeTeamCards();
         
-        valueCards.forEach(card => {
-            card.addEventListener('click', () => {
-                card.classList.toggle('flipped');
-            });
-
-            // Add keyboard support
-            card.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    card.classList.toggle('flipped');
-                }
-            });
-
-            // Make cards focusable
-            card.setAttribute('tabindex', '0');
-            card.setAttribute('role', 'button');
-            card.setAttribute('aria-label', 'Click to learn more about this value');
-        });
-    }
-
-    setupStatsCounter() {
-        const stats = document.querySelectorAll('.stat h3');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    this.animateCounter(entry.target);
-                    observer.unobserve(entry.target);
-                }
-            });
-        });
-
-        stats.forEach(stat => {
-            observer.observe(stat);
-        });
-    }
-
-    animateCounter(element) {
-        const text = element.textContent;
-        const hasPlus = text.includes('+');
-        const hasPercent = text.includes('%');
-        const number = parseInt(text.replace(/[+%]/g, ''));
-        
-        let current = 0;
-        const increment = number / 60; // Animate over ~1 second at 60fps
-        
-        const timer = setInterval(() => {
-            current += increment;
-            
-            if (current >= number) {
-                current = number;
-                clearInterval(timer);
-            }
-            
-            let displayText = Math.floor(current).toString();
-            if (hasPlus) displayText += '+';
-            if (hasPercent) displayText += '%';
-            
-            element.textContent = displayText;
-        }, 16);
+        console.log('About page initialized successfully');
+    } catch (error) {
+        console.error('Error initializing about page:', error);
     }
 }
 
-// Initialize About page functionality
-document.addEventListener('DOMContentLoaded', () => {
-    new AboutPage();
-});
+function initializeScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-fade-in');
+                
+                // Log section view if analytics available
+                if (typeof analytics !== 'undefined') {
+                    const sectionName = entry.target.id || entry.target.className;
+                    analytics.logEvent('about_section_viewed', {
+                        section: sectionName
+                    });
+                }
+            }
+        });
+    }, observerOptions);
+
+    // Observe sections for animation
+    const sections = document.querySelectorAll('.company-overview, .core-values, .veteran-story, .leadership-team, .certifications, .why-choose-us');
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+}
+
+function initializeValueCards() {
+    const valueCards = document.querySelectorAll('.value-card');
+    
+    valueCards.forEach(card => {
+        // Add click functionality for flip effect
+        card.addEventListener('click', () => {
+            card.classList.toggle('flipped');
+            
+            // Log value card interaction
+            if (typeof analytics !== 'undefined') {
+                const valueName = card.querySelector('h3').textContent;
+                analytics.logEvent('value_card_clicked', {
+                    value_name: valueName
+                });
+            }
+        });
+
+        // Add keyboard support
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                card.classList.toggle('flipped');
+            }
+        });
+
+        // Make cards focusable for accessibility
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-label', 'Click to learn more about this value');
+    });
+}
+
+function initializeCounterAnimations() {
+    const counters = document.querySelectorAll('[data-count]');
+    
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.5,
+        rootMargin: '0px'
+    });
+
+    counters.forEach(counter => {
+        counterObserver.observe(counter);
+    });
+}
+
 function animateCounter(element) {
     const target = parseInt(element.dataset.count);
     const duration = 2000; // 2 seconds
@@ -113,63 +112,35 @@ function animateCounter(element) {
             current = target;
             clearInterval(timer);
         }
-        element.textContent = Math.floor(current);
+        
+        // Format the number based on context
+        let displayValue = Math.floor(current);
+        if (element.textContent.includes('%')) {
+            displayValue += '%';
+        } else if (element.textContent.includes('+')) {
+            displayValue += '+';
+        }
+        
+        element.textContent = displayValue;
     }, 16);
     
-    // Log analytics event
-    analytics.logEvent('counter_animated', {
-        counter_name: element.closest('.stat').querySelector('.stat-label').textContent,
-        final_value: target
-    });
-}
-
-// Initialize values accordion functionality
-function initializeValuesAccordion() {
-    const valueHeaders = document.querySelectorAll('.value-header');
-    
-    valueHeaders.forEach(header => {
-        header.addEventListener('click', function() {
-            const valueItem = this.parentElement;
-            const content = valueItem.querySelector('.value-content');
-            const toggleIcon = this.querySelector('.toggle-icon');
-            const isActive = valueItem.classList.contains('active');
-            
-            // Close all other items
-            document.querySelectorAll('.value-item').forEach(item => {
-                if (item !== valueItem) {
-                    item.classList.remove('active');
-                    item.querySelector('.value-content').style.maxHeight = '0';
-                    item.querySelector('.toggle-icon').textContent = '+';
-                }
-            });
-            
-            // Toggle current item
-            if (isActive) {
-                valueItem.classList.remove('active');
-                content.style.maxHeight = '0';
-                toggleIcon.textContent = '+';
-            } else {
-                valueItem.classList.add('active');
-                content.style.maxHeight = content.scrollHeight + 'px';
-                toggleIcon.textContent = '−';
-                
-                // Log analytics event
-                analytics.logEvent('value_expanded', {
-                    value_name: this.dataset.value
-                });
-            }
+    // Log analytics event if available
+    if (typeof analytics !== 'undefined') {
+        const statLabel = element.closest('.stat')?.querySelector('.stat-label')?.textContent || 'unknown';
+        analytics.logEvent('counter_animated', {
+            counter_name: statLabel,
+            final_value: target
         });
-    });
+    }
 }
 
-// Initialize certifications with hover effects
 function initializeCertifications() {
     const certCards = document.querySelectorAll('.certification-card');
     
     certCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
             this.style.transform = 'translateY(-10px) scale(1.02)';
-            this.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.15)';
+            this.style.boxShadow = '0 12px 24px rgba(57, 104, 81, 0.2)';
         });
         
         card.addEventListener('mouseleave', function() {
@@ -179,17 +150,171 @@ function initializeCertifications() {
         
         card.addEventListener('click', function() {
             const certName = this.querySelector('h3').textContent;
-            analytics.logEvent('certification_viewed', {
-                certification_name: certName
-            });
+            
+            // Log certification view
+            if (typeof analytics !== 'undefined') {
+                analytics.logEvent('certification_viewed', {
+                    certification_name: certName
+                });
+            }
+            
+            // Add visual feedback
+            this.style.borderColor = 'var(--primary-green)';
+            setTimeout(() => {
+                this.style.borderColor = 'var(--field-02)';
+            }, 500);
+        });
+        
+        // Make focusable for keyboard navigation
+        card.setAttribute('tabindex', '0');
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                card.click();
+            }
         });
     });
 }
 
+function initializeTeamCards() {
+    const teamCards = document.querySelectorAll('.team-card');
+    
+    teamCards.forEach(card => {
+        // Enhanced hover effects
+        card.addEventListener('mouseenter', function() {
+            const image = this.querySelector('.team-image img');
+            if (image) {
+                image.style.transform = 'scale(1.1)';
+            }
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            const image = this.querySelector('.team-image img');
+            if (image) {
+                image.style.transform = 'scale(1)';
+            }
+        });
+        
+        // Track team member contact clicks
+        const emailLink = card.querySelector('.team-email');
+        if (emailLink) {
+            emailLink.addEventListener('click', function(e) {
+                const memberName = card.querySelector('.team-name').textContent;
+                
+                if (typeof analytics !== 'undefined') {
+                    analytics.logEvent('team_contact_clicked', {
+                        member_name: memberName,
+                        contact_method: 'email'
+                    });
+                }
+            });
+        }
+    });
+}
+
+// Initialize choose items with enhanced interactions
+function initializeChooseItems() {
+    const chooseItems = document.querySelectorAll('.choose-item');
+    
+    chooseItems.forEach(item => {
+        item.addEventListener('mouseenter', function() {
+            const icon = this.querySelector('.choose-icon');
+            if (icon) {
+                icon.style.transform = 'scale(1.2) rotate(5deg)';
+            }
+        });
+        
+        item.addEventListener('mouseleave', function() {
+            const icon = this.querySelector('.choose-icon');
+            if (icon) {
+                icon.style.transform = 'scale(1) rotate(0deg)';
+            }
+        });
+        
+        item.addEventListener('click', function() {
+            const reasonTitle = this.querySelector('h3').textContent;
+            
+            if (typeof analytics !== 'undefined') {
+                analytics.logEvent('choose_reason_clicked', {
+                    reason: reasonTitle
+                });
+            }
+            
+            // Visual feedback
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
+        });
+    });
+}
+
+// Load team members from Firebase or use fallback
+async function loadTeamMembers() {
+    try {
+        if (typeof FirebaseUtils !== 'undefined') {
+            const teamMembers = await FirebaseUtils.getCollection('teamMembers');
+            
+            if (teamMembers && teamMembers.length > 0) {
+                renderTeamMembers(teamMembers);
+                return;
+            }
+        }
+        
+        // Use static team data as fallback
+        console.log('Using static team member data');
+        
+    } catch (error) {
+        console.error('Error loading team members:', error);
+    }
+}
+
+function renderTeamMembers(members) {
+    const teamGrid = document.querySelector('.team-grid');
+    if (!teamGrid) return;
+    
+    teamGrid.innerHTML = members.map(member => `
+        <div class="team-card">
+            <div class="team-image">
+                <img src="${member.imageUrl || 'images/placeholder-person.jpg'}" 
+                     alt="${member.name}" 
+                     loading="lazy"
+                     onerror="this.src='images/placeholder-person.jpg'">
+            </div>
+            <div class="team-info">
+                <h3 class="team-name">${member.name}</h3>
+                <p class="team-title">${member.title}</p>
+                <p class="team-bio">${member.bio}</p>
+                ${member.credentials ? `
+                    <div class="team-credentials">
+                        ${member.credentials.map(cred => `<span class="credential">${cred}</span>`).join('')}
+                    </div>
+                ` : ''}
+                ${member.email ? `
+                    <div class="team-contact">
+                        <a href="mailto:${member.email}" class="team-email">
+                            <i class="fas fa-envelope"></i>
+                            Contact ${member.name.split(' ')[0]}
+                        </a>
+                    </div>
+                ` : ''}
+            </div>
+        </div>
+    `).join('');
+    
+    // Re-initialize team card interactions
+    initializeTeamCards();
+}
+
 // Export functions for global access
 window.AboutPage = {
+    initializeAboutPage,
     loadTeamMembers,
+    animateCounter,
     initializeCounterAnimations,
-    initializeValuesAccordion,
     initializeCertifications
 };
+
+// Initialize choose items when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    initializeChooseItems();
+});
