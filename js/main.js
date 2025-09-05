@@ -1,87 +1,29 @@
 // MH Construction - Main JavaScript Functionality
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all components
-    initializeApp();
-});
-
-async function initializeApp() {
+    // Initialize core functionality
     try {
-        // Show loading state
-        showLoadingState();
+        initializeNavigation();
+        initializeHero();
+        initializeAnimations();
+        initializeCarousel();
         
-        // Initialize components
-        await Promise.all([
-            initializeNavigation(),
-            initializeHero(),
-            loadProjects(),
-            loadBlogPosts(),
-            loadClientLogos(),
-            loadAwards(),
-            initializeAnimations(),
-            initializeScrollEffects(),
-            initializeContactForms()
-        ]);
-        
-        // Hide loading state
-        hideLoadingState();
-        
-        // Log page view
-        analytics.logEvent('page_view', {
-            page_title: document.title,
-            page_location: window.location.href
-        });
-        
+        console.log('Main app initialized successfully');
     } catch (error) {
         console.error('Error initializing app:', error);
-        hideLoadingState();
     }
-}
-
-function showLoadingState() {
-    const loadingOverlay = document.createElement('div');
-    loadingOverlay.id = 'loading-overlay';
-    loadingOverlay.innerHTML = `
-        <div class="loading-content">
-            <div class="loading-logo">
-                <img src="images/logo.png" alt="MH Construction" onerror="this.style.display='none'">
-            </div>
-            <div class="loading-spinner"></div>
-            <p>Loading MH Construction...</p>
-        </div>
-    `;
-    loadingOverlay.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(57, 104, 81, 0.95);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 10000;
-        color: white;
-        text-align: center;
-    `;
-    document.body.appendChild(loadingOverlay);
-}
-
-function hideLoadingState() {
-    const loadingOverlay = document.getElementById('loading-overlay');
-    if (loadingOverlay) {
-        loadingOverlay.style.opacity = '0';
-        setTimeout(() => {
-            loadingOverlay.remove();
-        }, 300);
-    }
-}
+});
 
 // Navigation functionality
-async function initializeNavigation() {
+function initializeNavigation() {
     const header = document.getElementById('header');
     const navToggle = document.getElementById('nav-toggle');
     const navMenu = document.getElementById('nav-menu');
+    
+    if (!header || !navToggle || !navMenu) {
+        console.warn('Navigation elements not found');
+        return;
+    }
     
     // Sticky header on scroll
     let lastScrollTop = 0;
@@ -105,49 +47,41 @@ async function initializeNavigation() {
     });
     
     // Mobile menu toggle
-    if (navToggle && navMenu) {
-        navToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
-            navToggle.classList.toggle('active');
-            
-            // Animate hamburger lines
-            const lines = navToggle.querySelectorAll('.hamburger-line');
-            lines.forEach((line, index) => {
-                line.style.transform = navToggle.classList.contains('active') 
-                    ? `rotate(${index === 0 ? 45 : index === 1 ? 0 : -45}deg) translate(${index === 1 ? '100px' : '0'}, ${index === 0 ? '7px' : index === 2 ? '-7px' : '0'})`
-                    : 'none';
-                line.style.opacity = index === 1 && navToggle.classList.contains('active') ? '0' : '1';
-            });
-            
-            // Prevent body scroll when menu is open
-            document.body.style.overflow = navToggle.classList.contains('active') ? 'hidden' : '';
-        });
+    navToggle.addEventListener('click', function() {
+        navMenu.classList.toggle('active');
+        navToggle.classList.toggle('active');
         
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
-                document.body.style.overflow = '';
-            }
-        });
-    }
+        // Prevent body scroll when menu is open
+        document.body.style.overflow = navToggle.classList.contains('active') ? 'hidden' : '';
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
     
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-                
-                // Close mobile menu if open
-                navMenu.classList.remove('active');
-                navToggle.classList.remove('active');
-                document.body.style.overflow = '';
+            const href = this.getAttribute('href');
+            if (href && href !== '#') {
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    
+                    // Close mobile menu if open
+                    navMenu.classList.remove('active');
+                    navToggle.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
             }
         });
     });
@@ -156,7 +90,9 @@ async function initializeNavigation() {
 // Hero section functionality
 function initializeHero() {
     const hero = document.getElementById('hero');
-    const heroVideo = hero?.querySelector('video');
+    if (!hero) return;
+    
+    const heroVideo = hero.querySelector('video');
     
     if (heroVideo) {
         // Pause video on mobile to save bandwidth
@@ -173,104 +109,168 @@ function initializeHero() {
             hero.style.backgroundPosition = 'center';
         });
     }
+}
+
+// Initialize animations
+function initializeAnimations() {
+    // Intersection Observer for animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
     
-    // Parallax effect for hero content
-    window.addEventListener('scroll', function() {
-        if (window.innerWidth > 768) {
-            const scrolled = window.pageYOffset;
-            const parallax = hero?.querySelector('.hero-content');
-            if (parallax) {
-                parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
             }
-        }
-    });
-}
-
-// Load projects from Firebase
-async function loadProjects() {
-    try {
-        const projectsGrid = document.getElementById('projects-grid');
-        if (!projectsGrid) return;
-        
-        const projects = await FirebaseUtils.getCollection(collections.projects);
-        
-        if (projects.length === 0) {
-            projectsGrid.innerHTML = '<p class="no-projects">Projects coming soon...</p>';
-            return;
-        }
-        
-        // Show featured projects (limit to 6 for homepage)
-        const featuredProjects = projects.filter(p => p.featured).slice(0, 6);
-        
-        projectsGrid.innerHTML = featuredProjects.map(project => `
-            <div class="project-card" data-category="${project.category}">
-                <img src="${project.images?.[0] || 'images/placeholder-project.jpg'}" 
-                     alt="${project.title}" 
-                     class="project-image"
-                     loading="lazy"
-                     onerror="this.src='images/placeholder-project.jpg'">
-                <div class="project-info">
-                    <span class="project-category">${project.category}</span>
-                    <h3 class="project-title">${project.title}</h3>
-                    <p class="project-description">${project.description}</p>
-                    <div class="project-meta">
-                        <span class="project-location">${project.location}</span>
-                        <span class="project-year">${project.year}</span>
-                    </div>
-                </div>
-            </div>
-        `).join('');
-        
-        // Initialize project filtering
-        initializeProjectFiltering();
-        
-    } catch (error) {
-        console.error('Error loading projects:', error);
-        const projectsGrid = document.getElementById('projects-grid');
-        if (projectsGrid) {
-            projectsGrid.innerHTML = '<p class="error-message">Unable to load projects. Please try again later.</p>';
-        }
-    }
-}
-
-// Project filtering functionality
-function initializeProjectFiltering() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const filter = this.dataset.filter;
-            
-            // Update active button
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-            
-            // Filter projects
-            projectCards.forEach(card => {
-                const category = card.dataset.category;
-                const shouldShow = filter === 'all' || category === filter;
-                
-                card.style.display = shouldShow ? 'block' : 'none';
-                
-                if (shouldShow) {
-                    card.style.animation = 'fadeIn 0.5s ease-in-out';
-                }
-            });
-            
-            // Log filter usage
-            analytics.logEvent('project_filter_used', {
-                filter: filter,
-                projects_shown: document.querySelectorAll('.project-card[style*="block"]').length
-            });
         });
+    }, observerOptions);
+    
+    // Observe sections for animations
+    document.querySelectorAll('section, .award-card, .service-card, .project-card, .blog-card').forEach(el => {
+        observer.observe(el);
     });
 }
 
-// Load blog posts from Firebase
-async function loadBlogPosts() {
-    try {
-        const blogCarousel = document.getElementById('blog-carousel');
+// Services Carousel - Simplified version
+function initializeCarousel() {
+    const carouselTrack = document.getElementById('carousel-track');
+    const carouselPrev = document.getElementById('carousel-prev');
+    const carouselNext = document.getElementById('carousel-next');
+    const indicators = document.querySelectorAll('.indicator');
+    
+    if (!carouselTrack || !carouselPrev || !carouselNext || indicators.length === 0) {
+        return; // Exit if carousel elements not found
+    }
+    
+    const cards = document.querySelectorAll('.service-carousel-card');
+    let currentSlide = 0;
+    const totalSlides = cards.length;
+    
+    function updateCarousel() {
+        const translateX = -currentSlide * 100;
+        carouselTrack.style.transform = `translateX(${translateX}%)`;
+        
+        // Update indicators
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentSlide);
+        });
+        
+        // Update card active state
+        cards.forEach((card, index) => {
+            card.classList.toggle('active', index === currentSlide);
+        });
+    }
+    
+    function nextSlide() {
+        currentSlide = (currentSlide + 1) % totalSlides;
+        updateCarousel();
+    }
+    
+    function prevSlide() {
+        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+    }
+    
+    function goToSlide(slideIndex) {
+        currentSlide = slideIndex;
+        updateCarousel();
+    }
+    
+    // Event listeners
+    carouselNext.addEventListener('click', nextSlide);
+    carouselPrev.addEventListener('click', prevSlide);
+    
+    // Indicator clicks
+    indicators.forEach((indicator, index) => {
+        indicator.addEventListener('click', () => goToSlide(index));
+    });
+    
+    // Auto-advance
+    setInterval(nextSlide, 6000);
+    
+    // Initialize
+    updateCarousel();
+}
+
+// Counter animation for statistics
+function animateCounter(element) {
+    const target = parseInt(element.textContent) || parseInt(element.dataset.count);
+    if (!target) return;
+    
+    const duration = 2000;
+    const step = target / (duration / 16);
+    let current = 0;
+    
+    const timer = setInterval(() => {
+        current += step;
+        if (current >= target) {
+            current = target;
+            clearInterval(timer);
+        }
+        element.textContent = Math.floor(current);
+    }, 16);
+}
+
+// Initialize counter animations when elements come into view
+function initializeCounters() {
+    const counters = document.querySelectorAll('[data-count], .stat-number');
+    
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                counterObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+    
+    counters.forEach(counter => {
+        counterObserver.observe(counter);
+    });
+}
+
+// Initialize counters when DOM is ready
+document.addEventListener('DOMContentLoaded', initializeCounters);
+
+// Utility functions
+function showSuccessMessage(form, message) {
+    const messageEl = document.createElement('div');
+    messageEl.className = 'form-message success';
+    messageEl.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+    form.insertAdjacentElement('afterend', messageEl);
+    
+    setTimeout(() => messageEl.remove(), 5000);
+}
+
+function showErrorMessage(form, message) {
+    const messageEl = document.createElement('div');
+    messageEl.className = 'form-message error';
+    messageEl.innerHTML = `<i class="fas fa-exclamation-triangle"></i> ${message}`;
+    form.insertAdjacentElement('afterend', messageEl);
+    
+    setTimeout(() => messageEl.remove(), 5000);
+}
+
+// Export utilities for global access
+window.MHConstructionApp = {
+    showSuccessMessage,
+    showErrorMessage,
+    animateCounter
+};
+
+// Handle errors globally
+window.addEventListener('error', function(e) {
+    console.error('Global error:', e.error);
+});
+
+// Performance monitoring
+window.addEventListener('load', function() {
+    console.log('Page loaded successfully');
+});
         if (!blogCarousel) return;
         
         const blogPosts = await FirebaseUtils.getCollection(collections.blogPosts);

@@ -5,16 +5,19 @@
    ======================================== */
 .services-detail {
   padding: var(--spacing-section-lg) 0;
+  background: var(--light-gray);
 }
 
 .service-detail-card {
   background: var(--white);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-card);
-  overflow: hidden;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-xxxl);
+  padding: var(--spacing-xxxl);
   border: 2px solid var(--field-02);
   transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
 }
 
 .service-detail-card:hover {
@@ -24,59 +27,69 @@
 }
 
 .service-card-header {
-  background: linear-gradient(135deg, var(--primary-green), var(--field-01));
-  color: var(--white);
-  padding: var(--spacing-xl);
   display: flex;
   align-items: center;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 2px solid var(--field-02);
 }
 
 .service-card-icon {
-  font-size: 3rem;
-  color: var(--army-gold);
-  background: rgba(255, 204, 1, 0.1);
-  padding: var(--spacing-lg);
-  border-radius: 50%;
-  border: 3px solid var(--army-gold);
+  font-size: 4rem;
+  color: var(--primary-green);
+  transition: transform var(--transition-fast);
+  min-width: 80px;
+  text-align: center;
 }
 
 .service-card-title h3 {
-  margin: 0;
-  font-size: var(--font-size-h3);
+  color: var(--primary-green);
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-h2);
   font-weight: var(--font-weight-bold);
 }
 
 .service-card-subtitle {
-  opacity: 0.9;
+  color: var(--secondary-tan);
   font-size: var(--font-size-large);
-  margin-top: var(--spacing-xs);
+  font-weight: var(--font-weight-medium);
+  margin: 0;
 }
 
 .service-card-body {
-  padding: var(--spacing-xl);
+  color: var(--gray-01);
+  line-height: var(--line-height-relaxed);
 }
 
 .service-features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: var(--spacing-lg);
-  margin: var(--spacing-xl) 0;
+  margin-top: var(--spacing-xl);
 }
 
 .feature-item {
   display: flex;
   align-items: flex-start;
   gap: var(--spacing-md);
-  padding: var(--spacing-md);
+  padding: var(--spacing-lg);
   background: var(--army-khaki);
   border-radius: var(--border-radius);
-  border-left: 4px solid var(--primary-green);
+  border: 2px solid var(--field-02);
+  transition: all var(--transition-fast);
+}
+
+.feature-item:hover {
+  border-color: var(--primary-green);
+  transform: translateY(-2px);
 }
 
 .feature-icon {
-  color: var(--primary-green);
   font-size: 1.5rem;
+  color: var(--primary-green);
+  transition: all var(--transition-fast);
+  min-width: 30px;
   margin-top: var(--spacing-xs);
 }
 
@@ -98,20 +111,19 @@
    ======================================== */
 .construction-process {
   padding: var(--spacing-section-lg) 0;
-  background: linear-gradient(135deg, var(--army-khaki), rgba(241, 228, 199, 0.6));
+  background: var(--white);
 }
 
 .process-timeline {
-  position: relative;
   max-width: 1000px;
   margin: 0 auto;
-  padding: var(--spacing-xl) 0;
+  position: relative;
 }
 
 .process-timeline::before {
   content: '';
   position: absolute;
-  left: 50%;
+  left: 50px;
   top: 0;
   bottom: 0;
   width: 4px;
@@ -136,27 +148,26 @@
 }
 
 .process-number {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60px;
-  height: 60px;
+  width: 100px;
+  height: 100px;
   background: linear-gradient(135deg, var(--primary-green), var(--field-01));
-  border: 4px solid var(--army-gold);
+  border: 6px solid var(--army-gold);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--font-size-h4);
+  font-size: var(--font-size-h2);
   font-weight: var(--font-weight-bold);
   color: var(--white);
   z-index: 2;
+  flex-shrink: 0;
+  transition: all var(--transition-fast);
 }
 
 .process-content {
   flex: 1;
   background: var(--white);
-  padding: var(--spacing-xl);
+  padding: var(--spacing-xxxl);
   border-radius: var(--border-radius-lg);
   box-shadow: var(--shadow-card);
   border: 2px solid var(--field-02);
@@ -190,7 +201,7 @@
 }
 
 .process-content p {
-  color: var(--secondary-tan);
+  color: var(--gray-01);
   margin-bottom: var(--spacing-md);
   line-height: var(--line-height-relaxed);
 }
@@ -215,7 +226,8 @@
    SERVICE CATEGORIES - 3x2 GRID
    ======================================== */
 .service-categories {
-  padding: var(--spacing-section) 0;
+  padding: var(--spacing-section-lg) 0;
+  background: linear-gradient(135deg, var(--army-khaki), rgba(241, 228, 199, 0.6));
 }
 
 .categories-grid {
@@ -301,7 +313,7 @@
 }
 
 .category-content p {
-  color: var(--secondary-tan);
+  color: var(--gray-01);
   margin-bottom: auto;
   line-height: var(--line-height-relaxed);
 }
