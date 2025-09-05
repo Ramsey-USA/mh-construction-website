@@ -39,7 +39,7 @@
   --chatbot-bg: #F1E4C7;            /* Army Khaki */
 
   /* Typography */
-  --font-family: 'Saira', 'Inter', 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  --font-family: 'Saira', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
   --font-size-h1: 3.25rem;
   --font-size-h2: 2.25rem;
   --font-size-h3: 1.875rem;
@@ -101,7 +101,7 @@
 }
 
 /* ========================================
-   RESET AND BASE STYLES
+   RESET AND BASE STYLES WITH CROSS-PLATFORM FIXES
    ======================================== */
 * {
   margin: 0;
@@ -109,9 +109,19 @@
   box-sizing: border-box;
 }
 
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  /* Prevent iOS zoom on form inputs */
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  /* Enable momentum scrolling on iOS */
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
@@ -122,6 +132,28 @@ body {
   color: var(--army-black);
   background-color: var(--white);
   overflow-x: hidden;
+  /* Improve font rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Prevent horizontal scroll bounce on iOS */
+  overscroll-behavior-x: none;
+}
+
+/* Skip link for accessibility */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--primary-green);
+  color: var(--white);
+  padding: 8px;
+  text-decoration: none;
+  z-index: 10000;
+  border-radius: 0 0 4px 4px;
+}
+
+.skip-link:focus {
+  top: 0;
 }
 
 /* ========================================
@@ -419,10 +451,16 @@ blockquote {
 }
 
 .veteran-owned-btn {
-  background: linear-gradient(135deg, var(--army-gold), #e6b800);
-  color: var(--army-black);
+  background: linear-gradient(135deg, 
+    #3d4a2b 0%, 
+    #5a6b3f 25%, 
+    #4a5533 50%, 
+    #6b7a4f 75%, 
+    #3d4a2b 100%
+  );
+  color: var(--white);
   padding: var(--spacing-xs) var(--spacing-sm);
-  border: 2px solid var(--army-gold);
+  border: 2px solid #2d3a1f;
   border-radius: var(--border-radius-sm);
   font-weight: var(--font-weight-bold);
   cursor: pointer;
@@ -432,6 +470,21 @@ blockquote {
   font-size: 0.9rem;
   position: relative;
   overflow: hidden;
+  /* Ensure proper rendering across platforms */
+  backface-visibility: hidden;
+  perspective: 1000px;
+  /* Improve touch target */
+  min-width: 44px;
+  min-height: 44px;
+  /* Fix text selection issues */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Add camo pattern overlay */
+  box-shadow: 
+    inset 0 0 0 1px rgba(109, 122, 79, 0.3),
+    0 2px 4px rgba(61, 74, 43, 0.2);
 }
 
 .veteran-owned-btn::before {
@@ -607,6 +660,14 @@ blockquote {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  /* Optimize video playback across platforms */
+  object-fit: cover;
+  /* Improve performance */
+  transform: translateZ(0);
+  /* Fix iOS video issues */
+  -webkit-transform: translateZ(0);
+  /* Prevent video controls on mobile */
+  pointer-events: none;
 }
 
 .hero-overlay {
@@ -792,7 +853,7 @@ blockquote {
 
 /* Services Carousel */
 .services-carousel {
-    margin-bottom: 60px;
+    margin-bottom: var(--spacing-xl);
 }
 
 .carousel-container {
@@ -1812,231 +1873,186 @@ blockquote {
   outline-offset: 2px;
 }
 
-a:focus {
-  text-decoration: underline;
-  background-color: rgba(57, 104, 81, 0.1);
-  padding: 2px 4px;
-  border-radius: 3px;
+/* Ensure focus is visible on all platforms */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--primary-green);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --primary-green: #000000;
+    --secondary-tan: #333333;
+    --white: #ffffff;
+    --army-black: #000000;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .hero-video video {
+    animation: none !important;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --white: #1a1a1a;
+    --light-gray: #2d2d2d;
+    --dark-gray: #ffffff;
+    --army-black: #ffffff;
+  }
+  
+  body {
+    background-color: var(--white);
+    color: var(--dark-gray);
+  }
 }
 
 /* ========================================
-   RESPONSIVE DESIGN
+   CROSS-PLATFORM MEDIA QUERIES
    ======================================== */
-@media (max-width: 1200px) {
-    .carousel-container {
-        max-width: 800px;
-    }
-    
-    .service-carousel-card {
-        padding: 50px 35px;
-        min-height: 380px;
-    }
-    
-    .service-carousel-card h3 {
-        font-size: 2rem;
-    }
-    
-    .service-carousel-card p {
-        font-size: 1.1rem;
-        max-width: 450px;
-    }
+/* iOS specific fixes */
+@supports (-webkit-appearance: none) {
+  .hero-video video {
+    /* Fix iOS video playback issues */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+  
+  .chatbot-window {
+    /* Fix iOS safari bottom padding */
+    padding-bottom: env(safe-area-inset-bottom);
+  }
 }
 
-@media (max-width: 768px) {
-    .carousel-container {
-        max-width: 100%;
-        margin: 0 20px;
-    }
-    
-    .service-carousel-card {
-        padding: 40px 25px;
-        min-height: 350px;
-    }
-    
-    .service-carousel-card .service-icon {
-        font-size: 3.5rem;
-        margin-bottom: 20px;
-    }
-    
-    .service-carousel-card h3 {
-        font-size: 1.8rem;
-        margin-bottom: 15px;
-    }
-    
-    .service-carousel-card p {
-        font-size: 1rem;
-        margin-bottom: 25px;
-        max-width: 350px;
-    }
-    
-    .service-carousel-card .btn {
-        min-width: 200px;
-        font-size: 1rem;
-    }
-    
-    .carousel-btn {
-        width: 50px;
-        height: 50px;
-        font-size: 1.2rem;
-    }
-    
-    .carousel-prev {
-        left: 15px;
-    }
-    
-    .carousel-next {
-        right: 15px;
-    }
-    
-    .indicator {
-        width: 14px;
-        height: 14px;
-    }
-
-    /* Contact Page Responsive */
-    .contact-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-xl);
-    }
-    
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-    
-    .checkbox-group {
-        grid-template-columns: 1fr;
-    }
-    
-    .contact-methods-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .emergency-card {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .map-stats {
-        flex-direction: column;
-        gap: var(--spacing-lg);
-    }
-
-    /* Footer Responsive */
-    .footer {
-        padding: var(--spacing-lg) 0 var(--spacing-md);
-    }
-    
-    .footer-content {
-        gap: var(--spacing-md);
-        margin-bottom: var(--spacing-md);
-    }
-    
-    .footer-bottom {
-        padding: var(--spacing-md) 0;
-    }
+/* Android Chrome specific fixes */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .hero-video video {
+    /* Improve video performance on Android */
+    will-change: transform;
+  }
 }
 
-@media (max-width: 480px) {
-    .carousel-container {
-        margin: 0 10px;
-    }
-    
-    .service-carousel-card {
-        padding: 30px 20px;
-        min-height: 320px;
-    }
-    
-    .service-carousel-card .service-icon {
-        font-size: 3rem;
-    }
-    
-    .service-carousel-card h3 {
-        font-size: 1.6rem;
-    }
-    
-    .service-carousel-card .btn {
-        min-width: 180px;
-        font-size: 0.95rem;
-    }
-
-    /* Footer Mobile */
-    .footer {
-        padding: var(--spacing-md) 0 var(--spacing-sm);
-    }
-    
-    .footer-content {
-        gap: var(--spacing-sm);
-        margin-bottom: var(--spacing-sm);
-    }
-    
-    .footer-bottom {
-        padding: var(--spacing-sm) 0;
-        font-size: var(--font-size-xs);
-    }
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .logo {
+    /* Use high-res logo for retina displays */
+    content: url('images/logo@2x.png');
+  }
 }
 
 /* ========================================
-   ACCESSIBILITY PREFERENCES
+   IMPROVED FORM ELEMENTS FOR ALL PLATFORMS
    ======================================== */
-@media (prefers-contrast: high) {
-  p, li {
-    color: var(--army-black);
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  /* Remove iOS styling */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Prevent zoom on iOS */
+  font-size: max(16px, 1em);
+}
+
+input[type="search"] {
+  /* Remove Safari search styling */
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+/* Fix button alignment cross-platform */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  /* Fix button text rendering */
+  text-rendering: optimizeLegibility;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ========================================
+   CROSS-PLATFORM VIDEO OPTIMIZATION
+   ======================================== */
+.hero-video video {
+  /* Optimize video playback across platforms */
+  object-fit: cover;
+  /* Improve performance */
+  transform: translateZ(0);
+  /* Fix iOS video issues */
+  -webkit-transform: translateZ(0);
+  /* Prevent video controls on mobile */
+  pointer-events: none;
+}
+
+/* Fallback for browsers that don't support video */
+.no-video .hero-video {
+  background-image: url('images/hero/construction-hero-fallback.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* ========================================
+   PRINT STYLES FOR ALL PLATFORMS
+   ======================================== */
+@media print {
+  /* Reset colors for print */
+  * {
+    background: transparent !important;
+    color: black !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
   }
   
-  .text-muted {
-    color: var(--army-black);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-}
-
-a:focus {
-  text-decoration: underline;
-  background-color: rgba(57, 104, 81, 0.1);
-  padding: 2px 4px;
-  border-radius: 3px;
-}
-
-/* High contrast mode adjustments */
-@media (prefers-contrast: high) {
-  p, li {
-    color: var(--army-black);
+  /* Hide interactive elements */
+  .chatbot-container,
+  .nav-toggle,
+  .hero-actions,
+  .cta-actions,
+  video {
+    display: none !important;
   }
   
-  .text-muted {
-    color: var(--army-black);
-  }
-}
-
-/* Reduced motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-  p, li {
-    color: var(--army-black);
+  /* Optimize spacing for print */
+  .container {
+    max-width: none;
+    padding: 0;
   }
   
-  .text-muted {
-    color: var(--army-black);
+  /* Page break optimization */
+  h1, h2, h3 {
+    page-break-after: avoid;
   }
-}
-
-/* Reduced motion preferences */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  
+  img {
+    max-width: 100% !important;
+    height: auto !important;
   }
 }

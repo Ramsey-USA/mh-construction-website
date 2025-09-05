@@ -480,8 +480,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const cards = document.querySelectorAll('.service-carousel-card');
     
     let currentSlide = 0;
-    const totalSlides = cards.length;
-    let isTransitioning = false; // Prevent rapid clicking
+    const totalSlides = cards.length; // Now 7 cards instead of 6
+    let isTransitioning = false;
     
     // Auto-advance carousel with consistent timing
     let autoAdvanceInterval;

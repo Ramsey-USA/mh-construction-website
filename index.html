@@ -2,34 +2,60 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="MH Construction - Your Trusted General Contractor. Building Great Projects With Great People. Veteran-owned construction company serving WA, OR, ID.">
     <meta name="keywords" content="construction, general contractor, commercial construction, veteran owned, Washington, Oregon, Idaho">
+    <meta name="theme-color" content="#396851">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="MH Construction">
+    <meta name="format-detection" content="telephone=no">
     <title>MH Construction - Your Trusted General Contractor | Built Right The First Time</title>
     
-    <!-- Favicon -->
+    <!-- Favicon for all platforms -->
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="manifest" href="assets/site.webmanifest">
+    <link rel="mask-icon" href="assets/safari-pinned-tab.svg" color="#396851">
+    <meta name="msapplication-TileColor" content="#396851">
     
-    <!-- Google Fonts -->
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700;800&display=swap" as="style">
+    <link rel="preload" href="css/style.css" as="style">
+    
+    <!-- Google Fonts with font-display: swap for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Saira:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- CSS Files -->
+    <!-- CSS Files with proper loading -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/chatbot.css">
     
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-storage-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-functions-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-analytics-compat.js"></script>
+    <!-- Conditional IE support -->
+    <!--[if IE]>
+        <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
     
-    <!-- Google reCAPTCHA -->
+    <!-- Firebase SDK with defer for performance -->
+    <script defer src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/9.0.0/firebase-storage-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/9.0.0/firebase-functions-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/9.0.0/firebase-analytics-compat.js"></script>
+    
+    <!-- Google reCAPTCHA with async loading -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    
+    <!-- Font Awesome with async loading -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
     
     <!-- Schema Markup -->
     <script type="application/ld+json">
@@ -56,18 +82,17 @@
         }
     }
     </script>
-    
-    <!-- Font Awesome for Social Media Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Skip to content for accessibility -->
+    <a href="#main-content" class="visually-hidden skip-link">Skip to main content</a>
+    
     <!-- Header Navigation -->
-    <header class="header" id="header">
+    <header class="header" id="header" role="banner">
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-logo">
                     <img src="images/logo.png" alt="MH Construction Logo" class="logo">
-                    <span class="company-name">MH Construction</span>
                 </div>
                 
                 <button class="veteran-owned-btn" onclick="location.href='about.html#experience'">
@@ -109,325 +134,347 @@
         </nav>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-video">
-            <video autoplay muted loop>
-                <source src="images/hero/construction-hero.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-title">Building Great Projects With Great People</h1>
-            <p class="hero-subtitle">Your Trusted General Contractor</p>
-            <p class="hero-tagline">Built Right The First Time</p>
-            <div class="hero-actions">
-                <a href="contact.html" class="btn btn-primary">Get Free Quote</a>
-                <a href="tel:+15093086489" class="btn btn-secondary">
-                    <i class="icon-phone"></i>
-                    (509) 308-6489
-                </a>
+    <!-- Main Content -->
+    <main id="main-content" role="main">
+        <!-- Hero Section with improved video handling -->
+        <section class="hero" id="hero" aria-label="Welcome to MH Construction">
+            <div class="hero-video">
+                <video 
+                    autoplay 
+                    muted 
+                    loop 
+                    playsinline 
+                    preload="metadata"
+                    poster="images/hero/construction-hero-poster.jpg"
+                    aria-hidden="true">
+                    <source src="images/hero/construction-hero.webm" type="video/webm">
+                    <source src="images/hero/construction-hero.mp4" type="video/mp4">
+                    <img src="images/hero/construction-hero-fallback.jpg" alt="MH Construction at work" loading="lazy">
+                </video>
             </div>
-        </div>
-    </section>
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="hero-title">Building Great Projects With Great People</h1>
+                <p class="hero-subtitle">Your Trusted General Contractor</p>
+                <p class="hero-tagline">Built Right The First Time</p>
+                <div class="hero-actions">
+                    <a href="contact.html" class="btn btn-primary">Get Free Quote</a>
+                    <a href="tel:+15093086489" class="btn btn-secondary">
+                        <i class="icon-phone"></i>
+                        (509) 308-6489
+                    </a>
+                </div>
+            </div>
+        </section>
 
-    <!-- Awards Section -->
-    <section class="awards" id="awards">
-        <div class="container">
-            <h2 class="section-title">Awards & Recognition</h2>
-            <p class="section-subtitle">Recognized for excellence in construction and commitment to quality</p>
-            
-            <div class="awards-grid">
-                <div class="award-card">
-                    <img src="images/awards/award-1.jpg" alt="Construction Excellence Award 2023">
-                    <h3>Construction Excellence Award</h3>
-                    <p>2023 Commercial Project</p>
+        <!-- Awards Section with lazy loading -->
+        <section class="awards" id="awards" aria-label="Awards and Recognition">
+            <div class="container">
+                <h2 class="section-title">Awards & Recognition</h2>
+                <p class="section-subtitle">Recognized for excellence in construction and commitment to quality</p>
+                
+                <div class="awards-grid">
+                    <div class="award-card">
+                        <img src="images/awards/award-1.jpg" 
+                             alt="Construction Excellence Award 2023" 
+                             loading="lazy"
+                             width="300"
+                             height="200">
+                        <h3>Construction Excellence Award</h3>
+                        <p>2023 Commercial Project</p>
+                    </div>
+                    <div class="award-card">
+                        <img src="images/awards/award-2.jpg" alt="Safety Excellence Award" loading="lazy">
+                        <h3>Safety Excellence Award</h3>
+                        <p>Zero Incidents Recognition</p>
+                    </div>
+                    <div class="award-card">
+                        <img src="images/awards/award-3.jpg" alt="Community Impact Award" loading="lazy">
+                        <h3>Community Impact Award</h3>
+                        <p>Local Business Recognition</p>
+                    </div>
                 </div>
-                <div class="award-card">
-                    <img src="images/awards/award-2.jpg" alt="Safety Excellence Award">
-                    <h3>Safety Excellence Award</h3>
-                    <p>Zero Incidents Recognition</p>
-                </div>
-                <div class="award-card">
-                    <img src="images/awards/award-3.jpg" alt="Community Impact Award">
-                    <h3>Community Impact Award</h3>
-                    <p>Local Business Recognition</p>
+                
+                <div class="awards-action">
+                    <a href="about.html#certifications" class="btn btn-primary">Learn More About Our Awards</a>
                 </div>
             </div>
-            
-            <div class="awards-action">
-                <a href="about.html#certifications" class="btn btn-primary">Learn More About Our Awards</a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Services Overview -->
-    <section class="services-overview" id="services">
-        <div class="container">
-            <h2 class="section-title">Our Construction Services</h2>
-            <p class="section-subtitle">Comprehensive solutions for all your construction needs across Washington, Oregon, and Idaho</p>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="icon-building">🏢</i>
+        <!-- Services Overview -->
+        <section class="services-overview" id="services">
+            <div class="container">
+                <h2 class="section-title">Our Construction Services</h2>
+                <p class="section-subtitle">Comprehensive solutions for all your construction needs across Washington, Oregon, and Idaho</p>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="icon-building">🏢</i>
+                        </div>
+                        <h3>Commercial Businesses</h3>
+                        <p>Professional office buildings and retail spaces designed for modern business needs</p>
                     </div>
-                    <h3>Commercial Businesses</h3>
-                    <p>Professional office buildings and retail spaces designed for modern business needs</p>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="icon-medical">🏥</i>
+                        </div>
+                        <h3>Medical Facilities</h3>
+                        <p>Healthcare and medical office construction with specialized compliance requirements</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="icon-church">⛪</i>
+                        </div>
+                        <h3>Religious Facilities</h3>
+                        <p>Churches and community worship centers built with reverence and attention to detail</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="icon-wine">🍷</i>
+                        </div>
+                        <h3>Wineries & Vineyards</h3>
+                        <p>Agricultural and wine production facilities that blend functionality with aesthetic appeal</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="icon-factory">🏭</i>
+                        </div>
+                        <h3>Industrial Buildings</h3>
+                        <p>Manufacturing and warehouse construction engineered for efficiency and safety</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="icon-renovation">🔧</i>
+                        </div>
+                        <h3>Tenant Improvements</h3>
+                        <p>Interior renovations and space modifications that transform existing spaces</p>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="icon-medical">🏥</i>
-                    </div>
-                    <h3>Medical Facilities</h3>
-                    <p>Healthcare and medical office construction with specialized compliance requirements</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="icon-church">⛪</i>
-                    </div>
-                    <h3>Religious Facilities</h3>
-                    <p>Churches and community worship centers built with reverence and attention to detail</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="icon-wine">🍷</i>
-                    </div>
-                    <h3>Wineries & Vineyards</h3>
-                    <p>Agricultural and wine production facilities that blend functionality with aesthetic appeal</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="icon-factory">🏭</i>
-                    </div>
-                    <h3>Industrial Buildings</h3>
-                    <p>Manufacturing and warehouse construction engineered for efficiency and safety</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="icon-renovation">🔧</i>
-                    </div>
-                    <h3>Tenant Improvements</h3>
-                    <p>Interior renovations and space modifications that transform existing spaces</p>
+                
+                <div class="services-action">
+                    <a href="services.html" class="btn btn-primary">Learn More About Our Services</a>
                 </div>
             </div>
-            
-            <div class="services-action">
-                <a href="services.html" class="btn btn-primary">Learn More About Our Services</a>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Project Showcase -->
-    <section class="project-showcase" id="projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <p class="section-subtitle">Showcasing our commitment to excellence and quality craftsmanship</p>
-            
-            <div class="services-carousel">
-                <div class="carousel-container">
-                    <div class="carousel-track" id="carousel-track">
-                        <div class="service-carousel-card active" data-service="commercial">
-                            <div class="service-icon">
-                                <i class="icon-building">🏢</i>
+        <!-- Project Showcase -->
+        <section class="project-showcase" id="projects">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">Showcasing our commitment to excellence and quality craftsmanship</p>
+                
+                <div class="services-carousel">
+                    <div class="carousel-container">
+                        <div class="carousel-track" id="carousel-track">
+                            <div class="service-carousel-card active" data-service="commercial">
+                                <div class="service-icon">
+                                    <i class="icon-building">🏢</i>
+                                </div>
+                                <h3>Commercial Businesses</h3>
+                                <p>Professional office buildings and retail spaces designed for modern business needs</p>
+                                <a href="services.html#commercial" class="btn btn-outline">View Commercial Projects</a>
                             </div>
-                            <h3>Commercial Businesses</h3>
-                            <p>Professional office buildings and retail spaces designed for modern business needs</p>
-                            <a href="services.html#commercial" class="btn btn-outline">View Commercial Projects</a>
+                            
+                            <div class="service-carousel-card" data-service="medical">
+                                <div class="service-icon">
+                                    <i class="icon-medical">🏥</i>
+                                </div>
+                                <h3>Medical Facilities</h3>
+                                <p>Healthcare and medical office construction with specialized compliance requirements</p>
+                                <a href="services.html#medical" class="btn btn-outline">View Medical Projects</a>
+                            </div>
+                            
+                            <div class="service-carousel-card" data-service="religious">
+                                <div class="service-icon">
+                                    <i class="icon-church">⛪</i>
+                                </div>
+                                <h3>Religious Facilities</h3>
+                                <p>Churches and community worship centers built with reverence and attention to detail</p>
+                                <a href="services.html#religious" class="btn btn-outline">View Religious Projects</a>
+                            </div>
+                            
+                            <div class="service-carousel-card" data-service="winery">
+                                <div class="service-icon">
+                                    <i class="icon-wine">🍷</i>
+                                </div>
+                                <h3>Wineries & Vineyards</h3>
+                                <p>Agricultural and wine production facilities that blend functionality with aesthetic appeal</p>
+                                <a href="services.html#wineries" class="btn btn-outline">View Winery Projects</a>
+                            </div>
+                            
+                            <div class="service-carousel-card" data-service="industrial">
+                                <div class="service-icon">
+                                    <i class="icon-factory">🏭</i>
+                                </div>
+                                <h3>Industrial Buildings</h3>
+                                <p>Manufacturing and warehouse construction engineered for efficiency and safety</p>
+                                <a href="services.html#industrial" class="btn btn-outline">View Industrial Projects</a>
+                            </div>
+                            
+                            <div class="service-carousel-card" data-service="tenant">
+                                <div class="service-icon">
+                                    <i class="icon-renovation">🔧</i>
+                                </div>
+                                <h3>Tenant Improvements</h3>
+                                <p>Interior renovations and space modifications that transform existing spaces</p>
+                                <a href="services.html#tenant" class="btn btn-outline">View Improvement Projects</a>
+                            </div>
+                            
+                            <div class="service-carousel-card" data-service="all-projects">
+                                <div class="service-icon">
+                                    <i class="icon-portfolio">📂</i>
+                                </div>
+                                <h3>Complete Portfolio</h3>
+                                <p>Explore our full range of completed projects across all construction categories and see our quality craftsmanship</p>
+                                <a href="projects.html" class="btn btn-primary">View All Projects</a>
+                            </div>
                         </div>
                         
-                        <div class="service-carousel-card" data-service="medical">
-                            <div class="service-icon">
-                                <i class="icon-medical">🏥</i>
-                            </div>
-                            <h3>Medical Facilities</h3>
-                            <p>Healthcare and medical office construction with specialized compliance requirements</p>
-                            <a href="services.html#medical" class="btn btn-outline">View Medical Projects</a>
-                        </div>
+                        <button class="carousel-btn carousel-prev" id="carousel-prev" aria-label="Previous service">
+                            <i class="icon-chevron-left">❮</i>
+                        </button>
                         
-                        <div class="service-carousel-card" data-service="religious">
-                            <div class="service-icon">
-                                <i class="icon-church">⛪</i>
-                            </div>
-                            <h3>Religious Facilities</h3>
-                            <p>Churches and community worship centers built with reverence and attention to detail</p>
-                            <a href="services.html#religious" class="btn btn-outline">View Religious Projects</a>
-                        </div>
-                        
-                        <div class="service-carousel-card" data-service="winery">
-                            <div class="service-icon">
-                                <i class="icon-wine">🍷</i>
-                            </div>
-                            <h3>Wineries & Vineyards</h3>
-                            <p>Agricultural and wine production facilities that blend functionality with aesthetic appeal</p>
-                            <a href="services.html#wineries" class="btn btn-outline">View Winery Projects</a>
-                        </div>
-                        
-                        <div class="service-carousel-card" data-service="industrial">
-                            <div class="service-icon">
-                                <i class="icon-factory">🏭</i>
-                            </div>
-                            <h3>Industrial Buildings</h3>
-                            <p>Manufacturing and warehouse construction engineered for efficiency and safety</p>
-                            <a href="services.html#industrial" class="btn btn-outline">View Industrial Projects</a>
-                        </div>
-                        
-                        <div class="service-carousel-card" data-service="tenant">
-                            <div class="service-icon">
-                                <i class="icon-renovation">🔧</i>
-                            </div>
-                            <h3>Tenant Improvements</h3>
-                            <p>Interior renovations and space modifications that transform existing spaces</p>
-                            <a href="services.html#tenant" class="btn btn-outline">View Improvement Projects</a>
-                        </div>
+                        <button class="carousel-btn carousel-next" id="carousel-next" aria-label="Next service">
+                            <i class="icon-chevron-right">❯</i>
+                        </button>
                     </div>
                     
-                    <button class="carousel-btn carousel-prev" id="carousel-prev" aria-label="Previous service">
-                        <i class="icon-chevron-left">❮</i>
-                    </button>
+                    <div class="carousel-indicators" id="carousel-indicators">
+                        <button class="indicator active" data-slide="0" aria-label="Go to slide 1"></button>
+                        <button class="indicator" data-slide="1" aria-label="Go to slide 2"></button>
+                        <button class="indicator" data-slide="2" aria-label="Go to slide 3"></button>
+                        <button class="indicator" data-slide="3" aria-label="Go to slide 4"></button>
+                        <button class="indicator" data-slide="4" aria-label="Go to slide 5"></button>
+                        <button class="indicator" data-slide="5" aria-label="Go to slide 6"></button>
+                        <button class="indicator" data-slide="6" aria-label="Go to slide 7"></button>
+                    </div>
+                </div>
+                
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Projects will be loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Values Section -->
+        <section class="core-values" id="values">
+            <div class="container">
+                <h2 class="section-title">Our Core Values</h2>
+                <div class="values-grid">
+                    <div class="value-card" data-value="ethics">
+                        <div class="value-front">
+                            <div class="value-icon">
+                                <i class="icon-ethics">⚖️</i>
+                            </div>
+                            <h3>Ethics</h3>
+                        </div>
+                        <div class="value-back">
+                            <p>Small-town values guide every decision we make, ensuring honesty, transparency, and accountability in every project we undertake.</p>
+                        </div>
+                    </div>
+                    <div class="value-card" data-value="experience">
+                        <div class="value-front">
+                            <div class="value-icon">
+                                <i class="icon-experience">🎯</i>
+                            </div>
+                            <h3>Experience</h3>
+                        </div>
+                        <div class="value-back">
+                            <p>Over 150 years of combined commercial construction experience flows through our team, enabling us to tackle any challenge.</p>
+                        </div>
+                    </div>
+                    <div class="value-card" data-value="honesty">
+                        <div class="value-front">
+                            <div class="value-icon">
+                                <i class="icon-honesty">🤝</i>
+                            </div>
+                            <h3>Honesty</h3>
+                        </div>
+                        <div class="value-back">
+                            <p>Open communication, transparent pricing, and delivering on promises form the foundation of our client relationships.</p>
+                        </div>
+                    </div>
+                    <div class="value-card" data-value="integrity">
+                        <div class="value-front">
+                            <div class="value-icon">
+                                <i class="icon-integrity">🛡️</i>
+                            </div>
+                            <h3>Integrity</h3>
+                        </div>
+                        <div class="value-back">
+                            <p>We maintain the highest standards in everything we do, with unwavering accountability, fairness, and respect for all.</p>
+                        </div>
+                    </div>
+                    <div class="value-card" data-value="professionalism">
+                        <div class="value-front">
+                            <div class="value-icon">
+                                <i class="icon-professional">👔</i>
+                            </div>
+                            <h3>Professionalism</h3>
+                        </div>
+                        <div class="value-back">
+                            <p>Reliable service, calm leadership under pressure, and a client-focused approach define our professional standards.</p>
+                        </div>
+                    </div>
+                    <div class="value-card" data-value="trust">
+                        <div class="value-front">
+                            <div class="value-icon">
+                                <i class="icon-trust">🤝</i>
+                            </div>
+                            <h3>Trust</h3>
+                        </div>
+                        <div class="value-back">
+                            <p>Trust is earned through consistent actions, clear communication, and following through on every commitment we make.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section class="blog" id="blog">
+            <div class="container">
+                <h2 class="section-title">Latest News & Updates</h2>
+                <p class="section-subtitle">Stay informed about our latest projects, industry insights, and company news</p>
+                
+                <div class="blog-carousel">
+                    <article class="blog-card">
+                        <img src="images/blog/construction-trends-2024.jpg" alt="Construction Trends 2024" class="blog-image" loading="lazy">
+                        <div class="blog-content">
+                            <time class="blog-date" datetime="2024-01-15">January 15, 2024</time>
+                            <h3 class="blog-title">Construction Industry Trends for 2024</h3>
+                            <p class="blog-excerpt">Discover the latest innovations and technologies shaping the construction industry this year.</p>
+                            <a href="blog/construction-trends-2024.html" class="btn btn-outline">Read More</a>
+                        </div>
+                    </article>
                     
-                    <button class="carousel-btn carousel-next" id="carousel-next" aria-label="Next service">
-                        <i class="icon-chevron-right">❯</i>
-                    </button>
+                    <article class="blog-card">
+                        <img src="images/blog/sustainable-building.jpg" alt="Sustainable Building Practices" class="blog-image" loading="lazy">
+                        <div class="blog-content">
+                            <time class="blog-date" datetime="2024-01-10">January 10, 2024</time>
+                            <h3 class="blog-title">Sustainable Building Practices</h3>
+                            <p class="blog-excerpt">Learn how MH Construction is leading the way in environmentally responsible construction.</p>
+                            <a href="blog/sustainable-building.html" class="btn btn-outline">Read More</a>
+                        </div>
+                    </article>
+                    
+                    <article class="blog-card">
+                        <img src="images/blog/safety-first.jpg" alt="Construction Safety" class="blog-image" loading="lazy">
+                        <div class="blog-content">
+                            <time class="blog-date" datetime="2024-01-05">January 5, 2024</time>
+                            <h3 class="blog-title">Safety First: Our Commitment to Job Site Safety</h3>
+                            <p class="blog-excerpt">Explore our comprehensive safety protocols and zero-incident track record.</p>
+                            <a href="blog/safety-first.html" class="btn btn-outline">Read More</a>
+                        </div>
+                    </article>
                 </div>
-                
-                <div class="carousel-indicators" id="carousel-indicators">
-                    <button class="indicator active" data-slide="0" aria-label="Go to slide 1"></button>
-                    <button class="indicator" data-slide="1" aria-label="Go to slide 2"></button>
-                    <button class="indicator" data-slide="2" aria-label="Go to slide 3"></button>
-                    <button class="indicator" data-slide="3" aria-label="Go to slide 4"></button>
-                    <button class="indicator" data-slide="4" aria-label="Go to slide 5"></button>
-                    <button class="indicator" data-slide="5" aria-label="Go to slide 6"></button>
-                </div>
             </div>
-            
-            <div class="projects-grid" id="projects-grid">
-                <!-- Projects will be loaded dynamically -->
-            </div>
-            
-            <div class="projects-action">
-                <a href="projects.html" class="btn btn-primary">View All Projects</a>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Core Values Section -->
-    <section class="core-values" id="values">
-        <div class="container">
-            <h2 class="section-title">Our Core Values</h2>
-            <div class="values-grid">
-                <div class="value-card" data-value="ethics">
-                    <div class="value-front">
-                        <div class="value-icon">
-                            <i class="icon-ethics">⚖️</i>
-                        </div>
-                        <h3>Ethics</h3>
-                    </div>
-                    <div class="value-back">
-                        <p>Small-town values guide every decision we make, ensuring honesty, transparency, and accountability in every project we undertake.</p>
-                    </div>
-                </div>
-                <div class="value-card" data-value="experience">
-                    <div class="value-front">
-                        <div class="value-icon">
-                            <i class="icon-experience">🎯</i>
-                        </div>
-                        <h3>Experience</h3>
-                    </div>
-                    <div class="value-back">
-                        <p>Over 150 years of combined commercial construction experience flows through our team, enabling us to tackle any challenge.</p>
-                    </div>
-                </div>
-                <div class="value-card" data-value="honesty">
-                    <div class="value-front">
-                        <div class="value-icon">
-                            <i class="icon-honesty">🤝</i>
-                        </div>
-                        <h3>Honesty</h3>
-                    </div>
-                    <div class="value-back">
-                        <p>Open communication, transparent pricing, and delivering on promises form the foundation of our client relationships.</p>
-                    </div>
-                </div>
-                <div class="value-card" data-value="integrity">
-                    <div class="value-front">
-                        <div class="value-icon">
-                            <i class="icon-integrity">🛡️</i>
-                        </div>
-                        <h3>Integrity</h3>
-                    </div>
-                    <div class="value-back">
-                        <p>We maintain the highest standards in everything we do, with unwavering accountability, fairness, and respect for all.</p>
-                    </div>
-                </div>
-                <div class="value-card" data-value="professionalism">
-                    <div class="value-front">
-                        <div class="value-icon">
-                            <i class="icon-professional">👔</i>
-                        </div>
-                        <h3>Professionalism</h3>
-                    </div>
-                    <div class="value-back">
-                        <p>Reliable service, calm leadership under pressure, and a client-focused approach define our professional standards.</p>
-                    </div>
-                </div>
-                <div class="value-card" data-value="trust">
-                    <div class="value-front">
-                        <div class="value-icon">
-                            <i class="icon-trust">🤝</i>
-                        </div>
-                        <h3>Trust</h3>
-                    </div>
-                    <div class="value-back">
-                        <p>Trust is earned through consistent actions, clear communication, and following through on every commitment we make.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Section -->
-    <section class="blog" id="blog">
-        <div class="container">
-            <h2 class="section-title">Latest News & Updates</h2>
-            <p class="section-subtitle">Stay informed about our latest projects, industry insights, and company news</p>
-            
-            <div class="blog-carousel">
-                <article class="blog-card">
-                    <img src="images/blog/construction-trends-2024.jpg" alt="Construction Trends 2024" class="blog-image" loading="lazy">
-                    <div class="blog-content">
-                        <time class="blog-date" datetime="2024-01-15">January 15, 2024</time>
-                        <h3 class="blog-title">Construction Industry Trends for 2024</h3>
-                        <p class="blog-excerpt">Discover the latest innovations and technologies shaping the construction industry this year.</p>
-                        <a href="blog/construction-trends-2024.html" class="btn btn-outline">Read More</a>
-                    </div>
-                </article>
-                
-                <article class="blog-card">
-                    <img src="images/blog/sustainable-building.jpg" alt="Sustainable Building Practices" class="blog-image" loading="lazy">
-                    <div class="blog-content">
-                        <time class="blog-date" datetime="2024-01-10">January 10, 2024</time>
-                        <h3 class="blog-title">Sustainable Building Practices</h3>
-                        <p class="blog-excerpt">Learn how MH Construction is leading the way in environmentally responsible construction.</p>
-                        <a href="blog/sustainable-building.html" class="btn btn-outline">Read More</a>
-                    </div>
-                </article>
-                
-                <article class="blog-card">
-                    <img src="images/blog/safety-first.jpg" alt="Construction Safety" class="blog-image" loading="lazy">
-                    <div class="blog-content">
-                        <time class="blog-date" datetime="2024-01-05">January 5, 2024</time>
-                        <h3 class="blog-title">Safety First: Our Commitment to Job Site Safety</h3>
-                        <p class="blog-excerpt">Explore our comprehensive safety protocols and zero-incident track record.</p>
-                        <a href="blog/safety-first.html" class="btn btn-outline">Read More</a>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer" id="footer">
+    <!-- Footer with enhanced accessibility -->
+    <footer class="footer" id="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
@@ -506,13 +553,21 @@
         </div>
     </footer>
 
-    <!-- AI Chatbot -->
-    <div class="chatbot-container" id="chatbot-container">
-        <button class="chatbot-button" id="chatbot-button" aria-label="Open AI Construction Assistant">
-            <i class="icon-chat"></i>
+    <!-- AI Chatbot with enhanced accessibility -->
+    <div class="chatbot-container" id="chatbot-container" role="complementary" aria-label="AI Construction Assistant">
+        <button class="chatbot-button" 
+                id="chatbot-button" 
+                aria-label="Open AI Construction Assistant"
+                aria-expanded="false"
+                aria-controls="chatbot-window">
+            <i class="fas fa-comments" aria-hidden="true"></i>
         </button>
         
-        <div class="chatbot-window" id="chatbot-window">
+        <div class="chatbot-window" 
+             id="chatbot-window"
+             role="dialog"
+             aria-labelledby="chatbot-title"
+             aria-hidden="true">
             <div class="chatbot-header">
                 <div class="chatbot-avatar">
                     <img src="images/chatbot/mh-avatar.png" alt="MH Assistant">
@@ -544,11 +599,35 @@
         </div>
     </div>
 
-    <!-- JavaScript Files -->
-    <script src="js/firebase-config.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/navigation.js"></script>
-    <script src="js/gallery.js"></script>
-    <script src="js/chatbot.js"></script>
+    <!-- JavaScript Files with proper loading and error handling -->
+    <script>
+        // Feature detection and polyfill loading
+        if (!window.Promise) {
+            document.write('<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"><\/script>');
+        }
+        if (!window.fetch) {
+            document.write('<script src="https://cdn.jsdelivr.net/npm/whatwg-fetch@3.6.2/dist/fetch.umd.js"><\/script>');
+        }
+    </script>
+    <script defer src="js/firebase-config.js"></script>
+    <script defer src="js/main.js"></script>
+    <script defer src="js/navigation.js"></script>
+    <script defer src="js/gallery.js"></script>
+    <script defer src="js/chatbot.js"></script>
+    
+    <!-- Service Worker for PWA functionality -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(function(err) {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
+        }
+    </script>
 </body>
 </html>
